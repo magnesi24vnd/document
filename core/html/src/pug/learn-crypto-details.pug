@@ -1,0 +1,80 @@
+---
+title: VNkr
+classHeader: registered
+---
+extends layouts/layout
+block content
+	.section.article
+		.section.article__body
+			.article__center.center
+				.article__head
+					h1.article__title.h1 A beginner’s guide to trading view
+					.breadcrumbs
+						.breadcrumbs__item
+							a.breadcrumbs__link(href="learn-crypto.html") Learn crypto
+						.breadcrumbs__item
+							a.breadcrumbs__link(href="learn-crypto.html") Trading
+						.breadcrumbs__item Bitcoin
+				.player
+					.player__preview
+						img(src="img/content/video-bg.jpg" alt="Video preview")
+						.player__control
+							button.player__button
+								+i('play')
+							.player__line
+								.player__progress(style="width: 20%;")
+							.player__time 2:20
+							button.player__button
+								+i('volume')
+							button.player__button
+								+i('full-screen')
+		.article__wrap
+			.article__center.center
+				.content
+					h3 Introduction
+					p For traders who love technical analysis, robust charting tools are essential. TradingView is one option for both amateur and experienced traders. It offers numerous trading and charting tools and also a free membership option. Let’s face it... not everyone has the money or need for a Bloomberg terminal subscription.
+					p The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native.
+					p Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode."
+					h3 What does TradingView do?
+					p The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native.
+					p Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode."
+					figure
+						img(src="img/content/photo.jpg" alt="Content")
+					h3 How expensive is TradingView?
+					p The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native.
+					p Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode."
+					h3 Understanding the TradingView UI
+					p The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native.
+					p Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode."
+				.actions.js-actions
+					.actions__list
+						.actions__item.actions__item_share.js-actions-item
+							button.button-circle-stroke.button-small.actions__button.js-actions-button
+								+i('share')
+							.actions__body.actions__body_up.js-actions-body
+								.actions__title Share link to this page
+								.actions__list.share-btn(data-url="https://ui8.net")
+									a.actions__link.btn-twitter(data-id="tw")
+										span
+											+i('twitter')
+									a.actions__link.btn-facebook(data-id="fb")
+										span
+											+i('facebook')
+						.actions__item
+							button.button-circle-stroke.button-small.actions__favorite.js-actions-favorite
+								+i('heart')
+								+i('heart-fill')
+	.section.catalog
+		.catalog__center.center
+			.catalog__group
+				+card("img/content/article-pic-1@2x.jpg", "img/content/article-pic-1.jpg", "category-purple card__category", "video tutorial", false, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-2@2x.jpg", "img/content/article-pic-2.jpg", "category card__category", "popular", false, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-3@2x.jpg", "img/content/article-pic-3.jpg", "category-green card__category", "new", false, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-4@2x.jpg", "img/content/article-pic-4.jpg", "category-purple card__category", "video tutorial", true, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+			.catalog__btns
+				button.button-stroke.button-small.catalog__button
+					span Learn more
+					+i('arrow-down')
+
+
+		

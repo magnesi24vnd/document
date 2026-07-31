@@ -1,0 +1,134 @@
+.main
+    position: relative
+    padding-top: 160px
+    overflow: hidden
+    +d
+        padding-top: 80px
+    +m
+        padding-top: 32px
+    &__wrap
+        position: relative
+        z-index: 3
+        max-width: 545px
+        margin-bottom: 143px
+        +d
+            max-width: 420px
+            margin-bottom: 80px
+        +m
+            margin-bottom: 16px
+    &__title
+        margin-bottom: 20px
+    &__text
+        margin-bottom: 32px
+        +body-2
+        color: $n4
+        +t
+            max-width: 300px
+    &__button
+        margin-bottom: 80px
+        +d
+            margin-bottom: 0
+    &__scroll.scroll
+        +d
+            display: none
+    &__bg
+        position: absolute
+        top: -145px
+        right: calc(50% - 750px)
+        width: 913px
+        pointer-events: none
+        +d
+            top: -80px
+            right: calc(50% - 550px)
+            width: 600px
+        +t
+            right: calc(50% - 500px)
+        +m
+            position: static
+            width: auto
+            +s
+                margin: 0 -64px
+        img
+            width: 100%
+    &__cards
+        display: flex
+        padding: 24px 8px
+        border-radius: 24px
+        background: $n7
+        +t
+            margin: 0 -20px
+        +m
+            display: block
+            margin: -32px -16px 0
+            padding: 24px
+        +dark
+            background: $n2
+    &__card
+        flex: 0 0 calc(25% - 32px)
+        width: calc(25% - 32px)
+        margin: 0 16px
+        padding: 32px
+        border-radius: 16px
+        color: $n2
+        transition: all .2s
+        +d
+            padding: 24px 16px
+        +t
+            padding: 16px 0
+        +m
+            display: flex
+            width: 100%
+            margin: 0
+            padding: 16px 24px
+        +dark
+            color: $n8
+        &:hover
+            box-shadow: 0px 64px 64px -48px rgba(15, 15, 15, 0.1)
+            background: $n8
+            +t
+                box-shadow: none
+                background: none
+            +dark
+                background: $n3
+                +t
+                    background: none
+    &__icon
+        display: flex
+        align-items: center
+        height: 40px
+        margin-bottom: 16px
+        +m
+            flex-shrink: 0
+            width: 40px
+            margin: 0 16px 0 0
+        img
+            max-width: 100%
+            max-height: 100%
+    &__details
+        +m
+            flex-grow: 1
+    &__line
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+        margin-bottom: 4px
+        +caption-bold-2
+    &__subtitle
+        margin-right: 12px
+        color: $n4
+    &__positive,
+    &__negative
+        display: inline-block
+        padding: 2px 8px
+        border-radius: 12px
+        +caption-bold-2
+        color: $n8
+    &__positive
+        background: $p4
+    &__negative
+        background: $p3
+    &__price
+        margin-bottom: 4px
+        +body-bold-1
+    &__money
+        +caption-2

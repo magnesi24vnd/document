@@ -1,0 +1,207 @@
+.learn
+    position: relative
+    +m
+        padding-bottom: 80px
+    &__anchor
+        top: -30px
+    &__head
+        display: flex
+        align-items: flex-start
+        margin-bottom: 80px
+        +d
+            margin-bottom: 48px
+        +m
+            display: block
+        .learn__button
+            flex-shrink: 0
+            margin-left: 40px
+            +m
+                position: absolute
+                left: 32px
+                right: 32px
+                bottom: 0
+                width: calc(100% - 64px)
+                margin: 0
+    &__wrap
+        flex-grow: 1
+    &__title
+        margin-bottom: 40px
+        +m
+            margin-bottom: 24px
+            text-align: center
+    .nav
+        +m
+            margin: 0 -32px
+            overflow: auto
+            overflow-x: auto 
+            -ms-overflow-style: none
+            scrollbar-width: none
+            -webkit-overflow-scrolling: touch
+            &::-webkit-scrollbar
+                display: none 
+            &:before,
+            &:after
+                content: ""
+                flex-shrink: 0
+                width: 32px
+                height: 1px
+    .nav__link
+        +m
+            flex-shrink: 0
+        &:not(:last-child)
+            margin-right: 24px
+            +m
+                margin-right: 20px
+    &__wrapper
+        margin: -32px -18px 0
+        +d
+            margin: 0 -16px
+        &:after
+            content: " "
+            display: table
+            clear: both
+            +d
+                display: none
+    &__item
+        display: block 
+        width: calc(50% - 36px)
+        margin: 32px 18px 0
+        float: right
+        color: $n2
+        +d
+            float: left
+            width: 100%
+            margin: 0
+        +dark
+            color: $n8
+        &:hover
+            .learn__preview
+                img
+                    transform: scale(1.1)
+            .learn__subtitle
+                color: $p1
+        &:first-child
+            float: left
+            +d
+                float: left
+            .learn__preview
+                margin-bottom: 40px
+                border-radius: 20px
+                +d
+                    margin-bottom: 24px
+                    border-radius: 16px
+            .learn__subtitle
+                margin-bottom: 16px
+                +dm-sans
+                font-size: 32px
+                line-height: 40px
+                font-weight: 700
+                letter-spacing: -.01em
+                +d
+                    +poppins
+                    font-weight: 600
+                    font-size: 24px
+                    line-height: 32px
+                    letter-spacing: 0
+                +m
+                    margin-bottom: 8px
+                    font-size: 16px
+            .learn__content
+                font-size: 16px
+                line-height: 1.5
+                +d
+                    font-size: 14px
+        &:not(:first-child)
+            display: flex
+            flex-direction: row-reverse
+            padding-left: 60px
+            +d
+                display: block
+                padding: 0
+            .learn__preview
+                flex: 0 0 45.65%
+                border-radius: 16px
+            .learn__subtitle
+                margin-bottom: 16px
+                +body-bold-2
+                +d
+                    font-size: 24px
+                    line-height: 32px
+                +m
+                    margin-bottom: 8px
+                    font-size: 16px
+            .learn__content
+                margin-bottom: auto
+    &__preview
+        position: relative
+        overflow: hidden
+        +d
+            margin-bottom: 24px
+            border-radius: 16px
+            &:before
+                content: ""
+                display: block
+                padding-bottom: 77%
+        img
+            width: 100%
+            transition: transform 1s
+            +d
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                object-fit: cover
+    &__line
+        display: flex
+        .learn__button
+            flex-shrink: 0
+            margin-left: 32px
+            +d
+                display: none
+    &__subtitle
+        transition: color .2s
+        +d
+            margin-bottom: 16px
+        +m
+            margin-bottom: 8px 
+    &__content
+        color: $n4
+    &__details
+        display: flex
+        flex-direction: column
+        flex-grow: 1
+        padding-right: 16px
+        +d
+            display: block
+            padding: 0
+    &__date
+        margin-top: 24px
+        color: $n4
+        +d
+            display: none
+    &__slider
+        +d
+            padding-bottom: 72px
+            visibility: hidden
+            &.slick-initialized
+                visibility: visible
+    .slick-list
+        overflow: visible
+    .slick-slide
+        padding: 0 16px
+        opacity: 0
+        transition: opacity .4s
+        &.slick-active
+            opacity: 1
+    .slick-arrow
+        bottom: 0
+    .slick-prev
+        left: 16px
+        +m
+            left: calc(50% - 48px)
+    .slick-next
+        left: 64px
+        +m
+            left: auto
+            right: calc(50% - 48px)
+

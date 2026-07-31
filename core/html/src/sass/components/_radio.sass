@@ -1,0 +1,53 @@
+.radio
+    display: inline-block
+    position: relative
+    user-select: none 
+    cursor: pointer
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    &__input
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0 
+        &:checked + .radio__inner .radio__tick
+            &:before
+                transform: translate(-50%,-50%) scale(1)
+    &__inner
+        display: flex
+        &:hover
+            .radio__tick
+                border-color: $p1
+    &__tick
+        position: relative
+        flex-shrink: 0
+        width: 24px
+        height: 24px
+        margin-right: 12px
+        border-radius: 50% 
+        border: 2px solid $n6
+        transition: all .2s
+        +dark
+            background: $n1
+            border-color: $n3
+        &:before
+            content: ""
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%) scale(0)
+            width: 12px
+            height: 12px
+            border-radius: 50%
+            background: $p1
+            transition: transform .2s
+    &__text
+        line-height: (24/14)
+        color: $n2 
+        +dark
+            color: $n8
+    &__phone
+        display: block
+        +caption-bold-2
+    &__email
+        font-weight: 500 
+

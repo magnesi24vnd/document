@@ -1,0 +1,101 @@
+---
+title: VNkr
+---
+extends layouts/layout
+block content
+	.profile
+		.profile__head
+			.profile__center.center
+				h2.profile__title.h2 Sessions & login history
+				.breadcrumbs
+					.breadcrumbs__item
+						a.breadcrumbs__link(href="index.html") Home
+					.breadcrumbs__item Sessions & login history
+		.profile__body
+			.profile__center.center
+				.profile__sidebar
+					.profile__dropdown
+						.profile__top
+							+i('laptop')
+							| Sessions & login history
+						.profile__menu
+							a.profile__link(href="profile-info.html")
+								+i('user')
+								| Profile
+							a.profile__link(href="referrals.html")
+								+i('share')
+								| Referrals
+							a.profile__link.profile__link_separator(href="api-keys.html")
+								+i('keyboard')
+								| API keys
+							a.profile__link.active(href="sessions-and-login-history.html")
+								+i('laptop')
+								| Sessions & login history
+							a.profile__link(href="2fa.html")
+								+i('barcode')
+								| 2FA
+							a.profile__link(href="change-password.html")
+								+i('lock')
+								| Change password
+				.profile__wrapper
+					.sessions
+						.sessions__section
+							.sessions__title Active sessions
+							.sessions__table
+								.sessions__row
+									.sessions__col Date / time
+									.sessions__col Device
+									.sessions__col Location
+								.sessions__row
+									.sessions__col
+										.sessions__content 2021-06-16
+										.sessions__note 10:46:09
+									.sessions__col
+										.sessions__content Macbook Pro
+										.sessions__note Mac OS Bigsur
+									.sessions__col
+										.category.sessions__location 🇺🇸 USA
+								.sessions__row
+									.sessions__col
+										.sessions__content 2021-06-16
+										.sessions__note 10:46:09
+									.sessions__col
+										.sessions__content iMac Pro
+										.sessions__note Mac OS Bigsur
+									.sessions__col
+										.category.sessions__location 🇺🇸 USA
+							.sessions__btns
+								button.button-stroke.sessions__button Log out all other devices
+						.sessions__section
+							.sessions__title Login history
+							.sessions__table
+								.sessions__row
+									.sessions__col Date / time
+									.sessions__col IP address
+									.sessions__col Used 2FA
+								.sessions__row
+									.sessions__col
+										.sessions__content 2021-06-16
+										.sessions__note 10:46:09
+									.sessions__col
+										.sessions__content 1.53.208.186
+									.sessions__col
+										.category-green.sessions__status yes
+								.sessions__row
+									.sessions__col
+										.sessions__content 2021-06-16
+										.sessions__note 10:46:09
+									.sessions__col
+										.sessions__content 1.53.208.186
+									.sessions__col
+										.category-red.sessions__status no
+								.sessions__row
+									.sessions__col
+										.sessions__content 2021-06-16
+										.sessions__note 10:46:09
+									.sessions__col
+										.sessions__content 1.53.208.186
+									.sessions__col
+										.category-green.sessions__status yes
+							.sessions__btns
+								a.button-stroke.sessions__button(href="contact.html") Contact us

@@ -1,0 +1,129 @@
+if !header
+	header.header.js-header(class=classHeader data-id="#header")
+		.header__center.center
+			a.header__logo(href="index.html")
+				img.header__pic.header__pic_desktop.some-icon(src="img/logo-light.svg" alt="VNkr")
+				img.header__pic.header__pic_desktop.some-icon-dark(src="img/logo-dark.svg" alt="VNkr")
+				img.header__pic.header__pic_mobile(src="img/logo.svg" alt="VNkr")
+			.header__wrapper
+				.header__wrap.js-header-wrap
+					nav.header__nav
+						a.header__item(href="exchange.html" class=classExchange) Exchange
+						.header__item.header__item_dropdown.js-header-item
+							button.header__head.js-header-head Buy Crypto
+								+i('arrow-down')
+							.header__body.js-header-body
+								a.header__link(href="buy-crypto.html" class=classCreditCard)
+									+i('user')
+									| Credit card
+								a.header__link(href="deposit-fiat.html" class=classBankDeposit)
+									+i('image')
+									| Bank deposit
+						a.header__item(href="market.html" class=classMarket) Market
+						a.header__item(href="learn-crypto.html" class=classDiscover) Discover
+					.header__btns
+						a.button-small.header__button(href="sign-up.html") Sign Up
+						a.button-stroke.button-small.header__button(href="sign-in.html") Login
+					a.button-stroke.header__button(href="wallet-overview.html" class=classWallet) Wallet
+				.header__item.header__item_settings.js-header-item
+					button.header__head.js-header-head EN/USD
+						+i('arrow-down')
+					.header__body.js-header-body
+						.header__row
+							.header__col
+								.header__category Language
+								.header__menu
+									a.header__language.active(href="#") 
+										span.header__flag 🇺🇸
+										| English
+									a.header__language(href="#") 
+										span.header__flag 🇻🇳
+										| Vietnamese
+									a.header__language(href="#") 
+										span.header__flag 🇷🇺
+										| Russia
+							.header__col
+								.header__category Currency
+								.header__menu
+									a.header__currency.active(href="#") USD
+									a.header__currency(href="#") RUB
+									a.header__currency(href="#") EUR
+									a.header__currency(href="#") JPY
+									a.header__currency(href="#") BTC
+				.header__control
+					a.header__activity(href="activity.html" class=classActivity)
+						+i('lightning')
+					.header__item.header__item_notifications.js-header-item
+						button.header__head.js-header-head.active
+							+i('bell')
+						.header__body.js-header-body
+							.header__title Notifications
+							.header__list
+								a.header__notification.header__notification_new(href="notifications.html")
+									.header__subtitle Login attempted from new IP
+									.header__date 2021-03-10 20:19:15
+								a.header__notification.header__notification_new(href="notifications.html")
+									.header__subtitle Request to reset security
+									.header__date 2021-03-10 20:19:15
+								a.header__notification.header__notification_new(href="notifications.html")
+									.header__subtitle Login attempted from new IP
+									.header__date 2021-03-10 20:19:15
+								a.header__notification.header__notification_new(href="notifications.html")
+									.header__subtitle Request to reset security
+									.header__date 2021-03-10 20:19:15
+								a.header__notification(href="notifications.html")
+									.header__subtitle Login attempted from new IP
+									.header__date 2021-03-10 20:19:15
+								a.header__notification(href="notifications.html")
+									.header__subtitle Request to reset security
+									.header__date 2021-03-10 20:19:15
+							.header__btns
+								a.button-small.header__button(href="notifications.html") View all
+								button.button-stroke.button-small.header__button Clear all
+					a.button-stroke.button-small.header__button(href="wallet-overview.html" class=classWallet) Wallet
+					+theme(true)
+					.header__item.header__item_user.js-header-item
+						button.header__head.js-header-head
+							img(src="img/content/avatar-user.jpg" alt="Avatar")
+						.header__body.js-header-body
+							a.header__el(href="profile-info.html")
+								.header__icon
+									+i('user')
+								.header__details
+									.header__title Profile
+									.header__content Important account details
+							a.header__el(href="referrals.html")
+								.header__icon
+									+i('share')
+								.header__details
+									.header__title Referrals
+									.header__content Invite your friends and earn rewards
+							a.header__el(href="2fa.html")
+								.header__icon
+									+i('lock')
+								.header__details
+									.header__title 2FA security
+									.header__content Setup 2FA for more security
+							a.header__el(href="api-keys.html")
+								.header__icon
+									+i('cog')
+								.header__details
+									.header__title Settings
+									.header__content View additional settings
+							.header__el
+								.header__icon
+									+i('theme-dark')
+								.header__details
+									.header__line
+										.header__title Dark mode
+										+theme
+									.header__content Switch dark/light mode
+							a.header__el(href="#")
+								.header__icon
+									+i('exit')
+								.header__details
+									.header__title Log out
+				.header__btns
+					a.button-small.header__button(href="sign-up.html") Sign Up
+					a.button-stroke.button-small.header__button(href="sign-in.html") Login
+				button.header__burger.js-header-burger

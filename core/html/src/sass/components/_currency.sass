@@ -1,0 +1,111 @@
+.currency
+    &__title
+        margin-bottom: 48px
+        +body-bold-1
+        +m
+            margin-bottom: 32px
+    &__row
+        display: flex
+        margin: 0 -12px
+        +m
+            display: block
+            margin: 0
+        &:not(:last-child)
+            margin-bottom: 48px
+    &__col
+        flex: 0 0 calc(50% - 24px)
+        width: calc(50% - 24px)
+        margin: 0 12px
+        +m
+            width: 100%
+            margin: 0
+            &:not(:last-child)
+                margin-bottom: 24px
+    &__label
+        margin-bottom: 12px
+        font-weight: 500
+        color: $n2 
+        +dark
+            color: $n8 
+    &__payment
+        display: flex
+        justify-content: center
+        align-items: flex-start
+    .select
+        background: none
+        +dark
+            background: none 
+    &__field
+        position: relative
+    &__value,
+    &__input
+        +dm-sans
+        font-weight: 700
+        font-size: 96px
+        line-height: 1
+        letter-spacing: -.02em
+        color: $n2
+        +m
+            font-size: 64px
+    &__value
+        min-width: 72px
+        max-width: 500px
+        min-height: 96px
+        padding-right: 5px
+        opacity: 0
+        +m
+            min-height: 64px
+            max-width: 280px
+            padding-bottom: 10px
+    &__input
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        border: none
+        background: none
+        box-shadow: none
+        color: $n2
+        +dark
+            color: $n8
+    &__sign
+        position: relative
+        top: 8px
+        +m
+            font-size: 24px
+        &:first-child
+            margin-right: 8px
+        &:last-child
+            margin-left: 4px
+    &__price
+        margin-bottom: 12px
+        text-align: center
+        +body-bold-2
+    &__note
+        margin-left: 8px
+        color: $n4
+        &:not(:last-child)
+            margin-right: 8px 
+    &__variants
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        margin: 0 -8px
+    &__variants &__button
+        margin: 8px 8px 0
+        color: $n4
+        &:hover
+            color: $n8
+        &.active
+            color: $n8 
+    &__btns,
+    &__foot
+        margin-top: 48px
+        text-align: center
+        +m
+            margin-top: 32px
+    &__btns &__button
+        min-width: 184px
+        +m
+            min-width: 100%

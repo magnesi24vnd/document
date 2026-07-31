@@ -1,0 +1,205 @@
+
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>VNKR Project Report</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; font-size: 14px; line-height: 1.6; background: #ffffff; color: #1f2328; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.subtitle { color: #57606a; font-size: 13px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #e5e7eb; }
+h2 { font-size: 15px; font-weight: 700; margin: 28px 0 12px; color: #1f2328; }
+h3 { font-size: 13px; font-weight: 600; margin: 16px 0 8px; color: #3b82d4; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.card { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; }
+.card-blue { border-left: 3px solid #3b82d4; }
+.card-green { border-left: 3px solid #22c55e; }
+.card-purple { border-left: 3px solid #7c5cd8; }
+.card-orange { border-left: 3px solid #f59e0b; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+.tag-done { background: #dcfce7; color: #16a34a; }
+.tag-new { background: #dbeafe; color: #1d4ed8; }
+.tag-chain { background: #f3e8ff; color: #7c5cd8; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+th { background: #f7f8fa; padding: 8px 12px; text-align: left; font-weight: 600; color: #57606a; border-bottom: 1px solid #e5e7eb; }
+td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; }
+tr:last-child td { border-bottom: none; }
+code { font-family: monospace; font-size: 12px; background: #f0f0f0; padding: 1px 5px; border-radius: 3px; }
+.section-divider { border: none; border-top: 1px solid #e5e7eb; margin: 24px 0; }
+.file-tree { font-family: monospace; font-size: 12px; background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 6px; padding: 14px 16px; line-height: 1.8; margin-bottom: 16px; }
+.check { color: #16a34a; font-weight: 700; }
+.new-badge { background: #3b82d4; color: #fff; font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-left: 4px; }
+.stat-num { font-size: 28px; font-weight: 700; color: #3b82d4; }
+.stat-label { font-size: 11px; color: #57606a; margin-top: 2px; }
+footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 11px; color: #57606a; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>🔗 VNKR App-Chain — Báo cáo Triển khai Frontend</h1>
+  <p class="subtitle">Hoàn thành toàn bộ hạ tầng frontend · Chain ID: 78968 / 789680 (Testnet) · Native Token: VNKR</p>
+
+  
+  <div class="grid-3">
+    <div class="card" style="text-align:center">
+      <div class="stat-num">29</div>
+      <div class="stat-label">HTML pages (25 existing + 4 new)</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="stat-num" style="color:#22c55e">4</div>
+      <div class="stat-label">VNKR JS modules injected</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="stat-num" style="color:#7c5cd8">8</div>
+      <div class="stat-label">React screens &amp; services mới</div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  
+  <h2>📄 1. Tài liệu Đề án (viết lại)</h2>
+  <div class="card card-blue">
+    <strong>document/BẢN KẾ HOẠCH ĐỀ ÁN... v2.0</strong> <span class="tag tag-done">✓ Done</span>
+    <p style="margin-top:8px;color:#57606a;font-size:13px">Nâng cấp từ bản gốc → 7 phần đầy đủ: hạ tầng node, security Layer 4, vốn điều lệ, dòng tiền, kiến trúc frontend, lộ trình phased rollout, và tài liệu kỹ thuật tích hợp (network params, smart contract addresses, API endpoints).</p>
+  </div>
+
+  <hr class="section-divider" />
+
+  
+  <h2>⛓️ 2. VNKR Node Infrastructure (<code>/var/www/core/vnkr-node/</code>)</h2>
+  <div class="file-tree">
+core/vnkr-node/
+├── <span class="check">✓</span> docker-compose.yml     <span class="new-badge">NEW</span>  Erigon Sequencer + RPC + Prometheus + Grafana
+├── <span class="check">✓</span> genesis.json           <span class="new-badge">NEW</span>  Chain ID 78968, Native VNKR, Foundation alloc
+└── scripts/
+    ├── <span class="check">✓</span> init-node.sh         <span class="new-badge">NEW</span>  Auto-setup: Docker, .env, Prometheus config
+    └── <span class="check">✓</span> health-check.sh      <span class="new-badge">NEW</span>  RPC ping, block check, container status
+  </div>
+  <div class="grid-2">
+    <div class="card card-green" style="font-size:12.5px">
+      <strong>Sequencer Node</strong><br />Port 8545 (HTTP RPC), 8546 (WS), 30303 (P2P)<br />Mine=true | Network 78968 | Erigon latest
+    </div>
+    <div class="card card-green" style="font-size:12.5px">
+      <strong>RPC Node (Public)</strong><br />Port 8547 (HTTP), 8548 (WS)<br />Read-only | Shares data dir | HA ready
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  
+  <h2>🖥️ 3. HTML Static UI Kit — VNKR Scripts (<code>/var/www/core/html/build/</code>)</h2>
+
+  <h3>JavaScript Modules mới</h3>
+  <table>
+    <tr><th>File</th><th>Chức năng</th><th>Size</th></tr>
+    <tr><td><code>js/vnkr-api.js</code></td><td>JSON-RPC calls, REST API, price feed, orderbook, staking, faucet, DAO — với mock data fallback</td><td>11KB</td></tr>
+    <tr><td><code>js/vnkr-wallet.js</code></td><td>MetaMask connect, auto add VNKR network, WalletConnect, account/chain change listeners</td><td>14KB</td></tr>
+    <tr><td><code>js/vnkr-charts.js</code></td><td>Highcharts candlestick, orderbook depth, sparklines, portfolio donut, live price ticker</td><td>13KB</td></tr>
+    <tr><td><code>js/vnkr.js</code></td><td>Main module: rebranding BitCloud→VNKR, toast system, global state, page routing, auth state</td><td>18KB</td></tr>
+  </table>
+
+  <h3>4 trang HTML mới <span class="new-badge">NEW</span></h3>
+  <table>
+    <tr><th>File</th><th>Sub-domain</th><th>Tính năng chính</th></tr>
+    <tr><td><code>staking.html</code></td><td>stake.vnkr.vn</td><td>Staking form, tier table (Bronze→Diamond), APR calculator, live TVL stats</td></tr>
+    <tr><td><code>faucet.html</code></td><td>faucet.vnkr.vn</td><td>Request Test-VNKR, MetaMask "Add Network", recent requests list</td></tr>
+    <tr><td><code>explorer.html</code></td><td>scan.vnkr.vn</td><td>Live block/tx feed, address/tx/block search, network stats, auto-update</td></tr>
+    <tr><td><code>dao.html</code></td><td>dao.vnkr.vn</td><td>Proposals list, vote For/Against, progress bar, quorum info</td></tr>
+  </table>
+
+  <h3>Script injection — 25 trang hiện có</h3>
+  <p style="color:#57606a;font-size:13px">4 VNKR scripts đã được tự động inject vào <em>tất cả</em> 25 HTML pages hiện có trước <code>&lt;/body&gt;</code>: <code>vnkr-api.js</code> → <code>vnkr-wallet.js</code> → <code>vnkr-charts.js</code> → <code>vnkr.js</code></p>
+
+  <hr class="section-divider" />
+
+  
+  <h2>⚛️ 4. React Frontend (<code>/var/www/core/frontend/</code>)</h2>
+
+  <div class="file-tree">
+core/frontend/src/
+├── contexts/
+│   └── <span class="check">✓</span> VNKRContext.js       <span class="new-badge">NEW</span>  Global state: wallet, prices, network
+├── services/
+│   └── <span class="check">✓</span> vnkr-api.js          <span class="new-badge">NEW</span>  API service: RPC + REST + mock fallback
+├── screens/
+│   ├── Staking/index.js    <span class="new-badge">NEW</span>
+│   ├── Faucet/index.js     <span class="new-badge">NEW</span>
+│   ├── Explorer/index.js   <span class="new-badge">NEW</span>
+│   └── DAO/index.js        <span class="new-badge">NEW</span>
+├── components/
+│   └── Header/index.js     <span class="check">✓ Updated</span>  VNKR Chain menu, Connect Wallet btn
+└── App.js                  <span class="check">✓ Updated</span>  VNKRProvider wrap + 4 new routes
+  </div>
+
+  <div class="grid-2">
+    <div class="card card-purple">
+      <strong>VNKRContext.js</strong><br />
+      <span style="font-size:12px;color:#57606a">React Context cho toàn app. Quản lý: wallet connection state, MetaMask events (accountsChanged, chainChanged), auto-reconnect từ localStorage, live price simulation.</span>
+    </div>
+    <div class="card card-purple">
+      <strong>Header Updated</strong><br />
+      <span style="font-size:12px;color:#57606a">Navigation mới: "Trade" dropdown (Swap, OTC, Buy) + "VNKR Chain" dropdown (Staking, Explorer, Faucet, DAO). Connect Wallet button với gradient style. Network badge live indicator.</span>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  
+  <h2>🗺️ 5. Routing Map đầy đủ</h2>
+  <table>
+    <tr><th>Route (React)</th><th>HTML Static</th><th>Sub-domain</th><th>Screen</th></tr>
+    <tr><td><code>/</code></td><td>index.html</td><td>vnkr.vn</td><td>Home</td></tr>
+    <tr><td><code>/exchange</code></td><td>exchange.html</td><td>swap.vnkr.vn</td><td>Exchange AMM</td></tr>
+    <tr><td><code>/market</code></td><td>market.html</td><td>otc.vnkr.vn</td><td>Market / OTC</td></tr>
+    <tr><td><code>/staking</code></td><td>staking.html</td><td>stake.vnkr.vn</td><td><strong>Staking</strong> <span class="new-badge">NEW</span></td></tr>
+    <tr><td><code>/explorer</code></td><td>explorer.html</td><td>scan.vnkr.vn</td><td><strong>Explorer</strong> <span class="new-badge">NEW</span></td></tr>
+    <tr><td><code>/faucet</code></td><td>faucet.html</td><td>faucet.vnkr.vn</td><td><strong>Faucet</strong> <span class="new-badge">NEW</span></td></tr>
+    <tr><td><code>/dao</code></td><td>dao.html</td><td>dao.vnkr.vn</td><td><strong>DAO</strong> <span class="new-badge">NEW</span></td></tr>
+    <tr><td><code>/sign-in</code></td><td>sign-in.html</td><td>id.vnkr.vn</td><td>Sign In</td></tr>
+    <tr><td><code>/wallet-overview</code></td><td>wallet-overview.html</td><td>id.vnkr.vn</td><td>Wallet</td></tr>
+  </table>
+
+  <hr class="section-divider" />
+
+  
+  <h2>🚀 Bước tiếp theo để hoàn chỉnh</h2>
+  <table>
+    <tr><th>Ưu tiên</th><th>Việc cần làm</th><th>Command</th></tr>
+    <tr><td>🔴 Cao</td><td>Chạy React dev server</td><td><code>cd core/frontend &amp;&amp; npm install &amp;&amp; npm start</code></td></tr>
+    <tr><td>🔴 Cao</td><td>Edit VALIDATOR_WALLET trong .env rồi start node</td><td><code>cd core/vnkr-node &amp;&amp; bash scripts/init-node.sh &amp;&amp; docker compose up -d</code></td></tr>
+    <tr><td>🟡 Trung</td><td>Build React production</td><td><code>npm run build</code></td></tr>
+    <tr><td>🟡 Trung</td><td>Deploy HTML static qua Nginx</td><td>Trỏ <code>root</code> Nginx vào <code>core/html/build/</code></td></tr>
+    <tr><td>🟢 Thấp</td><td>Deploy backend API</td><td>Implement <code>https://api.vnkr.vn/v1</code> endpoints</td></tr>
+    <tr><td>🟢 Thấp</td><td>Deploy smart contracts</td><td>VNKR Staking, Faucet, DAO trên testnet</td></tr>
+  </table>
+
+  <hr class="section-divider" />
+
+  <h2>🔑 VNKR Network Parameters</h2>
+  <div class="grid-2">
+    <div class="card" style="font-size:12.5px">
+      <strong>Testnet</strong><br />
+      Chain ID: <code>789680</code><br />
+      RPC: <code>https://testnet-rpc.vnkr.vn</code><br />
+      WS: <code>wss://testnet-ws.vnkr.vn</code><br />
+      Faucet: <code>https://faucet.vnkr.vn</code>
+    </div>
+    <div class="card" style="font-size:12.5px">
+      <strong>Mainnet</strong><br />
+      Chain ID: <code>78968</code><br />
+      RPC: <code>https://rpc.vnkr.vn</code><br />
+      Explorer: <code>https://scan.vnkr.vn</code><br />
+      Native Token: <code>VNKR (18 decimals)</code>
+    </div>
+  </div>
+
+  <footer>
+    <p>VNKR App-Chain Frontend Report · Triển khai tại <code>/var/www/core/</code> · Made with IBM Bob</p>
+  </footer>
+</div>
+</body>
+</html>

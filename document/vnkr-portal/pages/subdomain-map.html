@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bảng quy hoạch Sub-domain VNKR.VN — 9 sub-domain chuyên biệt: id, scan, faucet, swap, otc, stake, game, pay, dao."/>
+  <title>Bảng Sub-domain Hệ sinh thái | VNKR.VN</title>
+  <link rel="stylesheet" href="../css/design-system.css"/>
+  <style>
+    .breadcrumb { font-size:var(--font-size-sm); color:var(--color-text-muted); display:flex; align-items:center; gap:var(--space-2); flex-wrap:wrap; padding:var(--space-4) 0; }
+    .breadcrumb a { color:var(--color-text-muted); }
+    .page-hero { background:var(--color-surface); border-bottom:1px solid var(--color-border-light); padding:var(--space-12) 0 var(--space-8); }
+    .table-wrap { overflow-x:auto; border:1px solid var(--color-border-light); border-radius:var(--radius-lg); }
+    .phase-tag { display:inline-flex; align-items:center; padding:2px 8px; border-radius:var(--radius-pill); font-size:11px; font-weight:600; white-space:nowrap; }
+    .tag-1 { background:#e6f0ff; color:#0958d9; }
+    .tag-2 { background:#f6ffed; color:#389e0d; }
+    .tag-3 { background:#fff7e6; color:#ad6800; }
+    .tag-4 { background:#f9f0ff; color:#531dab; }
+
+    /* Summary cards */
+    .summary-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-6); margin-bottom:var(--space-8); }
+    @media(max-width:600px){ .summary-grid{ grid-template-columns:1fr; } }
+    .summary-card { border:1px solid var(--color-border-light); border-radius:var(--radius-lg); padding:var(--space-5); }
+    .summary-card .num { font-size:var(--font-size-2xl); font-weight:var(--font-weight-bold); color:var(--color-primary); }
+    .summary-card .lbl { font-size:var(--font-size-sm); color:var(--color-text-muted); }
+
+    /* Sub-domain detail cards mobile-friendly */
+    .subdomain-cards { display:grid; grid-template-columns:1fr; gap:var(--space-4); }
+    .sd-card { border:1px solid var(--color-border-light); border-radius:var(--radius-lg); overflow:hidden; }
+    .sd-card-header { display:flex; align-items:center; gap:var(--space-3); padding:var(--space-4) var(--space-5); background:var(--color-surface); border-bottom:1px solid var(--color-border-light); }
+    .sd-url { font-family:monospace; font-size:var(--font-size-sm); font-weight:var(--font-weight-semibold); color:var(--color-primary); }
+    .sd-card-body { padding:var(--space-5); }
+    .sd-card-body h3 { font-size:var(--font-size-base); font-weight:var(--font-weight-semibold); margin-bottom:var(--space-2); }
+    .sd-card-body p { font-size:var(--font-size-sm); color:var(--color-text-muted); margin-bottom:var(--space-3); }
+    .sd-purpose { font-size:var(--font-size-sm); }
+    .sd-purpose strong { color:var(--color-primary); }
+  </style>
+</head>
+<body class="page-layout">
+
+  <a class="skip-link" href="#main-content">Chuyển đến nội dung chính</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="site-logo" href="../index.html" aria-label="VNKR.VN — Trang chủ">
+        <span class="logo-badge" aria-hidden="true">VNKR</span>
+        <span>vnkr.vn</span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <ul class="site-nav" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li><a href="part1-infrastructure.html">Hạ tầng Node</a></li>
+          <li><a href="part2-security.html">Bảo mật</a></li>
+          <li><a href="part3-capital.html">Vốn điều lệ</a></li>
+          <li><a href="part4-revenue.html">Dòng tiền</a></li>
+          <li><a href="roadmap.html">Lộ trình</a></li>
+          <li><a href="subdomain-map.html" class="active" aria-current="page">Sub-domain</a></li>
+        </ul>
+      </nav>
+      <button id="nav-toggle" class="burger-btn" aria-label="Mở/đóng menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="11" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="18" width="24" height="2.5" rx="1.25" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Điều hướng di động">
+    <ul class="mobile-nav" role="list">
+      <li><a href="../index.html">Tổng quan</a></li>
+      <li><a href="part1-infrastructure.html">Phần 1 — Hạ tầng Node</a></li>
+      <li><a href="part2-security.html">Phần 2 — Bảo mật</a></li>
+      <li><a href="part3-capital.html">Phần 3 — Vốn điều lệ</a></li>
+      <li><a href="part4-revenue.html">Phần 4 — Dòng tiền</a></li>
+      <li><a href="roadmap.html">Lộ trình</a></li>
+      <li><a href="subdomain-map.html" class="active">Sub-domain</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <nav aria-label="Vị trí trang">
+        <ol class="breadcrumb" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li aria-hidden="true">›</li>
+          <li><span aria-current="page">Bảng Sub-domain</span></li>
+        </ol>
+      </nav>
+      <div class="badge" style="background:#7c5cd8; color:#fff; margin-bottom:var(--space-4);">ECOSYSTEM MAP</div>
+      <h1>Bảng Quy hoạch Sub-domain Hệ sinh thái VNKR.VN</h1>
+      <p class="text-secondary" style="max-width:640px; font-size:var(--font-size-md); margin-top:var(--space-3);">
+        9 sub-domain chuyên biệt dưới mái nhà chung <strong>vnkr.vn</strong> — phân tách hạ tầng, tối ưu WAF/Load Balancer và chuyên biệt hóa kỹ thuật từng sản phẩm.
+      </p>
+    </div>
+  </div>
+
+  <main id="main-content" class="page-content" role="main" style="padding-top:0;">
+    <section class="py-12">
+      <div class="container">
+
+        <!-- Summary -->
+        <div class="summary-grid" aria-label="Tóm tắt hệ sinh thái">
+          <div class="summary-card">
+            <div class="num">9</div>
+            <div class="lbl">Sub-domain sản phẩm</div>
+          </div>
+          <div class="summary-card">
+            <div class="num">4</div>
+            <div class="lbl">Giai đoạn triển khai</div>
+          </div>
+          <div class="summary-card">
+            <div class="num">1</div>
+            <div class="lbl">Domain chính: vnkr.vn</div>
+          </div>
+        </div>
+
+        <!-- Full table — desktop -->
+        <h2 class="section-title" style="margin-bottom:var(--space-4);">Bảng chi tiết đầy đủ</h2>
+        <div class="table-wrap" style="margin-bottom:var(--space-10);">
+          <table class="data-table">
+            <caption class="text-muted" style="caption-side:bottom; padding:var(--space-3); font-size:var(--font-size-xs);">
+              Quy hoạch sub-domain và hệ sinh thái sản phẩm VNKR.VN — Domain chính: vnkr.vn
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Sub-domain</th>
+                <th scope="col">Tên Ứng dụng</th>
+                <th scope="col">Chức năng chính</th>
+                <th scope="col">Mục đích chiến lược</th>
+                <th scope="col">Giai đoạn</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://id.vnkr.vn" style="font-family:monospace;">id.vnkr.vn</a></td>
+                <td><strong>VNKR ID &amp; Auth</strong></td>
+                <td>Cổng định danh số phi tập trung. Tích hợp đăng nhập ví Web3, xác thực eKYC tuân thủ pháp lý.</td>
+                <td>Quản lý danh tính người dùng chuẩn Cấp độ 4. Tạo phễu thu hút người dùng tập trung, làm sạch dữ liệu đầu vào.</td>
+                <td><span class="phase-tag tag-1">Giai đoạn 1</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://scan.vnkr.vn" style="font-family:monospace;">scan.vnkr.vn</a></td>
+                <td><strong>VNKR Explorer</strong></td>
+                <td>Tra cứu thời gian thực các giao dịch, block, smart contract và số dư ví trên App-chain.</td>
+                <td>Đảm bảo tính minh bạch tuyệt đối theo tiêu chuẩn blockchain. Xây dựng niềm tin cho nhà đầu tư và cơ quan quản lý.</td>
+                <td><span class="phase-tag tag-1">Giai đoạn 1</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://faucet.vnkr.vn" style="font-family:monospace;">faucet.vnkr.vn</a></td>
+                <td><strong>Testnet Faucet</strong></td>
+                <td>Cung cấp cổng nhận Test-VNKR miễn phí cho developer và cộng đồng trải nghiệm sớm.</td>
+                <td>Thử nghiệm tải hệ thống trước Mainnet. Thu hút developer vào xây dựng dApp, kiểm thử lỗi sớm.</td>
+                <td><span class="phase-tag tag-1">Giai đoạn 1</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://swap.vnkr.vn" style="font-family:monospace;">swap.vnkr.vn</a></td>
+                <td><strong>VNKR Swap (AMM)</strong></td>
+                <td>Sàn giao dịch phi tập trung trao đổi token tốc độ cao, phí cực rẻ thanh toán bằng VNKR.</td>
+                <td>Tạo thanh khoản tự động. Thúc đẩy lưu lượng giao dịch lớn, kích hoạt Token Burn tăng giá trị VNKR.</td>
+                <td><span class="phase-tag tag-2">Giai đoạn 2</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://otc.vnkr.vn" style="font-family:monospace;">otc.vnkr.vn</a></td>
+                <td><strong>VNKR OTC Platform</strong></td>
+                <td>Sàn P2P an toàn với Escrow Smart Contract chống lừa đảo.</td>
+                <td>Giải quyết nhu cầu thanh khoản pháp định. Thu phí 0.1%–0.5% tạo dòng tiền ròng hàng tháng.</td>
+                <td><span class="phase-tag tag-2">Giai đoạn 2</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://stake.vnkr.vn" style="font-family:monospace;">stake.vnkr.vn</a></td>
+                <td><strong>Staking &amp; Earning</strong></td>
+                <td>Cổng khóa token VNKR nhận thưởng định kỳ từ doanh thu hệ thống.</td>
+                <td>Khuyến khích người dùng HODL dài hạn. Giảm mạnh áp lực bán tháo, ổn định nguồn cung lưu thông.</td>
+                <td><span class="phase-tag tag-2">Giai đoạn 2</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://game.vnkr.vn" style="font-family:monospace;">game.vnkr.vn</a></td>
+                <td><strong>VNKR Game Hub</strong></td>
+                <td>Nền tảng hội tụ Game-Fi chất lượng cao. Mua bán vật phẩm nhân vật dạng NFT chuẩn hóa.</td>
+                <td>Play-to-Earn thu hút lượng lớn người dùng trẻ. Tạo cầu thực tế bắt buộc sử dụng VNKR trong game.</td>
+                <td><span class="phase-tag tag-3">Giai đoạn 3</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://pay.vnkr.vn" style="font-family:monospace;">pay.vnkr.vn</a></td>
+                <td><strong>VNKR Pay Gateway</strong></td>
+                <td>Cổng thanh toán tích hợp qua API/SDK cho doanh nghiệp B2B.</td>
+                <td>Mở rộng ứng dụng VNKR ra ngoài không gian crypto. Thu phí tích hợp + chia sẻ doanh thu 5%–10%.</td>
+                <td><span class="phase-tag tag-3">Giai đoạn 3</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://dao.vnkr.vn" style="font-family:monospace;">dao.vnkr.vn</a></td>
+                <td><strong>DAO Governance</strong></td>
+                <td>Cổng biểu quyết phi tập trung cộng đồng nắm giữ VNKR tham gia bỏ phiếu đề xuất phát triển.</td>
+                <td>Trao quyền làm chủ mạng lưới (Decentralization). Biến cộng đồng thành đại sứ thương hiệu trung thành.</td>
+                <td><span class="phase-tag tag-4">Giai đoạn 4</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Giá trị chiến lược -->
+        <h2 class="section-title" style="margin-bottom:var(--space-4);">Tổng kết Giá trị Chiến lược</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3 style="font-size:var(--font-size-base); margin-bottom:var(--space-2);">💰 Khép kín dòng tiền</h3>
+            <p class="text-muted" style="font-size:var(--font-size-sm); margin-bottom:0;">Toàn bộ hoạt động từ Swap, OTC, Game-Fi đến Thanh toán B2B đều quy tụ về một mối, tạo nguồn thu bền vững hàng triệu USD mà không phụ thuộc đầu tư bên ngoài.</p>
+          </div>
+          <div class="card">
+            <h3 style="font-size:var(--font-size-base); margin-bottom:var(--space-2);">🔐 Tiêu chuẩn Cấp độ 4</h3>
+            <p class="text-muted" style="font-size:var(--font-size-sm); margin-bottom:0;">Tách biệt hạ tầng front-end trên các sub-domain giúp cấu hình WAF, cân bằng tải và phân rã luồng truy cập chống sập hệ thống khi lượng truy cập đột biến.</p>
+          </div>
+          <div class="card">
+            <h3 style="font-size:var(--font-size-base); margin-bottom:var(--space-2);">🌐 Chuyên biệt hóa kỹ thuật</h3>
+            <p class="text-muted" style="font-size:var(--font-size-sm); margin-bottom:0;">Mỗi sub-domain có stack kỹ thuật, team phụ trách và SLA riêng biệt — dễ scale độc lập, không ảnh hưởng toàn hệ thống khi nâng cấp.</p>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:var(--space-8); border-top:1px solid var(--color-border-light); margin-top:var(--space-8); flex-wrap:wrap; gap:var(--space-4);">
+          <a href="roadmap.html" class="btn btn-outline">← Lộ trình</a>
+          <a href="../index.html" class="btn btn-primary">Về trang chủ →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:var(--space-6); border-top:1px solid #21262d;">
+        <span>© 2025 VNKR.VN — Bảo lưu mọi quyền.</span>
+        <a href="../index.html" style="color:#8b949e;">← Về trang chủ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <style>
+    .skip-link { position:absolute; left:-9999px; top:var(--space-2); background:var(--color-primary); color:#fff; padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); font-weight:var(--font-weight-medium); z-index:9999; }
+    .skip-link:focus { left:var(--space-4); }
+    .burger-btn { display:none; background:none; border:none; cursor:pointer; color:var(--color-text-primary); padding:var(--space-2); border-radius:var(--radius-sm); min-height:var(--touch-target); min-width:var(--touch-target); align-items:center; justify-content:center; }
+    .mobile-menu { position:fixed; top:var(--header-height); left:0; right:0; background:var(--color-bg); border-bottom:1px solid var(--color-border-light); z-index:999; max-height:0; overflow:hidden; transition:max-height .25s ease; }
+    .mobile-menu.is-open { max-height:80vh; overflow-y:auto; }
+    .mobile-nav { list-style:none; padding:var(--space-2) 0; }
+    .mobile-nav a { display:flex; align-items:center; min-height:var(--touch-target); padding:0 var(--space-6); font-size:var(--font-size-base); color:var(--color-text-secondary); border-bottom:1px solid var(--color-border-light); text-decoration:none; }
+    .mobile-nav a:hover, .mobile-nav a.active { color:var(--color-primary); background:var(--color-primary-light); }
+    @media(max-width:768px){ .burger-btn{ display:inline-flex; } }
+  </style>
+</body>
+</html>

@@ -1,0 +1,169 @@
+---
+title: VNkr
+classHeader: registered
+---
+extends layouts/layout
+block content
+	.section.contact
+		.section-mb0.contact__body
+			.contact__center.center
+				.contact__wrap
+					.stage.contact__stage Save your time with Stacks
+					h1.contact__title.h1 How can we help
+					.contact__text A creative agency that lead and inspire
+					+subscription("text", "search", "Search anything", "arrow-next")
+				.contact__bg
+					img(srcSet="img/content/contact-pic@2x.png 2x" src="img/content/contact-pic.png" alt="Contact")
+		.contact__foot
+			.contact__center.center
+				.contact__info Before asking for an answer, you may find it in our learn crypto center
+				.contact__wrapper
+					.contact__slider.js-slider-contact
+						a.contact__item(href="learn-crypto-details.html")
+							.contact__preview
+								img(srcSet="img/content/education-pic-1@2x.png 2x" src="img/content/education-pic-1.png" alt="Education")
+								.category-purple.contact__category design news 
+							.contact__box
+								.contact__subtitle Celebrating the new Design System
+								.contact__content Stack solves business problems from simple to complex
+						a.contact__item(href="learn-crypto-details.html")
+							.contact__preview
+								img(srcSet="img/content/education-pic-2@2x.png 2x" src="img/content/education-pic-2.png" alt="Education")
+								.category-red.contact__category resources
+							.contact__box
+								.contact__subtitle Celebrating the new Design System
+								.contact__content Stack solves business problems from simple to complex
+						a.contact__item(href="learn-crypto-details.html")
+							.contact__preview
+								img(srcSet="img/content/education-pic-3@2x.png 2x" src="img/content/education-pic-3.png" alt="Education")
+								.category-green.contact__category freebies
+							.contact__box
+								.contact__subtitle Celebrating the new Design System
+								.contact__content Stack solves business problems from simple to complex
+						a.contact__item(href="learn-crypto-details.html")
+							.contact__preview
+								img(srcSet="img/content/education-pic-4@2x.png 2x" src="img/content/education-pic-4.png" alt="Education")
+								.category-purple.contact__category design news 
+							.contact__box
+								.contact__subtitle Celebrating the new Design System
+								.contact__content Stack solves business problems from simple to complex
+						a.contact__item(href="learn-crypto-details.html")
+							.contact__preview
+								img(srcSet="img/content/education-pic-1@2x.png 2x" src="img/content/education-pic-1.png" alt="Education")
+								.category-purple.contact__category design news 
+							.contact__box
+								.contact__subtitle Celebrating the new Design System
+								.contact__content Stack solves business problems from simple to complex
+						a.contact__item(href="learn-crypto-details.html")
+							.contact__preview
+								img(srcSet="img/content/education-pic-2@2x.png 2x" src="img/content/education-pic-2.png" alt="Education")
+								.category-red.contact__category resources
+							.contact__box
+								.contact__subtitle Celebrating the new Design System
+								.contact__content Stack solves business problems from simple to complex
+						a.contact__item(href="learn-crypto-details.html")
+							.contact__preview
+								img(srcSet="img/content/education-pic-3@2x.png 2x" src="img/content/education-pic-3.png" alt="Education")
+								.category-green.contact__category freebies
+							.contact__box
+								.contact__subtitle Celebrating the new Design System
+								.contact__content Stack solves business problems from simple to complex
+	.section.faq.js-tabs
+		.faq__center.center
+			.faq__top
+				h2.faq__title.h2 Frequently asked questions
+				.nav
+					a.nav__link.active(href="#") General
+					a.nav__link(href="#") Support
+					a.nav__link(href="#") Hosting
+					a.nav__link(href="#") Product
+				select.select
+					option General
+					option Support
+					option Hosting
+					option Product
+			.faq__list
+				.faq__item
+					.faq__head
+						.faq__number 01
+						.faq__subtitle How does it work?
+						.faq__arrow
+							+i('arrow-down')
+					.faq__body The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit,  Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native. Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode." 
+				.faq__item
+					.faq__head
+						.faq__number 02
+						.faq__subtitle How can i set up a new website?
+						.faq__arrow
+							+i('arrow-down')
+					.faq__body The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit,  Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native. Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode." 
+				.faq__item
+					.faq__head
+						.faq__number 03
+						.faq__subtitle How does it work?
+						.faq__arrow
+							+i('arrow-down')
+					.faq__body The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit,  Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native. Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode." 
+				.faq__item
+					.faq__head
+						.faq__number 04
+						.faq__subtitle How does it work?
+						.faq__arrow
+							+i('arrow-down')
+					.faq__body The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit,  Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native. Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode." 
+				.faq__item
+					.faq__head
+						.faq__number 05
+						.faq__subtitle How does it work?
+						.faq__arrow
+							+i('arrow-down')
+					.faq__body The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit,  Stacks: eCommerce Kit. "Stacks is a production-ready library of stackable content blocks built in React Native. Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts or hit the ground running with 10 pre-built templates, all in light or dark mode." 
+	.section-bg.section-mb0.question
+		.question__center.center
+			form.question__form
+				.question__fieldset
+					.question__field
+						.question__label Select a topic
+						.question__variants
+							label.question__radio
+								input.question__input(type="radio" name="topic" checked)
+								span.question__inner
+									span.question__icon(style="background-color: #3772FF;")
+										+i('wallet')
+									span.question__text Wallet
+							label.question__radio
+								input.question__input(type="radio" name="topic")
+								span.question__inner
+									span.question__icon(style="background-color: #9757D7;")
+										+i('candlesticks')
+									span.question__text Exchange
+					.field
+						.field__label What is your issue about?
+						select.select
+							option Have a question about VNkr fees
+							option Have a question about Ethereum fees
+							option Have a question about Dogcoin fees
+					.field
+						.field__label What is your issue about?
+						select.select
+							option Transactions and spending
+							option Transactions
+							option Spending
+					.field
+						.field__label Email address
+						.field__wrap
+							input.field__input(type="email" name="email" required)
+					.field
+						.field__label Subject
+						.field__wrap
+							input.field__input(type="text" name="subject" required)
+					.field
+						.field__label Message
+						.field__wrap
+							textarea.field__textarea(name="message" placeholder="Say something" required)
+				.question__btns
+					button.button-small.question__button Send message
+
+					
+
+			

@@ -1,0 +1,132 @@
+.market
+    &__table
+        display: table
+        width: 100%
+        +t
+            display: block
+    &__row
+        display: table-row
+        color: $n2
+        +t
+            position: relative
+            display: block
+        &:first-child
+            +t
+                display: none
+            .market__col
+                padding: 0 16px 32px
+                border-bottom: 1px solid $n6
+                +caption-bold-2
+                color: $n4
+                +dark
+                    border-color: $n2
+                .icon
+                    width: 20px
+                    height: 20px
+                    margin-left: 4px
+                    fill: $n4
+        &:not(:first-child)
+            transition: background .2s
+            .market__col
+                vertical-align: middle
+                font-weight: 500
+                &:first-child
+                    border-radius: 12px 0 0 12px 
+                    color: $n4
+                    +t
+                        border-radius: 0 
+                &:last-child
+                    border-radius: 0 12px 12px 0 
+                    +t
+                        border-radius: 0 
+            &:hover
+                background: $n7
+                +dark
+                    background: $n2
+                .market__button
+                    display: inline-flex
+                .market__chart
+                    display: none
+        &:not(:last-child)
+            +t
+                margin-bottom: 24px
+                padding-bottom: 20px
+                border-bottom: 1px solid $n6
+                +dark
+                    border-color: $n3
+    &__col
+        display: table-cell
+        padding: 16px
+        text-align: right
+        font-weight: 500
+        +t
+            display: flex
+            align-items: center
+            margin-bottom: 4px
+            padding: 0
+        +dark
+            color: $n8
+        &:first-child,
+        &:nth-child(2)
+            text-align: left
+        &:nth-child(2)
+            +t
+                margin-bottom: 16px
+        &:nth-last-child(2)
+            +d
+                display: none
+        &:first-child
+            font-size: 12px
+            +t
+                display: none
+        &:last-child
+            +t
+                margin-bottom: 0
+    &__line
+        display: inline-flex
+        align-items: center
+        +caption-bold-2
+        color: $n4 
+    .favorite
+        position: relative
+        top: -1px
+        margin-right: 10px
+    &__item
+        display: flex
+        align-items: center
+    &__icon
+        flex-shrink: 0
+        width: 32px
+        margin-right: 12px
+        img
+            max-width: 100%
+    &__subtitle
+        margin-right: 4px
+    &__currency
+        font-weight: 400
+        color: $n4
+    &__positive
+        color: $p4
+    &__negative
+        color: $p3
+    &__button
+        display: none
+        width: 96px
+        +d
+            display: inline-flex
+        +t
+            position: absolute
+            top: -6px
+            right: 0
+    &__chart
+        width: 96px
+        margin: -15px 0 -15px auto
+        +d
+            display: none
+    &__label
+        display: none
+        +t
+            display: block
+            margin-right: auto
+            +caption-bold-2
+            color: $n4

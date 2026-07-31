@@ -1,0 +1,42 @@
+if !footer
+	footer.footer
+		.footer__body
+			.footer__center.center
+				.footer__col
+					a.footer__logo(href="index.html")
+						img.some-icon(src="img/logo-light.svg" alt="VNkr")
+						img.some-icon-dark(src="img/logo-dark.svg" alt="VNkr")
+					.footer__item
+						.footer__category footer nav
+							+i('arrow-down')
+						.footer__menu
+							a.footer__link(href="exchange.html") Exchange
+							a.footer__link(href="buy-crypto.html") Buy crypto
+							a.footer__link(href="market.html") Market
+							a.footer__link(href="learn-crypto.html") Learn crypto
+							a.footer__link(href="contact.html") Contact
+				.footer__col
+					.footer__category contact
+					.footer__info
+						p 43252 Borer Mountains
+						p Zackerychester
+						p Bahamas
+						p 732-528-4945
+				.footer__col
+					.footer__category newsletter
+					.footer__info Subscribe our newsletter to get more free design course and resource.
+					+subscription("email", "email", "Enter your email", "arrow-next")
+		.footer__foot
+			.footer__center.center
+				.footer__copyright Copyright © 2021 UI8 LLC. All rights reserved
+				.footer__socials
+					a.footer__social(href="https://www.facebook.com/ui8.net/" target="_blank")
+						+i('facebook')
+					a.footer__social(href="https://twitter.com/ui8" target="_blank")
+						+i('twitter')
+					a.footer__social(href="https://www.instagram.com/ui8net/" target="_blank")
+						+i('instagram')
+					a.footer__social(href="https://dribbble.com/ui8" target="_blank")
+						+i('dribbble')
+					a.footer__social(href="https://www.behance.net/ui8" target="_blank")
+						+i('behance')

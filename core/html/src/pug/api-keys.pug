@@ -1,0 +1,125 @@
+---
+title: VNkr
+---
+extends layouts/layout
+block content
+	.profile
+		.profile__head
+			.profile__center.center
+				h2.profile__title.h2 API keys
+				.breadcrumbs
+					.breadcrumbs__item
+						a.breadcrumbs__link(href="index.html") Home
+					.breadcrumbs__item API keys
+		.profile__body
+			.profile__center.center
+				.profile__sidebar
+					.profile__dropdown
+						.profile__top
+							+i('keyboard')
+							| API keys
+						.profile__menu
+							a.profile__link(href="profile-info.html")
+								+i('user')
+								| Profile
+							a.profile__link(href="referrals.html")
+								+i('share')
+								| Referrals
+							a.profile__link.profile__link_separator.active(href="api-keys.html")
+								+i('keyboard')
+								| API keys
+							a.profile__link(href="sessions-and-login-history.html")
+								+i('laptop')
+								| Sessions & login history
+							a.profile__link(href="2fa.html")
+								+i('barcode')
+								| 2FA
+							a.profile__link(href="change-password.html")
+								+i('lock')
+								| Change password
+				.profile__wrapper
+					.keys
+						.keys__disabled
+							.keys__stage Enable API access on your account to generate keys.
+							.keys__title.h3 API Access is <span>Disabled</span>
+							.keys__email
+								+i('email')
+								| schinner@ui8.net
+							.keys__subtitle Enable API keys
+							.keys__info Enter your password and 2FA code to Enable the API keys
+							.keys__form
+								.keys__row
+									.field.field_view
+										.field__label password
+										.field__wrap
+											input.field__input(type="password" name="password" placeholder="Password" required)
+											button.field__view
+												+i('eye')
+									.field
+										.field__label 2FA code
+										.field__wrap
+											input.field__input(type="text" name="code" required)
+								button.button.keys__button Enable API keys
+						.keys__confirm
+							.keys__preview
+								img(srcSet="img/content/lock@2x.png 2x" src="img/content/lock.png" alt="Lock")
+							.keys__text
+								p Please check your email to confirm this action. 
+								p As a security measure, the confirmation link will expire in 15 minutes.
+							.keys__email
+								+i('email')
+								| schinner@ui8.net
+							.keys__btns
+								button.button-stroke.keys__button Go to inbox
+								button.button-black.keys__button
+									span Resend email
+									+i('email')
+						.keys__enabled
+							.keys__stage Enable API access on your account to generate keys.
+							.keys__title.h3 API Access is <span>Enabled</span>
+							.keys__email
+								+i('email')
+								| schinner@ui8.net
+							.keys__list
+								.keys__item
+									.keys__subtitle Your API keys
+									.keys__group
+										.keys__box
+											.field
+												.field__label API key 1
+												.field__wrap
+													input.field__input(type="text" name="key-1" required)
+											button.keys__remove
+												+i('close')
+											.category.keys__category copied
+										.keys__box
+											.field
+												.field__label API key 2
+												.field__wrap
+													input.field__input(type="text" name="key-2" required)
+											button.keys__remove
+												+i('close')
+											.category.keys__category copied
+									button.button-stroke.button-small.keys__button
+										+i('plus')
+										span Generate new API key
+								.keys__item
+									.keys__subtitle Disable API keys
+									.keys__info Enter your password and 2FA code to Disable the API keys
+									.keys__form
+										.keys__row
+											.field.field_view
+												.field__label password
+												.field__wrap
+													input.field__input(type="password" name="password" placeholder="Password" required)
+													button.field__view
+														+i('eye')
+											.field
+												.field__label 2FA code
+												.field__wrap
+													input.field__input(type="text" name="code" required)
+										button.button.keys__button Disable API keys
+
+
+
+

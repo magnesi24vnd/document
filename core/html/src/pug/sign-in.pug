@@ -1,0 +1,63 @@
+---
+title: VNkr
+header: true
+footer: true
+---
+extends layouts/layout
+block content
+	.login
+		.login__col(style="background-image: url('img/content/bg-login.png');")
+			a.login__logo(href="index.html")
+				img(src="img/logo-light.svg" alt="VNkr")
+				img(src="img/logo-dark.svg" alt="VNkr")
+		.login__col
+			.login__head Don’t have an account?<a class="login__link" href="sign-up.html">Sign up for free</a>
+			.login__wrap
+				.entry
+					.entry__top
+						h3.entry__title.h3 Sign in to VNkr
+						.entry__info Please ensure you are visiting the correct url.
+						.entry__correct 
+							+i('lock')
+							.entry__url https://<span>accounts.VNkr.com/login</span>
+					.entry__form
+						.entry__tabs.js-tabs
+							.nav
+								button.nav__link.js-tabs-link.active Email
+								button.nav__link.js-tabs-link Mobile
+							.entry__container
+								.entry__item.js-tabs-item(style="display: block;")
+									.field
+										.field__label email
+										.field__wrap
+											input.field__input(type="email" name="email" placeholder="Email address" required)
+								.entry__item.js-tabs-item
+									.entry__line
+										.field
+											.field__label mobile
+											.field__wrap
+												select.select
+													option 🇺🇸 +1
+													option 🇻🇳 +3
+													option 🇷🇺 +7
+										.field
+											.field__label phone
+											.field__wrap
+												input.field__input(type="tel" name="phone" required)
+							.field.field_view
+								.field__label password
+								.field__wrap
+									input.field__input(type="password" name="password" placeholder="Password" required)
+									button.field__view
+										+i('eye')
+							.entry__foot
+								button.entry__scan(type="button") Scan to login
+								a.entry__link(href="forgot-password.html") Forgot password?
+							a.button.entry__button(href="index.html#header") Login
+					.entry__wrap
+						.entry__box
+							.entry__details
+								.entry__code
+									img(src="img/content/qr-code.jpg" alt="Qr code")
+								button.button-stroke.entry__button Download app
+

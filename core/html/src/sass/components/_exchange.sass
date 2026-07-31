@@ -1,0 +1,165 @@
+.exchange
+    min-height: calc(100vh - 88px)
+    padding: 4px
+    background: #F1F2F4
+    +t
+        min-height: calc(100vh - 114px)
+        padding: 16px 16px 132px
+    +dark
+        background: $n1
+    &__main
+        display: flex
+        align-items: center
+        padding: 20px
+        background: $n8
+        border-radius: 4px
+        +t
+            display: block
+            margin-bottom: 16px
+        +m
+            padding: 16px
+        +dark
+            background: #17181B
+    &__details
+        display: flex
+        align-items: center
+        +t
+            margin-bottom: 16px
+        +m
+            display: block
+            margin-bottom: 24px
+    &__box
+        .exchange__content
+            display: flex 
+            align-items: center
+            +caption-bold-2
+            color: $n4
+            .icon
+                width: 16px
+                height: 16px
+                margin-right: 4px
+                fill: $n4
+        &:not(:last-child)
+            margin-right: 32px
+            +m
+                margin: 0 0 8px
+    &__line
+        display: flex
+        align-items: center
+        margin-bottom: 4px
+    &__info
+        +body-bold-1
+        color: $n1
+        +dark
+            color: $n8
+    &__category
+        margin-left: 4px
+        padding: 7px 8px 5px
+        border-radius: 12px
+    &__price
+        +body-bold-1
+        color: $p3
+    &__list
+        display: flex
+        margin-left: auto
+        +t
+            margin: 0
+        +m
+            flex-wrap: wrap
+            margin: -12px 0 0
+    &__item
+        flex: 0 0 160px
+        width: 160px
+        padding-right: 24px
+        +d
+            flex: 0 0 auto
+            width: auto
+        +t
+            flex: 1 0 auto
+        +m
+            flex: 0 0 50%
+            width: 50%
+            margin: 12px 0
+        .exchange__content
+            font-weight: 500
+            color: $n1
+            +dark
+                color: $n8
+        &:not(:last-child)
+            margin-right: 24px
+            border-right: 1px solid $n6
+            +dark
+                border-color: $n2
+            +m
+                margin: 12px 0 0
+                border: none
+    &__subtitle
+        display: flex
+        align-items: center
+        margin-block-end: 4px
+        +caption-2
+        color: $n4
+        .icon
+            width: 16px
+            height: 16px
+            margin-right: 4px
+            fill: $n4
+    & > .nav
+        display: none
+        +t
+            display: flex
+            margin-bottom: 16px
+        +m
+            justify-content: space-between
+    & > .nav .nav__link
+        &:not(:last-child)
+            +m
+                margin-right: 0
+    .nav__link
+        &.active
+            background: $n6
+            color: $n2 
+    &__row
+        display: flex
+        margin-top: 4px
+        +d
+            display: block
+            &:after
+                content: " "
+                display: table
+                clear: both
+                +t
+                    display: none
+    &__col
+        &:first-child,
+        &:nth-child(3)
+            flex-shrink: 0
+            width: 256px
+            +d
+                float: left
+            +t
+                float: none
+                width: 100%
+        &:nth-child(2)
+            flex: 0 0 calc(100% - 520px)
+            width: calc(100% - 520px)
+            margin: 0 4px
+            +d
+                float: right
+                width: calc(100% - 260px)
+                margin: 0 0 0 4px
+            +t
+                float: none
+                width: 100%
+                margin: 0
+        &:first-child
+            +d
+                margin-bottom: 4px
+            +t
+                display: none 
+                margin-bottom: 0
+        &:nth-child(3)
+            +t
+                display: none
+        +rmin(1024)
+            display: block !important

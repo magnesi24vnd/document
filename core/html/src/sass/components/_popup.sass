@@ -1,0 +1,168 @@
+.popup
+    width: 100%
+    max-width: 448px
+    margin: auto 
+    padding: 32px 
+    background: $n8
+    border-radius: 20px
+    box-shadow: 0px 64px 64px -48px rgba(31, 47, 70, 0.12)
+    z-index: 2
+    +dark
+        background: $n2
+    +m
+        padding: 32px 16px
+    &__title
+        margin-bottom: 32px
+        padding-right: 56px
+        +m
+            +poppins
+            font-size: 24px
+            line-height: 32px
+            font-weight: 600
+        .icon
+            position: relative
+            top: -2px
+            width: 32px
+            height: 32px
+            margin-right: 16px
+            +m
+                top: 0
+                margin-right: 8px
+            +dark
+                fill: $n8
+    .field,
+    .checkbox,
+    &__wrap,
+    &__sign,
+    &__list,
+    &__percent
+        &:not(:last-child)
+            margin-bottom: 32px
+    .select
+        +dark
+            background: none 
+    &__wrap
+        display: flex
+        padding: 20px 24px
+        border-radius: 4px
+        background: $n7
+        +dark
+            background: $n3
+    &__wrap &__category
+        margin-right: auto
+        font-weight: 500
+        color: $n3
+        +dark
+            color: $n6
+    &__wrap &__details
+        text-align: right
+    &__currency
+        +body-bold-2
+    &__wrap &__price
+        color: $n4
+    &__sign
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 32px
+        height: 32px
+        border-radius: 50%
+        background: $n6
+        .icon
+            width: 16px
+            height: 16px
+            fill: $n3
+        +dark
+            background: $n3
+            .icon
+                fill: $n6
+    &__line
+        display: flex
+        justify-content: space-between
+        &:not(:last-child)
+            margin-bottom: 16px
+    &__line &__category
+        font-weight: 500
+        color: $n3
+        +dark
+            color: $n6
+    &__line &__details
+        text-align: right
+        +m
+            position: relative
+            top: 2px
+    &__line &__price
+        +body-bold-2
+        +m
+            font-size: 14px
+    &__line &__note
+        color: $n4
+    &__percent
+        display: flex
+        justify-content: space-between
+        .popup__button
+            height: 24px
+            padding: 0 16px
+            border-radius: 12px
+    & > &__button
+        width: 100%
+    .mfp-close
+        position: absolute
+        top: 32px
+        right: 32px
+        width: 40px
+        height: 40px
+        border-radius: 50% 
+        line-height: normal
+        opacity: 1
+        border: 1px solid $n6
+        background: $n8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='15' fill='none' viewBox='0 0 14 15'%3E%3Cpath fill-rule='evenodd' d='M.293 1.289a1 1 0 0 1 1.414 0L7 6.582l5.293-5.293a1 1 0 0 1 1.414 1.414L8.414 7.996l5.293 5.293a1 1 0 0 1-1.414 1.414L7 9.41l-5.293 5.293a1 1 0 0 1-1.414 0 1 1 0 0 1 0-1.414l5.293-5.293L.293 2.703a1 1 0 0 1 0-1.414z' fill='%2323262F'/%3E%3C/svg%3E") no-repeat 50% 50% / 14px auto
+        font-size: 0
+        transition: all .2s 
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
+        +m
+            top: 28px
+            right: 16px
+        +dark
+            border-color: $n3
+            background-color: $n2
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23FCFCFD' d='M1.613.2l.094.083L5 3.585 8.293.293a1 1 0 0 1 1.414 0 1 1 0 0 1 .083 1.32l-.083.094L6.415 5l3.292 3.293a1 1 0 0 1-1.32 1.497l-.094-.083L5 6.415 1.707 9.707A1 1 0 0 1 .21 8.387l.083-.094L3.585 5 .293 1.707a1 1 0 0 1 0-1.414A1 1 0 0 1 1.613.21z'/%3E%3C/svg%3E")
+        &:hover
+            border-color: $n6
+            +dark
+                border-color: $n8
+
+.mfp-container
+    padding: 48px
+    +m
+        padding: 16px 8px
+        
+@media (max-width: 900px)
+    .mfp-container
+        padding: 16px 8px
+            
+.mfp-bg
+    background: rgba($n1,.5)
+    +dark
+        background: rgba($n1,.75)
+
+.mfp-zoom-in 
+    .popup
+        opacity: 0
+        transition: all 0.2s ease-in-out
+        transform: scale(0.8) 
+    &.mfp-bg 
+        opacity: 0
+        transition: all 0.2s ease-out
+    &.mfp-ready
+        .popup
+            opacity: 1
+            transform: scale(1) 
+        &.mfp-bg 
+            opacity: 1
+    &.mfp-removing 
+        .popup 
+            transform: scale(0.8) 
+            opacity: 0
+        &.mfp-bg
+            opacity: 0

@@ -1,0 +1,119 @@
+.balances
+    padding: 20px 0 0
+    +m
+        padding: 0
+    &__line
+        display: flex
+        align-items: center
+        padding: 0 32px
+        +m
+            display: none
+    .subscription
+        margin-right: auto
+    &__link
+        display: flex
+        align-items: center
+        +caption-2
+        font-weight: 500
+        color: $n4
+        transition: color .2s
+        .icon
+            width: 24px
+            height: 24px
+            margin-left: 4px
+            fill: $n4
+            transition: fill .2s
+        &:hover
+            color: $n2
+            .icon
+                fill: $n2
+            +dark
+                color: $n8
+                .icon
+                    fill: $n8
+    &__row
+        display: flex
+    &__list > &__row
+        border-bottom: 1px solid $n7
+        +dark
+            border-color: $n2
+    &__col
+        flex: 1
+        padding: 16px
+        &:first-child
+            padding-left: 32px
+            +m
+                padding-left: 16px
+        &:last-child
+            padding-right: 32px
+            +m
+                padding-right: 16px
+        &:not(:first-child)
+            text-align: right
+        &:not(:first-child):not(:nth-child(2))
+            +m
+                display: none
+    &__list > &__row &__col
+        +caption-bold-2
+        color: $n3
+        +dark
+            color: $n6
+    &__item
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        transition: background .2s
+        &:hover,
+        &.active
+            background: #F8F8F9
+            +dark
+                background: $n2
+        &.active
+            .balances__btns
+                display: flex
+        &:not(:last-child)
+            border-bottom: 1px solid $n6
+            +dark
+                border-color: $n2
+                +t
+                    border-color: $n3 
+    &__item &__row
+        display: flex
+        padding: 16px 0 20px
+        cursor: pointer
+    &__item &__col
+        padding: 0 16px 
+        &:first-child
+            padding-left: 32px
+            +m
+                padding-left: 16px
+        &:last-child
+            padding-right: 32px
+            +m
+                padding-right: 16px
+    &__currency
+        display: flex
+        .balances__text
+            font-weight: 400
+    &__icon
+        flex-shrink: 0
+        width: 32px
+        margin-right: 20px
+        img
+            width: 100%
+    &__info
+        font-weight: 500
+    &__text
+        font-weight: 500
+        color: $n4
+    &__btns
+        display: none
+        margin-top: -10px 
+        padding: 0 32px 20px
+        +m
+            padding: 0 16px 20px
+    &__button
+        height: 32px
+        +m
+            flex-grow: 1
+            padding: 0
+        &:not(:last-child)
+            margin-right: 8px

@@ -1,0 +1,342 @@
+body
+    min-width: 375px
+    background: $n8
+    +poppins
+    font-size: 14px
+    line-height: (24/14)
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    color: $n2
+    &.dark
+        background: $n1
+        color: $n8
+
+a
+    text-decoration: none
+
+svg,
+img
+    vertical-align: middle
+
+.outer
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    overflow: hidden
+    &__inner
+        display: flex
+        flex-direction: column
+        flex-grow: 1
+        
+.anchor
+    position: absolute
+    left: 0
+    right: 0  
+        
+.center
+    width: 100%
+    max-width: 1280px
+    margin: 0 auto
+    padding: 0 80px
+    +t
+        padding: 0 40px
+    +m
+        padding: 0 32px
+
+.some-icon
+    +dark
+        display: none
+
+.some-icon-dark
+    display: none
+    +dark
+        display: inline-block
+        
+.play
+    position: absolute
+    top: 50%
+    left: 50%
+    z-index: 3
+    width: 80px
+    height: 80px
+    transform: translate(-50%,-50%)
+    box-shadow: 0px 8px 16px -8px rgba(15, 15, 15, 0.1)
+    border-radius: 50%
+    background: $n8
+    +m
+        width: 48px
+        height: 48px
+    .icon
+        width: 24px
+        height: 24px
+        fill: $n4
+        transition: all .2s
+        +m
+            width: 12px
+            height: 12px
+    &:hover
+        .icon
+            transform: scale(1.2)
+            fill: $p1
+    &_small
+        width: 48px
+        height: 48px
+        .icon
+            width: 12px
+            height: 12px
+        
+.select
+    float: none
+    width: 100% 
+    height: 48px
+    padding: 0 48px 0 16px
+    box-shadow: inset 0 0 0 2px $n6
+    background: $n8
+    border-radius: 12px 
+    border: none
+    opacity: 1
+    font-size: 14px
+    font-weight: 500
+    line-height: 48px 
+    &:after
+        display: none 
+    &:before
+        content: ""
+        position: absolute
+        top: 50%
+        right: 8px
+        width: 32px
+        height: 32px
+        transform: translateY(-50%) 
+        border-radius: 50%
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' viewBox='0 0 10 6'%3E%3Cpath fill-rule='evenodd' d='M9.207.793a1 1 0 0 0-1.414 0L5 3.586 2.207.793A1 1 0 1 0 .793 2.207l3.5 3.5a1 1 0 0 0 1.414 0l3.5-3.5a1 1 0 0 0 0-1.414z' fill='%23777e91'/%3E%3C/svg%3E") no-repeat 50% 50% / 10px auto
+        transition: transform .2s
+    +dark
+        background: $n1
+        box-shadow: inset 0 0 0 2px $n3
+        -webkit-appearance: none
+        &:before
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' viewBox='0 0 10 6'%3E%3Cpath fill-rule='evenodd' d='M9.207.793a1 1 0 0 0-1.414 0L5 3.586 2.207.793A1 1 0 1 0 .793 2.207l3.5 3.5a1 1 0 0 0 1.414 0l3.5-3.5a1 1 0 0 0 0-1.414z' fill='%23FCFCFD'/%3E%3C/svg%3E") 
+    &.open
+        box-shadow: inset 0 0 0 2px $n4
+        +dark
+            box-shadow: inset 0 0 0 2px $n4
+        &:before
+            transform: translateY(-50%) rotate(180deg)
+    .current
+        display: block
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+    .list
+        right: 0
+        margin-top: 2px 
+        border-radius: 12px
+        background: $n8
+        border: 2px solid $n6
+        box-shadow: 0 4px 12px rgba($n2, .1) 
+        +dark
+            background: $n1
+            border-color: $n3 
+            box-shadow: 0 4px 12px rgba($n1, .1)
+    .option
+        min-height: auto
+        padding: 10px 14px 
+        font-weight: 500 
+        line-height: 1.4
+        &:hover,
+        &.focus,
+        &.selected.focus
+            background: $n7
+            +dark
+                background: $n2 
+        &.selected
+            font-weight: 500
+            color: $p1
+
+.slick-arrow
+    position: absolute
+    z-index: 2
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    font-size: 0
+    transition: all .2s
+    path
+        position: relative
+        z-index: 2
+        fill: $n4
+        transition: fill .2s
+    &:hover
+        box-shadow: inset 0 0 0 2px $n6
+        +dark
+            box-shadow: inset 0 0 0 2px $n3
+            path
+                fill: $n6
+
+.date-picker-wrapper
+    padding: 0 
+    border: none
+    border-radius: 24px
+    box-shadow: 0px 40px 32px -24px rgba(15, 15, 15, 0.12)
+    background: none
+    z-index: 20 
+    overflow: hidden 
+    +poppins
+    +m
+        width: 262px !important 
+        padding: 0 19px 
+    +dark
+        background: none 
+    &.single-month
+        .month-wrapper
+            width: 252px !important 
+            padding: 0 19px 
+            +m
+                margin: 0 5px 
+                padding: 0 
+            table
+                width: 100% !important
+    &.two-months
+        .month-wrapper
+            +rmin(768)
+                display: flex 
+                width: 600px !important
+                table
+                    flex: 0 0 calc(50% - 48px)
+                    width: calc(50% - 48px)
+                    margin: 0 24px 
+    &.single-date
+        .day
+            border-radius: 50% !important 
+        .day.first-date-selected,
+        .day.last-date-selected 
+            &:before
+                display: none 
+    .month-wrapper
+        background: none
+        border: none
+        box-shadow: none 
+        table
+            display: block
+            +m
+                width: 100%  
+            thead,
+            tbody
+                display: block 
+                width: 100% 
+            tr
+                display: flex 
+                align-items: center
+                height: 36px 
+            th,
+            td
+                display: flex
+                justify-content: center
+                align-items: center
+                height: 100% 
+                flex: 1
+                font-weight: 500
+            thead
+                tr:first-child
+                    height: 36px
+                    th 
+                        &:first-child,
+                        &:nth-child(3)
+                            flex: 0 0 24px 
+            .week-name,
+            .caption
+                height: auto
+            .week-name
+                height: 40px 
+                th
+                    height: auto
+            .day
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 100% 
+                height: 100%
+                border-radius: 50%  
+                padding: 0
+                transition: background .2s, color .2s
+                &.valid.toMonth
+                    color: $n2
+                    +dark
+                        color: $n8
+                &:hover
+                    background: $n6 
+                    color: $n2 !important 
+                    +dark
+                        background: $n1 
+                        color: $n8 !important 
+                &.checked
+                    background: $n6
+                    border-radius: 0
+                    +dark
+                        background: $n1
+                        color: $n8 !important  
+                &.hovering
+                    border-radius: 0
+                    background: $n6 !important 
+                    +dark
+                        background: $n1 !important
+                        color: $n8 !important
+                &.real-today
+                    background: $p1 !important
+                    color: $n8 !important
+                    +dark
+                        background: $p1 !important
+                        color: $n8 !important 
+                &.day.real-today.checked,
+                &.day.real-today.hovering
+                    background: $p1
+                &.first-date-selected,
+                &.last-date-selected 
+                    position: relative
+                    border-radius: 50% !important
+                    background: $n2 !important 
+                    color: $n8 !important
+                    +dark
+                        background: $n8 !important
+                        color: $n2 !important 
+                    &:before
+                        content: ""
+                        position: absolute
+                        top: 0
+                        bottom: 0
+                        z-index: -1 
+                        width: 50%
+                        background: $n6
+                        +dark
+                            background: $n1
+                &.first-date-selected
+                    &:before
+                        right: 0
+                &.last-date-selected
+                    &:before
+                        left: 0
+    .month-name
+        +body-bold-2
+        text-transform: capitalize
+        color: $n2
+        +dark
+            color: $n8 
+    .month-element
+        +nl
+            margin-right: 5px 
+    .week-name 
+        font-size: 14px 
+        color: $n4 
+        th
+            font-weight: 500
+            text-transform: capitalize 
+    .gap
+        display: none 
+    & table .caption .next:hover,
+    & table .caption .prev:hover
+        background: none
+        path
+            fill: $p1 
+    .footer
+        display: none 

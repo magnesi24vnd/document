@@ -1,0 +1,49 @@
+{
+  "config": {
+    "chainId": 78968,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "berlinBlock": 0,
+    "londonBlock": 0,
+    "clique": {
+      "period": 3,
+      "epoch": 30000
+    }
+  },
+  "nativeCurrency": {
+    "name": "VNKR Token",
+    "symbol": "VNKR",
+    "decimals": 18
+  },
+  "difficulty": "0x1",
+  "gasLimit": "0x8000000",
+  "extradata": "0x0000000000000000000000000000000000000000000000000000000000000000<VALIDATOR_ADDRESS>0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "alloc": {
+    "0x0000000000000000000000000000000000000001": {
+      "balance": "0x1",
+      "comment": "ecrecover precompile"
+    },
+    "0xFoundationTreasury000000000000000000000": {
+      "balance": "0x52B7D2DCC80CD2E4000000",
+      "comment": "Foundation Treasury: 100,000,000 VNKR"
+    },
+    "0xCommunityReserve00000000000000000000000": {
+      "balance": "0x314DC6448D9338C15B0A00000000",
+      "comment": "Community Reserve: 300,000,000 VNKR"
+    },
+    "0xEcosystemFund0000000000000000000000000": {
+      "balance": "0x1DCD6500000000000000000000",
+      "comment": "Ecosystem Fund: 200,000,000 VNKR"
+    }
+  },
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp": "0x00"
+}

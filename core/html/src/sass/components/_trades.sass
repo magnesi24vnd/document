@@ -1,0 +1,51 @@
+.trades
+    margin-top: 4px
+    padding: 16px
+    border-radius: 4px
+    background: $n8
+    +dark
+        background: #17181B
+    .nav
+        margin-bottom: 12px
+    &__table
+        display: table
+        width: 100%
+    &__row
+        display: table-row
+        &:first-child
+            .trades__col
+                padding-bottom: 12px
+                +caption-bold-2
+                color: $n4
+        &:not(:first-child)
+            .trades__col
+                +caption-2
+                font-weight: 500
+        &:nth-child(n+12)
+            +d
+                display: none
+    &__col
+        display: table-cell
+        padding: 2px 4px
+        &:first-child
+            padding-left: 0
+        &:nth-child(2)
+            padding-right: 12px
+            text-align: right
+        &:last-child
+            padding-right: 0
+            text-align: right
+        &.positive
+            color: $p4
+        &.negative
+            color: $p3
+    &__line
+        display: inline-flex
+        align-items: center
+    .favorite
+        position: relative
+        top: -2px
+        margin-right: 4px
+    &__info
+        span
+            color: $n4

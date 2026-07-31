@@ -1,0 +1,277 @@
+---
+title: VNkr
+classPopular: section-bg section-mb0 popular
+classNews: section-bg news
+---
+extends layouts/layout
+block content
+	.section.main
+		.main__center.center
+			.main__wrap
+				h1.main__title.h1 Buy & sell <br>crypto in minutes
+				.main__text Trade Bitcoin, Ethereum, USDT, and the top altcoins on the legendary crypto asset exchange.
+				a.button.main__button(href="sign-up.html") Get started now
+				a.main__scroll.scroll.js-scroll(href="#learn")
+					.scroll__line
+						+i('arrow-bottom')
+						+i('arrow-bottom')
+			.main__bg
+				img(srcSet="img/content/cards@2x.png 2x" src="img/content/cards.png" alt="Cards")
+			.main__cards
+				a.main__card(href="exchange.html")
+					.main__icon
+						img(src="img/content/currency/bitcoin.svg" alt="Bitcoin")
+					.main__details
+						.main__line
+							.main__subtitle BTC/USDT
+							.main__negative -0.79% 
+						.main__price 36,641.20
+						.main__money 36,641.20
+				a.main__card(href="exchange.html")
+					.main__icon
+						img(src="img/content/currency/chainlink.svg" alt="Chainlink")
+					.main__details
+						.main__line
+							.main__subtitle BTC/USDT
+							.main__positive +0.79%
+						.main__price 36,641.20
+						.main__money 36,641.20
+				a.main__card(href="exchange.html")
+					.main__icon
+						img(src="img/content/currency/monero.svg" alt="Monero")
+					.main__details
+						.main__line
+							.main__subtitle BTC/USDT
+							.main__positive +0.79%
+						.main__price 36,641.20
+						.main__money 36,641.20
+				a.main__card(href="exchange.html")
+					.main__icon
+						img(src="img/content/currency/maid.svg" alt="Maid")
+					.main__details
+						.main__line
+							.main__subtitle BTC/USDT
+							.main__positive +0.79%
+						.main__price 36,641.20
+						.main__money 36,641.20
+	.section.learn
+		.learn__anchor.anchor#learn
+		.learn__center.center
+			.learn__head
+				.learn__wrap
+					h2.learn__title.h2 Learn crypto
+					.nav
+						button.nav__link.active All
+						button.nav__link Bitcoin
+						button.nav__link Blockchain
+						button.nav__link Tutorial
+				a.button-stroke.learn__button(href="learn-crypto.html") View more
+			.learn__wrapper
+				.learn__slider.js-slider-learn.js-slider-resize
+					a.learn__item(href="learn-crypto-details.html")
+						.learn__preview
+							img(srcSet="img/content/learn-pic-1@2x.jpg 2x" src="img/content/learn-pic-1.jpg" alt="Card")
+						.learn__line
+							.learn__wrap
+								.learn__subtitle Leveraged tokens now available
+								.learn__content Good things come in 3s. Get 3x Leveraged tokens now.
+							button.button-stroke.learn__button
+								span Learn more
+								+i('arrow-right')
+					a.learn__item(href="learn-crypto-details.html")
+						.learn__preview
+							img(srcSet="img/content/learn-pic-2@2x.jpg 2x" src="img/content/learn-pic-2.jpg" alt="Card")
+						.learn__details
+							.learn__subtitle Leveraged tokens now available
+							.learn__content Good things come in 3s. Get 3x Leveraged tokens now.
+							.learn__date Jun 1, 2021
+					a.learn__item(href="learn-crypto-details.html")
+						.learn__preview
+							img(srcSet="img/content/learn-pic-4@2x.jpg 2x" src="img/content/learn-pic-4.jpg" alt="Card")
+							button.play.play_small
+								+i('play')
+						.learn__details
+							.learn__subtitle Leveraged tokens now available
+							.learn__content Good things come in 3s. Get 3x Leveraged tokens now.
+							.learn__date Jun 1, 2021
+					a.learn__item(href="learn-crypto-details.html")
+						.learn__preview
+							img(srcSet="img/content/learn-pic-3@2x.jpg 2x" src="img/content/learn-pic-3.jpg" alt="Card")
+						.learn__details
+							.learn__subtitle Leveraged tokens now available
+							.learn__content Good things come in 3s. Get 3x Leveraged tokens now.
+							.learn__date Jun 1, 2021
+	.section.trend
+		.trend__center.center
+			.trend__line
+				h2.trend__title.h2 Market trend
+				a.button-stroke.trend__button(href="market.html") View more
+			.nav
+				button.nav__link.active All
+				button.nav__link DeFi
+				button.nav__link Innovation
+				button.nav__link POS
+				button.nav__link NFT
+				button.nav__link POW
+				button.nav__link Storage
+			select.select
+				option All
+				option DeFi
+				option Innovation
+				option POS
+				option NFT
+				option POW
+				option Storage 
+			.trend__table
+				.trend__row
+					.trend__col #
+					.trend__col Name
+					.trend__col Price
+					.trend__col 24h change
+					.trend__col Chart
+					.trend__col Trade
+				a.trend__row(href="exchange.html")
+					.trend__col 1
+					.trend__col
+						.trend__item
+							.trend__icon
+								img(src="img/content/currency/bitcoin.svg" alt="Bitcoin")
+							.trend__details
+								span.trend__subtitle Bitcoin
+								span.trend__currency BTC
+					.trend__col $36,201.34
+					.trend__col
+						.trend__positive +1.71%
+					.trend__col
+						.trend__chart
+							.js-chart-positive
+					.trend__col
+						button.button-stroke.button-small.trend__button Trade
+				a.trend__row(href="exchange.html")
+					.trend__col 2
+					.trend__col
+						.trend__item
+							.trend__icon
+								img(src="img/content/currency/ethereum.svg" alt="Ethereum")
+							.trend__details
+								span.trend__subtitle Ethereum
+								span.trend__currency ETH
+					.trend__col $2,605.95
+					.trend__col
+						.trend__positive +2.04%
+					.trend__col
+						.trend__chart
+							.js-chart-positive
+					.trend__col
+						button.button-stroke.button-small.trend__button Trade
+				a.trend__row(href="exchange.html")
+					.trend__col 3
+					.trend__col
+						.trend__item
+							.trend__icon
+								img(src="img/content/currency/bitcoin-cash.svg" alt="Bitcoin Cash")
+							.trend__details
+								span.trend__subtitle Bitcoin Cash
+								span.trend__currency BCH
+					.trend__col $939.20
+					.trend__col
+						.trend__negative -0.74% 
+					.trend__col
+						.trend__chart
+							.js-chart-negative
+					.trend__col
+						button.button-stroke.button-small.trend__button Trade
+				a.trend__row(href="exchange.html")
+					.trend__col 4
+					.trend__col
+						.trend__item
+							.trend__icon
+								img(src="img/content/currency/ripple.svg" alt="Ripple")
+							.trend__details
+								span.trend__subtitle Ripple
+								span.trend__currency XRP 
+					.trend__col $1.02
+					.trend__col
+						.trend__positive +1.20% 
+					.trend__col
+						.trend__chart
+							.js-chart-positive
+					.trend__col
+						button.button-stroke.button-small.trend__button Trade
+				a.trend__row(href="exchange.html")
+					.trend__col 5
+					.trend__col
+						.trend__item
+							.trend__icon
+								img(src="img/content/currency/chainlink.svg" alt="Chainlink")
+							.trend__details
+								span.trend__subtitle Chainlink
+								span.trend__currency LINK
+					.trend__col $30.56
+					.trend__col
+						.trend__negative -3.84%
+					.trend__col
+						.trend__chart
+							.js-chart-negative
+					.trend__col
+						button.button-stroke.button-small.trend__button Trade
+	include partials/popular
+	.section-mb0.download
+		.download__center.center
+			.download__bg
+				img(srcSet="img/content/download-pic@2x.png 2x" src="img/content/download-pic.png" alt="Download")
+			.download__wrap
+				h2.download__title.h2 Trade anywhere
+				.download__info Anytime, anywhere. Trade crypto on your terms.
+				.download__list
+					a.download__item(href="#")
+						.download__icon
+							img(src="img/content/apple.svg" alt="Logo")
+						.download__details
+							.download__content Download from
+							.download__subtitle Appstore
+					a.download__item(href="#")
+						.download__icon
+							img(src="img/content/google-play.svg" alt="Logo")
+						.download__details
+							.download__content Download from
+							.download__subtitle Google Play
+					a.download__item(href="#")
+						.download__icon
+							img(src="img/content/apple.svg" alt="Logo")
+						.download__details
+							.download__content Download for
+							.download__subtitle Mac OS
+	include partials/news
+	.section.steps
+		.steps__center.center
+			.steps__head
+				h2.steps__title.h2 How it works
+				.steps__info Stacks is a production-ready library of stackable content blocks built in React Native.
+			.steps__list
+				.steps__item
+					.steps__preview
+						img(srcSet="img/content/step-1@2x.png 2x" src="img/content/step-1.png" alt="Step 1")
+					.steps__number Step 1
+					.steps__subtitle Download
+					.steps__content Stacks is a production-ready  library of stackable content blocks built in React Native.
+				.steps__item
+					.steps__preview
+						img(srcSet="img/content/step-2@2x.png 2x" src="img/content/step-2.png" alt="Step 1")
+					.steps__number Step 2
+					.steps__subtitle Connect wallet
+					.steps__content Stacks is a production-ready  library of stackable content blocks built in React Native.
+				.steps__item
+					.steps__preview
+						img(srcSet="img/content/step-3@2x.png 2x" src="img/content/step-3.png" alt="Step 1")
+					.steps__number Step 3
+					.steps__subtitle Start trading
+					.steps__content Stacks is a production-ready  library of stackable content blocks built in React Native.
+				.steps__item
+					.steps__preview
+						img(srcSet="img/content/step-4@2x.png 2x" src="img/content/step-4.png" alt="Step 1")
+					.steps__number Step 4
+					.steps__subtitle Earn money
+					.steps__content Stacks is a production-ready  library of stackable content blocks built in React Native.
+
+

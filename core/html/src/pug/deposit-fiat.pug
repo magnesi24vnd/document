@@ -1,0 +1,112 @@
+---
+title: VNkr
+classPopular: section-bg section-mb0 popular
+classBankDeposit: active
+---
+extends layouts/layout
+block content
+	.bidding.js-bidding
+		.bidding__head
+			.bidding__center.center
+				h2.bidding__title.h2 Deposit fiat
+				.bidding__info How to buy crypto on VNkr
+					a.bidding__link(href="learn-crypto.html") Learn now
+						+i('arrow-right')
+		.bidding__body
+			.bidding__center.center
+				.bidding__steps
+					.bidding__step.next.js-bidding-step
+						.bidding__number 1
+						| Select currency
+					.bidding__step.js-bidding-step
+						.bidding__number 2
+						| Important notes
+					.bidding__step.js-bidding-step
+						.bidding__number 3
+						| Payment details
+				.bidding__wrapper
+					.bidding__item.js-bidding-item
+						.currency
+							.currency__title Select currency and payment method
+							.currency__row
+								.currency__col
+									.currency__label Select currency
+									.field
+										select.select
+											option USD
+											option EUR
+											option RUB
+								.currency__col
+									.currency__label Select payment
+									.field
+										select.select
+											option Bank (SWIFT)
+											option Bank (EUR)
+											option Bank (USD)
+							.currency__label Amount
+							.currency__payment 
+								.currency__sign.h4 $
+								.currency__field
+									.currency__value 50.00
+									input.currency__input(type="text" value="50.00")
+							.currency__price 
+								span.currency__result 50
+								span.currency__note USDT
+							.currency__variants
+								button.button-stroke.button-small.currency__button.active 50.00$
+								button.button-stroke.button-small.currency__button 100.00$
+								button.button-stroke.button-small.currency__button 200.00$
+								button.button-stroke.button-small.currency__button 500.00$
+							.currency__btns
+								button.button.currency__button.js-bidding-button Continue
+					.bidding__item.js-bidding-item
+						.notes
+							.notes__title Important notes
+							.notes__text We ONLY accept fundings from a bank account under your own name:
+							.notes__info Veum Cecilia
+							.notes__text You MUST include the Reference Code in your deposit in order to credit your account! <br>Reference Code:
+							.notes__code BLUTUKHY34PB
+							.notes__btns
+								button.button.notes__button.js-bidding-button Continue
+					.bidding__item.js-bidding-item
+						.notes
+							.notes__title Payment details
+							.notes__info Bank account
+							.notes__list
+								.notes__line
+									.notes__subtitle Account name
+									.notes__details
+										.notes__content Veum Cecilia
+										button.notes__copy
+											+i('copy')
+								.notes__line
+									.notes__subtitle Account number
+									.notes__details
+										.notes__content 548422222221
+										button.notes__copy
+											+i('copy')
+								.notes__line
+									.notes__subtitle Address
+									.notes__details
+										.notes__content 079 Dariana Knoll, CA
+										button.notes__copy
+											+i('copy')
+								.notes__line
+									.notes__subtitle SWIFT Code
+									.notes__details
+										.notes__content UI8
+										button.notes__copy
+											+i('copy')
+								.notes__line
+									.notes__subtitle Bank Address
+									.notes__details
+										.notes__content 55416 Powlowski Spring, CA
+										button.notes__copy
+											+i('copy')
+							.notes__info Reference code
+							.notes__text You MUST include the Reference Code in your deposit in order to credit your account! <br>Reference Code:
+							.notes__code BLUTUKHY34PB
+							.notes__foot
+								a.button-stroke.notes__button(href="wallet-overview.html") View wallet
+	include partials/popular
+

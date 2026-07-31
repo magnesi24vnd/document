@@ -1,0 +1,112 @@
+version: '3.8'
+
+# VNKR App-Chain Node Infrastructure
+# Network ID: 78968 | Native Token: VNKR
+# Docs: /var/www/document/BẢN KẾ HOẠCH ĐỀ ÁN...
+
+services:
+  vnkr-sequencer:
+    image: ghcr.io/ledgerwatch/erigon:latest
+    container_name: vnkr-sequencer-node
+    restart: always
+    ports:
+      - "8545:8545"   # HTTP RPC
+      - "8546:8546"   # WebSocket RPC
+      - "30303:30303" # P2P
+    volumes:
+      - ./data:/datadir
+      - ./genesis.json:/genesis.json:ro
+      - ./config/sequencer.toml:/config.toml:ro
+    command:
+      - --datadir=/datadir
+      - --http
+      - --http.addr=0.0.0.0
+      - --http.vhosts=*
+      - --http.corsdomain=*
+      - --http.api=eth,net,web3,personal,miner,txpool,debug
+      - --ws
+      - --ws.addr=0.0.0.0
+      - --ws.api=eth,net,web3,txpool
+      - --networkid=78968
+      - --mine
+      - --miner.etherbase=${VALIDATOR_WALLET:-0x0000000000000000000000000000000000000000}
+      - --log.console.verbosity=3
+      - --metrics
+      - --metrics.addr=0.0.0.0
+      - --metrics.port=6060
+    environment:
+      - CHAIN_ID=78968
+    networks:
+      - vnkr-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
+
+  vnkr-rpc:
+    image: ghcr.io/ledgerwatch/erigon:latest
+    container_name: vnkr-rpc-node
+    restart: always
+    ports:
+      - "8547:8545"   # HTTP RPC (public)
+      - "8548:8546"   # WebSocket RPC (public)
+    volumes:
+      - ./data:/datadir:ro
+      - ./genesis.json:/genesis.json:ro
+    command:
+      - --datadir=/datadir
+      - --http
+      - --http.addr=0.0.0.0
+      - --http.vhosts=*
+      - --http.corsdomain=*
+      - --http.api=eth,net,web3,txpool
+      - --networkid=78968
+      - --log.console.verbosity=2
+    networks:
+      - vnkr-network
+    depends_on:
+      - vnkr-sequencer
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  # Prometheus metrics collector
+  vnkr-prometheus:
+    image: prom/prometheus:latest
+    container_name: vnkr-prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - vnkr-network
+
+  # Grafana dashboard
+  vnkr-grafana:
+    image: grafana/grafana:latest
+    container_name: vnkr-grafana
+    restart: always
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-vnkr_admin_2025}
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - vnkr-network
+    depends_on:
+      - vnkr-prometheus
+
+networks:
+  vnkr-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+
+volumes:
+  grafana-data:

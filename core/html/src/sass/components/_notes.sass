@@ -1,0 +1,61 @@
+.notes
+    &__title
+        margin-bottom: 24px
+        +body-bold-1
+    &__text,
+    &__info
+        margin-bottom: 12px
+    &__text
+        color: $n4
+    &__info
+        +body-bold-2
+    &__code
+        padding: 12px
+        background: $n6
+        border-radius: 4px
+        text-align: center
+        +body-bold-2
+        +dark
+            background: $n3
+    &__btns,
+    &__foot
+        margin-top: 24px
+    &__btns
+        text-align: right
+    &__foot
+        text-align: center
+    &__button
+        min-width: 184px
+    &__list
+        margin-bottom: 32px
+    &__line
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        &:not(:last-child)
+            margin-bottom: 12px
+            padding-bottom: 12px
+            border-bottom: 1px solid $n6
+            +dark
+                border-color: $n3
+    &__subtitle
+        margin-right: auto
+        padding-right: 20px
+        color: $n4
+    &__details
+        display: flex
+        align-items: center
+    &__content
+        margin-right: 12px
+        font-weight: 500
+    &__copy
+        .icon
+            width: 24px
+            height: 24px
+            fill: $n4
+            transition: fill .2s
+        &:hover
+            .icon
+                fill: $n2
+                +dark
+                    fill: $n8

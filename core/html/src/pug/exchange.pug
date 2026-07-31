@@ -1,0 +1,815 @@
+---
+title: VNkr
+classHeader: header_wide registered
+classExchange: active
+footer: true
+---
+extends layouts/layout
+block content
+	.exchange
+		.exchange__main
+			.exchange__details
+				.exchange__box
+					.exchange__line
+						.exchange__info BTC/USDT
+						.category-green.exchange__category 10x
+					.exchange__content Bitcoin
+				.exchange__box
+					.exchange__price 36,641.20
+					.exchange__content
+						+i('coin')
+						| 36,641.20
+			.exchange__list
+				.exchange__item
+					.exchange__subtitle
+						+i('clock')
+						| 24h change
+					.exchange__content 520.80 +1.25%
+				.exchange__item
+					.exchange__subtitle
+						+i('arrow-top')
+						| 24h high
+					.exchange__content 520.80 +1.25%
+				.exchange__item
+					.exchange__subtitle
+						+i('arrow-bottom')
+						| 24h low
+					.exchange__content 520.80 +1.25%
+				.exchange__item
+					.exchange__subtitle
+						+i('chart')
+						| 24h volume
+					.exchange__content 75.655.26
+		.nav
+			button.nav__link.js-exchange-link.active(data-id="chart") Chart
+			button.nav__link.js-exchange-link(data-id="order") Order books
+			button.nav__link.js-exchange-link(data-id="trades") Trades
+		.exchange__row
+			.exchange__col.js-exchange-item.js-exchange-order
+				.balance
+					.balance__head
+						.balance__sorting
+							button.balance__direction.active
+								span(style="background-color: #FF6838;")
+								span(style="background-color: #B1B5C3;")
+								span(style="background-color: #58BD7D;")
+							button.balance__direction
+								span(style="background-color: #B1B5C3;")
+								span(style="background-color: #B1B5C3;")
+								span(style="background-color: #58BD7D;")
+							button.balance__direction
+								span(style="background-color: #FF6838;")
+								span(style="background-color: #B1B5C3;")
+								span(style="background-color: #B1B5C3;")
+						select.select
+							option 10
+							option 20
+							option 30
+					.balance__top
+						.balance__price Price (USDT)
+						.balance__amount Amounts (BTC)
+						.balance__total Total
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 42%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 50%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 100%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 32%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 20%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 50%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 32%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 15%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 32%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 50%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.negative
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__statistics.positive
+						.balance__currency 36,641.20
+						+i('arrow-top')
+						.balance__money 36,641.20
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 87%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 60%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 50%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 60%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 50%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 23%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 60%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 60%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 87%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 60%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+					.balance__item.positive
+						.balance__price 36920.12
+						.balance__amount 0.758965
+						.balance__total 28,020.98
+						.balance__line(style="width: 0.5%;")
+			.exchange__col
+				.charts.js-tabs.js-exchange-item.js-exchange-chart
+					.charts__head
+						.charts__group
+							select.select
+								option Time
+								option 1H
+								option 4H
+								option 1D
+								option 1W
+								option 1M
+							.nav
+								button.nav__link.active Time
+								button.nav__link 1H
+								button.nav__link 4H
+								button.nav__link 1D
+								button.nav__link 1W
+								button.nav__link 1M
+						.nav
+							button.nav__link.js-tabs-link.active Trading view
+							button.nav__link.js-tabs-link Depth
+					.charts__container
+						.charts__item.js-tabs-item(style="display: block;")
+							.charts__inner
+								.tradingview-widget-container
+									#tradingview_bc7d5
+									script(type='text/javascript' src='https://s3.tradingview.com/tv.js')
+									script(type='text/javascript').
+										new TradingView.widget({
+										"width": "100%",
+										"height": "100%",
+										"symbol": "NASDAQ:AAPL",
+										"interval": "D",
+										"timezone": "Etc/UTC",
+										"theme": "light",
+										"style": "1",
+										"locale": "en",
+										"toolbar_bg": "#f1f3f6",
+										"enable_publishing": false,
+										"hide_top_toolbar": true,
+										"allow_symbol_change": true,
+										"save_image": false,
+										"studies": [
+										"Volume@tv-basicstudies"
+										],
+										"container_id": "tradingview_bc7d5"
+										});
+							.charts__inner
+								.tradingview-widget-container
+									#tradingview_0a1e8
+									script(type='text/javascript' src='https://s3.tradingview.com/tv.js')
+									script(type='text/javascript').
+										new TradingView.widget({
+										"width": "100%",
+										"height": "100%",
+										"symbol": "NASDAQ:AAPL",
+										"interval": "D",
+										"timezone": "Etc/UTC",
+										"theme": "dark",
+										"style": "1",
+										"locale": "en",
+										"toolbar_bg": "#f1f3f6",
+										"enable_publishing": false,
+										"hide_top_toolbar": true,
+										"allow_symbol_change": true,
+										"save_image": false,
+										"studies": [
+										"Volume@tv-basicstudies"
+										],
+										"container_id": "tradingview_0a1e8"
+										});
+						.charts__item.js-tabs-item
+							.charts__element
+								.js-chart-depth
+				.bargaining.js-tabs
+					.bargaining__main
+						.nav
+							button.nav__link.js-tabs-link.active Limit
+							button.nav__link.js-tabs-link Stop-limit
+							button.nav__link.js-tabs-link Market
+						.bargaining__info Crypto trading tutorial
+							a(href="learn-crypto.html") Learn now
+								+i('arrow-right')
+					.bargaining__container
+						.bargaining__item.js-tabs-item(style="display: block;")
+							mixin bargainingForm(counter1, counter2, price, stop, limit)
+								.bargaining__wrapper.js-bargaining-wrapper
+									.bargaining__row
+										.bargaining__col
+											.bargaining__top
+												.bargaining__subtitle Place order
+												button.bargaining__close.js-bargaining-close
+													+i('close-circle')
+											.bargaining__head
+												.bargaining__title Buy BTC
+												.bargaining__counter
+													+i('wallet')
+													=counter1
+											.bargaining__fieldset
+												if price
+													.bargaining__field
+														.bargaining__label Price
+														input.bargaining__input(type="text" name="price" required)
+														.bargaining__currency USDT
+												if stop
+													.bargaining__field
+														.bargaining__label Stop
+														input.bargaining__input(type="text" name="stop" required)
+														.bargaining__currency BTC
+												if limit
+													.bargaining__field
+														.bargaining__label Limit
+														input.bargaining__input(type="text" name="limit" required)
+														.bargaining__currency USDT
+												.bargaining__field
+													.bargaining__label Amount
+													input.bargaining__input(type="text" name="amount" required)
+													.bargaining__currency BTC
+												.range
+													.range__slider.js-slider(
+														data-min='0'
+														data-max='100'
+														data-start='20'
+														data-step='10'
+														data-tooltips='true'
+														data-postfix='%')
+													.range__indicators
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+												.bargaining__field
+													.bargaining__label Total
+													input.bargaining__input(type="text" name="total" required)
+													.bargaining__currency BTC
+											button.button-green.bargaining__button Buy BTC
+										.bargaining__col
+											.bargaining__top
+												.bargaining__subtitle Place order
+												button.bargaining__close.js-bargaining-close
+													+i('close-circle')
+											.bargaining__head
+												.bargaining__title Sell BTC
+												.bargaining__counter
+													+i('wallet')
+													=counter2
+											.bargaining__fieldset
+												if price
+													.bargaining__field
+														.bargaining__label Price
+														input.bargaining__input(type="text" name="price" required)
+														.bargaining__currency USDT
+												if stop
+													.bargaining__field
+														.bargaining__label Stop
+														input.bargaining__input(type="text" name="stop" required)
+														.bargaining__currency BTC
+												if limit
+													.bargaining__field
+														.bargaining__label Limit
+														input.bargaining__input(type="text" name="limit" required)
+														.bargaining__currency USDT
+												.bargaining__field
+													.bargaining__label Amount
+													input.bargaining__input(type="text" name="amount" required)
+													.bargaining__currency BTC
+												.range
+													.range__slider.js-slider(
+														data-min='0'
+														data-max='100'
+														data-start='20'
+														data-step='10'
+														data-tooltips='true'
+														data-postfix='%')
+													.range__indicators
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+														span 
+												.bargaining__field
+													.bargaining__label Total
+													input.bargaining__input(type="text" name="total" required)
+													.bargaining__currency BTC
+											button.button-red.bargaining__button Sell BTC
+							+bargainingForm("10,098.36 USDT", "1.0356875565 BTC", true)
+						.bargaining__item.js-tabs-item
+							+bargainingForm("10,098.36 USDT", "1.0356875565 BTC", false, true, true)
+						.bargaining__item.js-tabs-item
+							+bargainingForm("USDT", "BTC", false, false, true)
+					.bargaining__btns
+						button.button-green.button-small.bargaining__button.js-bargaining-buy Buy
+						button.button-red.button-small.bargaining__button.js-bargaining-sell Sell
+				.table.js-exchange-item.js-exchange-chart
+					.nav
+						button.nav__link.active Market trades
+						button.nav__link My trades
+						button.nav__link Open orders
+						button.nav__link Favorites
+					select.select
+						option Market trades
+						option My trades
+						option Open orders
+						option Favorites
+					.table__inner
+						.table__row
+							.table__col
+								.sorting Time
+							.table__col
+								.sorting Price (USDT)
+							.table__col
+								.sorting Amount (BTC)
+							.table__col
+								.sorting Total (USDT)
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 0.245455484546
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 0.188888888888
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 1.000000000000
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 0.245455484546
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 0.188888888888
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 1.000000000000
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 0.245455484546
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 0.188888888888
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 1.000000000000
+							.table__col 36,641.2a09735578
+						.table__row
+							.table__col 18:05:40
+							.table__col.positive 36,641.209735578
+							.table__col 0.245455484546
+							.table__col 36,641.2a09735578
+			.exchange__col.js-exchange-item.js-exchange-trades
+				.currencies
+					.nav
+						button.nav__link.active All
+						button.nav__link Cross
+						button.nav__link Isolated
+					form.currencies__form
+						input.currencies__input(type="text" name="search" placeholder="Search" required)
+						button.currencies__result
+							+i('search')
+					.currencies__table
+						.currencies__row
+							.currencies__col
+								.sorting Pair
+							.currencies__col
+								.sorting Price
+							.currencies__col
+								.sorting Volume
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info ETC
+										span /BTC
+							.currencies__col
+								.currencies__positive 0.01052
+							.currencies__col 4,189
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info NULS
+										span /BTC
+							.currencies__col
+								.currencies__negative 0.00001
+							.currencies__col 16
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info NEO
+										span /BTC
+							.currencies__col
+								.currencies__positive 0.01057
+							.currencies__col 199
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info LINK
+										span /BTC
+							.currencies__col
+								.currencies__negative 0.0007
+							.currencies__col 1,371
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info IOTA
+										span /BTC
+							.currencies__col
+								.currencies__positive 0.0003
+							.currencies__col 186
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info ETC
+										span /BTC
+							.currencies__col
+								.currencies__positive 0.00017
+							.currencies__col 833
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info KNC
+										span /BTC
+							.currencies__col
+								.currencies__negative 0.00022
+							.currencies__col 160
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info WTC
+										span /BTC
+							.currencies__col
+								.currencies__positive 0.0002
+							.currencies__col 32
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info EOS
+										span /BTC
+							.currencies__col
+								.currencies__positive 0.0022
+							.currencies__col 1,578
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info BTC
+										span /BTC
+							.currencies__col
+								.currencies__positive 36,779
+							.currencies__col 3,477,216
+						.currencies__row
+							.currencies__col
+								.currencies__line
+									button.favorite
+										+i('star-outline')
+									.currencies__info GAS
+										span /BTC
+							.currencies__col
+								.currencies__positive 0.0002
+							.currencies__col 4,189
+				.trades
+					.nav
+						button.nav__link.active Market trades
+						button.nav__link My trades
+					.trades__table
+						.trades__row
+							.trades__col Price (USDT)
+							.trades__col Amount (BTC)
+							.trades__col Time
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.135420
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.021594
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.031675
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.078984
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.025655
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.135420
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.021594
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.031675
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.078984
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.025655
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.135420
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.021594
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.031675
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.078984
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.025655
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.135420
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.021594
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.031675
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.078984
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.025655
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.135420
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.021594
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.031675
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.078984
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.025655
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.135420
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.021594
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.031675
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.078984
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.025655
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.135420
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.021594
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.positive 36,780.64
+							.trades__col 0.031675
+							.trades__col 18:12:16
+						.trades__row
+							.trades__col.negative 36,780.64
+							.trades__col 0.078984
+							.trades__col 18:12:16

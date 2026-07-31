@@ -1,0 +1,147 @@
+.bargaining
+    margin-top: 4px
+    padding: 16px
+    background: $n8
+    border-radius: 4px
+    +t
+        position: fixed
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 5
+        margin: 0
+        box-shadow: 0px -16px 64px rgba(15, 15, 15, 0.1)
+    +dark
+        background: #17181B
+    &__main
+        display: flex
+        align-items: center
+        margin-bottom: 24px
+        +t
+            margin-bottom: 16px
+    &__info
+        +caption-2
+        font-weight: 500
+        color: $n4
+        +m
+            display: none
+        a
+            margin-left: 8px
+            color: $n2
+            transition: color .2s
+            .icon
+                width: 20px
+                height: 20px
+                transition: fill .2s
+            +dark
+                color: $n6
+                .icon
+                    fill: $n6
+            &:hover
+                color: $p1
+                .icon
+                    fill: $p1
+    .nav
+        margin-right: auto
+    .nav__link
+        &:not(:last-child)
+            margin-right: 16px
+    &__wrapper
+        +t
+            position: fixed
+            top: 100%
+            left: 0
+            right: 0
+            z-index: 6
+            background: $n8
+            padding: 16px
+            transition: all .3s
+            +dark
+                background: $n1
+            &.show
+                transform: translateY(-100%)
+                box-shadow: 0px -16px 64px rgba(15, 15, 15, 0.1)
+    &__btns
+        display: none
+        +t
+            display: flex
+            margin: 0 -6px
+        .bargaining__button
+            flex: 0 0 calc(50% - 12px)
+            width: calc(50% - 12px)
+            margin: 0 6px
+    &__item
+        display: none 
+    &__top
+        display: none
+        +t
+            display: flex
+            align-items: center
+            margin-bottom: 16px
+    &__subtitle
+        margin-right: auto
+        +body-bold-2
+        color: $n4
+    &__close
+        .icon
+            width: 24px
+            height: 24px
+            fill: $n4
+    &__row
+        display: flex
+        margin: 0 -16px
+        +t
+            display: block
+            margin: 0
+    &__col
+        flex: 0 0 calc(50% - 32px)
+        width: calc(50% - 32px)
+        margin: 0 16px
+        +rmin(1024)
+            display: block !important
+        +t
+            display: none 
+            width: 100%
+            margin: 0
+    &__head
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 16px
+    &__title
+        +body-bold-1
+    &__counter
+        +caption-bold-2
+        .icon
+            width: 16px
+            height: 16px
+            margin-right: 4px
+    &__field
+        display: flex
+        align-items: center
+        margin-bottom: 12px
+        padding: 0 16px
+        border-radius: 12px
+        box-shadow: inset 0 0 0 2px $n6
+        cursor: pointer
+        +dark
+            box-shadow: inset 0 0 0 2px $n2
+    &__input
+        flex-grow: 1
+        height: 48px
+        padding: 0 10px
+        background: none
+        text-align: right
+        +poppins
+        font-size: 14px
+        font-weight: 500
+        color: $n2
+        +dark
+            color: $n8
+    &__label,
+    &__currency
+        font-weight: 500
+        color: $n4
+        pointer-events: none
+    &__col > &__button
+        width: 100%

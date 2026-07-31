@@ -1,0 +1,104 @@
+---
+title: VNkr
+classDiscover: active
+classNews: section-bg section-mb0 news
+classHeader: registered
+---
+extends layouts/layout
+block content
+	.section.discover
+		.discover__center.center
+			.discover__head
+				h1.discover__title.h1 Blockchain & Crypto
+				.discover__info A Beginner’s Guide to TradingView
+				.discover__btns
+					a.button.discover__button.js-scroll(href="#releases") Learn now
+					a.button-stroke.discover__button.js-scroll(href="#catalog") Video tutorial
+			.discover__video
+				img(src="img/content/video-bg.jpg" alt="Video preview")
+				button.play
+					+i('play')
+	.section-bg.section-mb0.releases
+		.releases__anchor.anchor#releases
+		.releases__center.center
+			.releases__head
+				.stage-small.releases__stage Our Blog
+				.releases__wrap
+					h2.releases__title.h2 Latest Releases
+					.releases__info Stacks is a production-ready library of stackable content blocks built in React Native.
+					.nav
+						button.nav__link.active Bitcoin
+						button.nav__link Blockchain
+						button.nav__link Tutorials
+					select.select
+						option Bitcoin
+						option Blockchain
+						option Tutorials
+			.releases__list
+				a.releases__item(href="learn-crypto-details.html")
+					.releases__preview
+						img(srcSet="img/content/releases-pic-1@2x.jpg 2x" src="img/content/releases-pic-1.jpg" alt="Releases")
+					.releases__details
+						.category-red.releases__category new
+						h4.releases__subtitle.h4 A Beginner's Guide to TradingView
+						.releases__currency Ethereum
+						.releases__content A fully-featured landing page kit, including design files, and beautiful 3D illustrations editable.
+					.releases__arrow
+						+i('arrow-next')
+				a.releases__item(href="learn-crypto-details.html")
+					.releases__preview
+						img(srcSet="img/content/releases-pic-2@2x.jpg 2x" src="img/content/releases-pic-2.jpg" alt="Releases")
+					.releases__details
+						.category-green.releases__category beginner
+						h4.releases__subtitle.h4 What Is Crypto Market Sentiment?
+						.releases__currency Ethereum
+						.releases__content A fully-featured landing page kit, including design files, and beautiful 3D illustrations editable.
+					.releases__arrow
+						+i('arrow-next')
+				a.releases__item(href="learn-crypto-details.html")
+					.releases__preview
+						img(srcSet="img/content/releases-pic-3@2x.jpg 2x" src="img/content/releases-pic-3.jpg" alt="Releases")
+					.releases__details
+						.category-red.releases__category new
+						h4.releases__subtitle.h4 What Is the Ethereum Hard Fork?
+						.releases__currency Ethereum
+						.releases__content A fully-featured landing page kit, including design files, and beautiful 3D illustrations editable.
+					.releases__arrow
+						+i('arrow-next')
+	.section-padding.section-mb0.catalog
+		.catalog__anchor.anchor#catalog
+		.catalog__center.center
+			form.catalog__form
+				input.catalog__input(type="text" name="search" placeholder="Search anything about crypto" required)
+				button.button-circle.catalog__result
+					+i('search')
+			.catalog__sorting
+				select.select
+					option Recently added
+					option Long added
+				.nav
+					button.nav__link.active Tutorial
+					button.nav__link Usecase
+					button.nav__link Trading
+					button.nav__link Wallet
+				.tablet-show
+					select.select
+						option Tutorial
+						option Usecase
+						option Trading
+						option Wallet
+			.catalog__list
+				+card("img/content/article-pic-1@2x.jpg", "img/content/article-pic-1.jpg", "category-purple card__category", "video tutorial", false, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-2@2x.jpg", "img/content/article-pic-2.jpg", "category card__category", "popular", false, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-3@2x.jpg", "img/content/article-pic-3.jpg", "category-green card__category", "new", false, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-4@2x.jpg", "img/content/article-pic-4.jpg", "category-purple card__category", "video tutorial", true, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-5@2x.jpg", "img/content/article-pic-5.jpg", "category-purple card__category", "video tutorial", true, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+				+card("img/content/article-pic-6@2x.jpg", "img/content/article-pic-6.jpg", "category-blue card__category", "featured", false, "Top 7 NFT usecase", "First name Last name", "category-stroke-green card__status", "popular")
+			.catalog__btns
+				button.button-stroke.button-small.catalog__button
+					span Learn more
+					+i('arrow-down')
+	include partials/news
+
+
+		

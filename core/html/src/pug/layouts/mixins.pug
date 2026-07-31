@@ -1,0 +1,250 @@
+mixin i(name)
+	svg.icon(class='icon-' + name)
+		use(xlink:href='#icon-' + name)
+
+mixin theme(icon)
+	label.theme.js-theme
+		input.theme__input(type="checkbox")
+		if icon
+			span.theme__icon
+				+i('theme-light')
+				+i('theme-dark')
+		else
+			span.theme__inner
+				span.theme__box
+
+mixin subscription(typeInput, name, placeholder, icon, classSubscription)
+	form.subscription(class=classSubscription)
+		input.subscription__input(type=typeInput name=name placeholder=placeholder required)
+		button.subscription__btn
+			+i(icon)
+
+mixin loader(classLoader)
+	.loader(class=classLoader)
+
+mixin card(srcSet, src, classCategory, category, play, title, author, classStatus, status)
+	a.card(href="learn-crypto-details.html")
+		.card__preview
+			img(srcSet=`${srcSet} 2x` src=src alt="Card preview")
+			div(class=classCategory)=category
+			if play
+				button.play.play_small
+					+i('play')
+		.card__body
+			.card__avatar
+			.card__details
+				.card__title=title
+				.card__author=author
+			div(class=classStatus)=status
+
+mixin checkbox(text, checked)
+	label.checkbox
+		if checked
+			input.checkbox__input(type="checkbox" checked)
+		else
+			input.checkbox__input(type="checkbox")
+		span.checkbox__inner
+			span.checkbox__tick
+			span.checkbox__text=text
+
+mixin switch(checked)
+	label.switch
+		if checked
+			input.switch__input(type="checkbox" checked)
+		else
+			input.switch__input(type="checkbox")
+		span.switch__inner
+			span.switch__box
+
+mixin popupTransfer
+	.popup.popup_transfer.mfp-hide#popup-transfer
+		.popup__title.h4
+			+i('arrow-left')
+			| Transfer
+		.popup__wrap
+			.popup__category Available <br>balance
+			.popup__details
+				.popup__currency 2.56213968 ETH
+				.popup__price $10,095.35
+		.field
+			.field__label from
+			.field__wrap
+				select.select
+					option Margin
+					option Fiat and Spot
+		.popup__sign
+			+i('arrows')
+		.field
+			.field__label to
+			.field__wrap
+				select.select
+					option Fiat and Spot
+					option Margin
+		.field
+			.field__label coin
+			.field__wrap
+				select.select
+					option ETH Ethereum
+					option BTC Bitcoin
+					option TRX Tron
+		.field.field_button
+			.field__label Amount to transfer
+			.field__wrap
+				input.field__input(type="text" name="amount" required)
+				button.button-stroke.button-small.field__button Max amount
+			.field__note 2.14646231064565653 ETH available
+		button.button.popup__button Transfer
+
+mixin popupWithdraw
+	.popup.popup_withdraw.mfp-hide#popup-withdraw
+		.popup__title.h4
+			+i('arrow-left')
+			| Withdraw USDT
+		.field
+			.field__label address
+			.field__wrap
+				input.field__input(type="text" name="address" required)
+			.field__note Do not send Tether USD unless you are certain the destination supports TRC-20 transactions. If it does not, you could permanently lose access to your coins.
+		+checkbox("Save address for next time", true)
+		.popup__wrap
+			.popup__category Available <br>balance
+			.popup__details
+				.popup__currency 10075.56213968 USDT
+				.popup__price $10,095.35
+		.field.field_button
+			.field__label Amount to withdraw
+			.field__wrap
+				input.field__input(type="text" name="amount" required)
+				button.button-stroke.button-small.field__button Max amount
+			.field__note $1,000,000.00 daily withdrawal limit remaining.
+		.field
+			.field__label transaction fee
+			.field__wrap
+				input.field__input(type="text" name="transaction" placeholder="0.00000000 USDT" required)
+		.field
+			.field__label total
+			.field__wrap
+				input.field__input(type="text" name="total" placeholder="0.00000000 USDT" required)
+		a.button.popup__button.js-popup-open(href="#popup-successfully" data-effect="mfp-zoom-in") Withdraw
+
+mixin popupDeposit
+	.popup.popup_deposit.mfp-hide#popup-deposit
+		.deposit
+			.deposit__head
+				.deposit__icon
+					+i('wallet')
+				.deposit__info Select a protocol to see the corresponding address.
+				.deposit__btns
+					a.button.deposit__button.js-popup-open(href="#popup-deposit-details" data-effect="mfp-zoom-in") Deposit On Tron
+					a.button.deposit__button.js-popup-open(href="#popup-deposit-details" data-effect="mfp-zoom-in") Deposit On Ethereum
+
+mixin popupDepositDetails
+	.popup.popup_deposit.mfp-hide#popup-deposit-details
+		.deposit
+			.deposit__body
+				.deposit__title
+					a.deposit__back.js-popup-open(href="#popup-deposit" data-effect="mfp-zoom-in")
+						+i('arrow-left')
+					span.h4 Deposit USDT
+				.deposit__subtitle on Ethereum
+				.deposit__icon(style="background-color: #9757D7;")
+					+i('wallet')
+				.deposit__wrap
+					.deposit__category Total balance
+					.deposit__details
+						.deposit__currency 10075.56213968 USDT
+						.deposit__price $10,095.35
+				.deposit__stage Address
+				.deposit__content Only send USDT to this address. Sending any other asset to this address may result in the loss of your deposit!
+				.deposit__code
+					.deposit__number 0xf8aaa2b1842e796191e736434479
+					button.deposit__copy
+						+i('copy')
+				.deposit__preview
+					img(src="img/content/qr-code-1.jpg" alt="Qr code")
+				.deposit__note Please be sure that the contract address is related to the tokens that you are depositing.
+
+mixin popupBorrow
+	.popup.popup_borrow.mfp-hide#popup-borrow
+		.popup__title.h4
+			+i('arrow-left')
+			| Borrow
+		.field
+			.field__label coin
+			.field__wrap
+				select.select
+					option ETH Ethereum
+					option BTC Bitcoin
+					option TRX Tron
+		.popup__list
+			.popup__line
+				.popup__category Hourly Interest Rate:
+				.popup__details
+					.popup__price 0.00208333%
+					.popup__note 0.00208333%
+			.popup__line
+				.popup__category Borrowed:
+				.popup__details
+					.popup__price 0.00000000 ETH
+			.popup__line
+				.popup__category Maximum Borrow Amount:
+				.popup__details
+					.popup__price 0.00000000 ETH
+		.field.field_button
+			.field__label Amount to transfer
+			.field__wrap
+				input.field__input(type="text" name="amount" required)
+				button.button-stroke.button-small.field__button 100%
+			.field__note 2.14646231064565653 ETH available
+		.popup__percent
+			button.button-stroke.button-small.popup__button 25%
+			button.button-stroke.button-small.popup__button 50%
+			button.button-stroke.button-small.popup__button 75%
+			button.button-stroke.button-small.popup__button 100%
+		button.button.popup__button Confirm borrow
+
+mixin crypto
+	.crypto
+		.crypto__title Select crypto
+		form.crypto__form
+			input.crypto__input(type="text" name="search" placeholder="Search coin" required)
+			button.crypto__result
+				+i('search')
+		.crypto__table
+			.crypto__row
+				.crypto__col
+					.sorting #
+				.crypto__col
+					.sorting Name
+				.crypto__col
+					.sorting Price
+				.crypto__col 24h %
+			mixin row(number, icon, title, currency, price, classStatus, status)
+				.crypto__row.js-bidding-button
+					.crypto__col
+						.crypto__line
+							.favorite
+								+i('star-outline')
+							=number
+					.crypto__col
+						.crypto__item
+							.crypto__icon
+								img(src=icon alt="Currency")
+							.crypto__details
+								span.crypto__subtitle=title
+								span.crypto__currency=currency
+					.crypto__col=price
+					.crypto__col
+						div(class=classStatus)=status
+			+row('1', "img/content/currency/bitcoin.svg", "Bitcoin", "BTC", "$36,201.34", "crypto__positive", "+6.04%")
+			+row('2', "img/content/currency/ethereum.svg", "Ethereum", "ETH", "$2,605.95", "crypto__positive", "+6.04%")
+			+row('3', "img/content/currency/eos.svg", "EOS", "EOS.IO", "$426.32", "crypto__positive", "+6.04%")
+			+row('4', "img/content/currency/tether.svg", "Tether", "USDT", "$1.00", "crypto__positive", "+6.04%")
+			+row('5', "img/content/currency/cardano.svg", "Cardano", "ADA", "$1.86", "crypto__positive", "+6.04%")
+			+row('6', "img/content/currency/dogecoin.svg", "Dogecoin", "DOGE", "$0.4139", "crypto__negative", "-0.56")
+			+row('7', "img/content/currency/ripple.svg", "XRP", "XRP", "$1.05", "crypto__positive", "+6.04%")
+			+row('8', "img/content/currency/polkadot.svg", "Polkadot", "DOT", "$27.72", "crypto__negative", "-0.56")
+			+row('9', "img/content/currency/usd-coin.svg", "USD Coin", "USDC", "$1.00", "crypto__positive", "+6.04%")
+			+row('10', "img/content/currency/uniswap.svg", "Uniswap", "UNI", "$28.67", "crypto__positive", "+6.04%")
+
+

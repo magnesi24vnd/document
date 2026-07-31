@@ -1,0 +1,117 @@
+.trend
+    +m
+        position: relative
+        padding-bottom: 80px
+    &__line
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 40px
+        +m
+            display: block
+            margin-bottom: 32px
+        .trend__button
+            flex-shrink: 0
+            margin-left: 40px
+            +m
+                position: absolute
+                left: 32px
+                right: 32px
+                bottom: 0
+                width: calc(100% - 64px)
+                margin: 0
+    .nav
+        margin-bottom: 64px
+        +m
+            display: none
+    .nav__link
+        &:not(:last-child)
+            margin-right: 24px
+    .select
+        display: none
+        +m
+            display: block
+            margin-bottom: 32px
+    &__table
+        display: table
+        width: 100%
+    &__row
+        display: table-row
+        color: $n2
+        &:first-child
+            .trend__col
+                padding: 24px 16px
+                border-bottom: 1px solid $n6
+                color: $n4
+                +m
+                    padding: 8px
+                    &:nth-child(2)
+                        padding-left: 0
+                    &:last-child
+                        padding-right: 0
+                +dark
+                    border-color: $n3
+        &:not(:first-child)
+            border-radius: 12px 
+            transition: background .2s
+            .trend__col
+                vertical-align: middle
+                +body-bold-2
+                +m
+                    font-size: 12px
+                &:first-child
+                    border-radius: 12px 0 0 12px 
+                    color: $n4
+                    +t
+                        border-radius: 0 
+                &:last-child
+                    border-radius: 0 12px 12px 0 
+                    +t
+                        border-radius: 0 
+            &:hover
+                background: $n7
+                +t
+                    background: none
+                +dark
+                    background: $n2
+    &__col
+        display: table-cell
+        padding: 20px 16px
+        +t
+            &:nth-child(5)
+                display: none
+        +m
+            padding: 8px 8px 6px
+            font-size: 12px
+            &:first-child,
+            &:nth-child(6)
+                display: none
+            &:nth-child(2)
+                padding-left: 0
+            &:last-child
+                padding-right: 0
+        +dark
+            color: $n8
+    &__item
+        display: flex
+        align-items: center
+    &__icon
+        flex-shrink: 0
+        width: 40px
+        margin-right: 32px
+        +m
+            margin-right: 16px
+        img
+            max-width: 100%
+    &__currency
+        margin-left: 12px
+        color: $n5
+        +m
+            display: none
+    &__positive
+        color: $p4
+    &__negative
+        color: $p3
+    &__chart
+        width: 136px
+        margin: -17px 0

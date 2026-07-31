@@ -1,0 +1,249 @@
+---
+title: VNkr
+classHeader: header_wide registered
+footer: true
+classWallet: active
+---
+extends layouts/layout
+block content
+	.wallet
+		.wallet__sidebar
+			.wallet__group
+				.wallet__top
+					.wallet__color(style="background-color: #23262F;")
+					| Overview
+				.wallet__menu
+					a.wallet__link.active(href="wallet-overview.html")
+						.wallet__color(style="background-color: #23262F;")
+						| Overview
+					a.wallet__link(href="wallet-margin.html")
+						.wallet__color(style="background-color: #9757D7;")
+						| Margin
+					a.wallet__link.wallet__link_separator(href="fiat-and-spot.html")
+						.wallet__color(style="background-color: #FFD166;")
+						| Fiat and Spot
+					a.wallet__link.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in")
+						+i('arrow-next')
+						| Transfer
+					a.wallet__link(href="buy-crypto.html")
+						+i('wallet')
+						| Buy with Fiat
+					a.wallet__link(href="sell-crypto.html")
+						+i('sell')
+						| Sell for Fitat
+			.wallet__btns
+				a.button.button-small.wallet__button(href="deposit-fiat.html") Deposit
+				a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-withdraw" data-effect="mfp-zoom-in") Withdraw
+				a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in") Transfer
+		.wallet__wrapper
+			.wallet__main
+				.wallet__line
+					h4.wallet__title.h4 Overview
+					.wallet__wrap
+						+subscription("text", "search", "Search coin", "search")
+						select.select
+							option USD
+							option EUR
+							option RUB
+						button.button-black.button-small.wallet__button Show balance
+				.wallet__details
+					.wallet__info Total balance
+					.wallet__currency 
+						.wallet__number 0.27894652
+						.category-green.wallet__category BTC
+					.wallet__price $10,098.36
+			.wallet__list
+				.wallet__item
+					.wallet__head Account Balances
+					.wallet__body
+						.overview
+							.overview__list
+								.overview__item
+									.overview__head
+										.overview__title
+											.overview__color(style="background-color: #9757D7;")
+											| Margin
+										.overview__details
+											.overview__currency 0.2785689852 BTC
+											.overview__price $10,098.36
+									.overview__body
+										a.button-stroke.button-small.overview__button(href="deposit-fiat.html")
+											span Deposit
+											+i('arrow-right')
+										a.button-stroke.button-small.overview__button.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in") Transfer
+								.overview__item
+									.overview__head
+										.overview__title
+											.overview__color(style="background-color: #FFD166;")
+											| Fiat and Spot
+										.overview__details
+											.overview__currency 0.2785689852 BTC
+											.overview__price $10,098.36
+									.overview__body
+										a.button-stroke.button-small.overview__button(href="deposit-fiat.html")
+											span Deposit
+											+i('arrow-right')
+										a.button-stroke.button-small.overview__button.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in") Transfer
+								.overview__item.overview__item_soon
+									.overview__head
+										.overview__title
+											.overview__color(style="background-color: #4BC9F0;")
+											| P2P
+									.overview__body
+										.overview__soon Coming soon
+								.overview__item.overview__item_soon
+									.overview__head
+										.overview__title
+											.overview__color(style="background-color: #3772FF;")
+											| Futures
+									.overview__body
+										.overview__soon Coming soon
+				.wallet__item
+					.wallet__head Asset Balances
+					.wallet__body
+						.overview
+							.overview__wrap
+								.overview__table
+									.overview__row
+										.overview__col Asset
+										.overview__col Earn
+										.overview__col On orders
+										.overview__col Available balance
+										.overview__col Total balance
+									mixin row(icon, info, text, earn)
+										a.overview__row(href="wallet-details.html")
+											.overview__col
+												.overview__element
+													.overview__icon
+														img(src=icon alt="Currency")
+													.overview__box
+														.overview__info=info
+														.overview__text=text
+											.overview__col
+												if earn
+													.category-green.overview__category 7.46% APR
+											.overview__col
+												.overview__info 0.2785689852 BTC
+												.overview__text $10,098.36
+											.overview__col
+												.overview__info 0.2785689852 BTC
+												.overview__text $10,098.36
+											.overview__col
+												.overview__info 0.2785689852 BTC
+												.overview__text $10,098.36
+									+row("img/content/currency/bitcoin.svg", "USDT", "Tether USD", "7.46% APR")
+									+row("img/content/currency/ethereum.svg", "ETH", "Ethereum", "7.46% APR")
+									+row("img/content/currency/tether.svg", "USDT", "Tether USD")
+									+row("img/content/currency/bnb.svg", "BNB", "BNB", "7.46% APR")
+									+row("img/content/currency/ripple.svg", "XRP", "Ripple", "7.46% APR")
+									+row("img/content/currency/tron.svg", "TRX", "TRON")
+									+row("img/content/currency/chainlink.svg", "LINK", "LINK")
+									+row("img/content/currency/eos.svg", "EOS", "EOS.IO")
+									+row("img/content/currency/cardano.svg", "ADA", "Cardano", "7.46% APR")
+									+row("img/content/currency/ontology.svg", "ONT", "Ontology", "7.46% APR")
+									+row("img/content/currency/usd-coin.svg", "USDC", "USD Coin")
+				.wallet__item
+					.wallet__head Integrations
+					.wallet__body
+						.integrations
+							.integrations__list
+								.integrations__item
+									.integrations__head
+										.integrations__title Tokocrypto
+										.integrations__content Trade with Indonesian rupiah. Deposit and withdraw instantly with direct bank transfer.
+									.integrations__body
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations1")
+											span.integrations__inner
+												span.integrations__line
+													+i('line-dots')
+													span.integrations__text
+														span Active
+														span Inactive
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations1" checked)
+											span.integrations__inner
+												span.button-stroke.button-small.integrations__button
+													span.integrations__text
+														span Active
+														span Inactive
+								.integrations__item
+									.integrations__head
+										.integrations__title WazirX
+										.integrations__content Trade with WazirX. Deposit and withdraw instantly with direct bank transfer.
+									.integrations__body
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations2" checked)
+											span.integrations__inner
+												span.integrations__line
+													+i('line-dots')
+													span.integrations__text
+														span Active
+														span Inactive
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations2")
+											span.integrations__inner
+												span.button-stroke.button-small.integrations__button
+													span.integrations__text
+														span Active
+														span Inactive
+								.integrations__item
+									.integrations__head
+										.integrations__title Poloniex
+										.integrations__content Trade with Poloniex. Deposit and withdraw instantly with direct bank transfer.
+									.integrations__body
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations3")
+											span.integrations__inner
+												span.integrations__line
+													+i('line-dots')
+													span.integrations__text
+														span Active
+														span Inactive
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations3" checked)
+											span.integrations__inner
+												span.button-stroke.button-small.integrations__button
+													span.integrations__text
+														span Active
+														span Inactive
+								.integrations__item
+									.integrations__head
+										.integrations__title Binance
+										.integrations__content Trade with Binance. Deposit and withdraw instantly with direct bank transfer.
+									.integrations__body
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations4")
+											span.integrations__inner
+												span.integrations__line
+													+i('line-dots')
+													span.integrations__text
+														span Active
+														span Inactive
+										label.integrations__radio
+											input.integrations__input(type="radio" name="integrations4" checked)
+											span.integrations__inner
+												span.button-stroke.button-small.integrations__button
+													span.integrations__text
+														span Active
+														span Inactive
+	+popupTransfer
+	+popupWithdraw
+	.popup.popup_successfully.mfp-hide#popup-successfully
+		.successfully
+			.successfully__title.h2 Yay! 🎉
+			.successfully__info You successfully a withdrawal <span>100.00 USDT</span> from VNkr
+			.successfully__list
+				.successfully__item
+					.successfully__category Status
+					.successfully__content Completed
+				.successfully__item
+					.successfully__category Transaction ID
+					.successfully__content 0msx836930...87r398
+				.successfully__item
+					.successfully__category Address
+					.successfully__content 0xf8aaa2b1842e796191e736434sda....479
+			a.button.successfully__button(href="wallet-overview.html") Wallet
+
+
+

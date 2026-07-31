@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Phần 4 — Dòng tiền thực tế &amp; mô hình kinh doanh khép kín: Gas fees, phí OTC 0.1%-0.5%, Game-Fi B2B 5%-10%."/>
+  <title>Phần 4 — Dòng tiền &amp; Mô hình Kinh doanh | VNKR.VN</title>
+  <link rel="stylesheet" href="../css/design-system.css"/>
+  <style>
+    .breadcrumb { font-size:var(--font-size-sm); color:var(--color-text-muted); display:flex; align-items:center; gap:var(--space-2); flex-wrap:wrap; padding:var(--space-4) 0; }
+    .breadcrumb a { color:var(--color-text-muted); }
+    .page-hero { background:var(--color-surface); border-bottom:1px solid var(--color-border-light); padding:var(--space-12) 0 var(--space-8); }
+    .article-layout { display:grid; grid-template-columns:1fr 240px; gap:var(--space-10); align-items:start; }
+    @media(max-width:900px){ .article-layout{ grid-template-columns:1fr; } .toc{ display:none; } }
+    .toc { position:sticky; top:calc(var(--header-height) + var(--space-6)); background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-lg); padding:var(--space-4); }
+    .toc h2 { font-size:var(--font-size-sm); font-weight:var(--font-weight-semibold); margin-bottom:var(--space-3); color:var(--color-text-muted); text-transform:uppercase; letter-spacing:.5px; }
+    .toc ol { padding-left:var(--space-4); margin:0; }
+    .toc li { margin-bottom:var(--space-2); }
+    .toc a { font-size:var(--font-size-sm); color:var(--color-text-muted); }
+    .toc a:hover { color:var(--color-primary); }
+    .article-body { max-width:700px; }
+    .article-body h2 { margin-top:var(--space-10); margin-bottom:var(--space-4); padding-top:var(--space-4); border-top:1px solid var(--color-border-light); }
+    .article-body h3 { margin-top:var(--space-6); margin-bottom:var(--space-3); color:var(--color-primary); }
+    .callout { border-left:4px solid var(--color-primary); background:var(--color-primary-light); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:var(--space-4); margin:var(--space-6) 0; }
+    .callout-success { border-color:#52c41a; background:#f6ffed; }
+
+    /* Revenue stream cards */
+    .revenue-card {
+      border:1px solid var(--color-border-light); border-radius:var(--radius-lg);
+      overflow:hidden; margin-bottom:var(--space-6);
+    }
+    .revenue-card-header {
+      display:flex; align-items:center; gap:var(--space-4);
+      padding:var(--space-4) var(--space-6);
+      border-bottom:1px solid var(--color-border-light);
+    }
+    .revenue-card-body { padding:var(--space-6); }
+    .revenue-icon {
+      width:40px; height:40px; border-radius:var(--radius-md);
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; flex-shrink:0;
+    }
+    .revenue-highlight {
+      background:var(--color-surface);
+      border:1px solid var(--color-border-light);
+      border-radius:var(--radius-md);
+      padding:var(--space-4);
+      margin-top:var(--space-4);
+    }
+    .revenue-highlight .amount {
+      font-size:var(--font-size-2xl); font-weight:var(--font-weight-bold);
+      color:#389e0d;
+    }
+    .revenue-highlight .label { font-size:var(--font-size-sm); color:var(--color-text-muted); }
+  </style>
+</head>
+<body class="page-layout">
+
+  <a class="skip-link" href="#main-content">Chuyển đến nội dung chính</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="site-logo" href="../index.html" aria-label="VNKR.VN — Trang chủ">
+        <span class="logo-badge" aria-hidden="true">VNKR</span>
+        <span>vnkr.vn</span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <ul class="site-nav" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li><a href="part1-infrastructure.html">Hạ tầng Node</a></li>
+          <li><a href="part2-security.html">Bảo mật</a></li>
+          <li><a href="part3-capital.html">Vốn điều lệ</a></li>
+          <li><a href="part4-revenue.html" class="active" aria-current="page">Dòng tiền</a></li>
+          <li><a href="roadmap.html">Lộ trình</a></li>
+          <li><a href="subdomain-map.html">Sub-domain</a></li>
+        </ul>
+      </nav>
+      <button id="nav-toggle" class="burger-btn" aria-label="Mở/đóng menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="11" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="18" width="24" height="2.5" rx="1.25" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Điều hướng di động">
+    <ul class="mobile-nav" role="list">
+      <li><a href="../index.html">Tổng quan</a></li>
+      <li><a href="part1-infrastructure.html">Phần 1 — Hạ tầng Node</a></li>
+      <li><a href="part2-security.html">Phần 2 — Bảo mật</a></li>
+      <li><a href="part3-capital.html">Phần 3 — Vốn điều lệ</a></li>
+      <li><a href="part4-revenue.html" class="active">Phần 4 — Dòng tiền</a></li>
+      <li><a href="roadmap.html">Lộ trình</a></li>
+      <li><a href="subdomain-map.html">Sub-domain</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <nav aria-label="Vị trí trang">
+        <ol class="breadcrumb" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li aria-hidden="true">›</li>
+          <li><span aria-current="page">Phần 4 — Dòng tiền</span></li>
+        </ol>
+      </nav>
+      <div class="badge badge-primary">PHẦN 4 / 4</div>
+      <h1>Dòng tiền thực tế &amp; Mô hình Kinh doanh khép kín</h1>
+      <p class="text-secondary" style="max-width:640px; font-size:var(--font-size-md); margin-top:var(--space-3);">Hệ sinh thái tạo ra nguồn thu bền vững từ nhiều nguồn: Gas Fees, phí OTC 0.1%–0.5%, Game-Fi Publishing 5%–10% doanh thu ingame.</p>
+    </div>
+  </div>
+
+  <main id="main-content" class="page-content" role="main" style="padding-top:0;">
+    <section class="py-12">
+      <div class="container">
+        <div class="article-layout">
+          <article class="article-body">
+
+            <h2 id="gas-fees">1. Phí giao dịch mạng lưới (Gas Fees)</h2>
+            <div class="revenue-card">
+              <div class="revenue-card-header" style="background:#f6ffed;">
+                <div class="revenue-icon" style="background:#d9f7be;">⛽</div>
+                <div>
+                  <strong>Native Gas Fees — VNKR Token Burn</strong>
+                  <div class="text-muted" style="font-size:var(--font-size-sm);">Nguồn thu tự động từ mọi giao dịch trên mạng lưới</div>
+                </div>
+              </div>
+              <div class="revenue-card-body">
+                <p>Hàng triệu giao dịch trên các ứng dụng game-fi và thanh toán số trích một lượng nhỏ VNKR làm phí. Lượng token này được đưa vào cơ chế <strong>tự động tiêu hủy (Token Burn)</strong> hoặc phân bổ quỹ phát triển, tạo áp lực giảm cung dài hạn.</p>
+                <ul>
+                  <li>Phí thu từ mọi giao dịch (transfer, contract call, swap, mint NFT)</li>
+                  <li>Cơ chế Burn giảm tổng cung → tăng giá trị nội tại VNKR</li>
+                  <li>Một phần phân bổ cho Validator và Staking rewards</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 id="platform-fees">2. Phí giao dịch Sàn OTC &amp; Cổng thanh toán</h2>
+            <div class="revenue-card">
+              <div class="revenue-card-header" style="background:#e6f0ff;">
+                <div class="revenue-icon" style="background:#bae0ff;">💱</div>
+                <div>
+                  <strong>Platform Fees — OTC &amp; Swap</strong>
+                  <div class="text-muted" style="font-size:var(--font-size-sm);">Thu 0.1% – 0.5% trên mỗi lệnh khớp nối</div>
+                </div>
+              </div>
+              <div class="revenue-card-body">
+                <p>Thu phí từ <strong>0.1% đến 0.5%</strong> trên mỗi lệnh khớp nối tài sản số hoặc dịch vụ quy đổi trên sàn OTC và Swap AMM.</p>
+                <div class="revenue-highlight" role="note" aria-label="Ví dụ tính doanh thu">
+                  <div class="label">Ví dụ thực tế — Doanh thu ròng hàng tháng</div>
+                  <div class="amount">300.000 USD/tháng</div>
+                  <div class="label" style="margin-top:var(--space-1);">
+                    Với tổng khối lượng giao dịch <strong>100 triệu USD/tháng</strong> × phí trung bình <strong>0.3%</strong>
+                    ≈ <strong>~7,6 tỷ VNĐ/tháng</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2 id="gamefi-fees">3. Dịch vụ B2B — Game-Fi Publishing Fees</h2>
+            <div class="revenue-card">
+              <div class="revenue-card-header" style="background:#fff7e6;">
+                <div class="revenue-icon" style="background:#ffe7ba;">🎮</div>
+                <div>
+                  <strong>Game-Fi Publishing Fees — B2B</strong>
+                  <div class="text-muted" style="font-size:var(--font-size-sm);">5%–10% doanh thu ingame từ game studio bên thứ ba</div>
+                </div>
+              </div>
+              <div class="revenue-card-body">
+                <p>Cung cấp hạ tầng cổng thanh toán <strong>VNKR Pay</strong> cho các studio game bên thứ ba, thu phí tích hợp và chia sẻ từ <strong>5% đến 10% doanh thu trong game (ingame revenue)</strong>.</p>
+                <ul>
+                  <li>Phí tích hợp SDK/API một lần theo hợp đồng</li>
+                  <li>Phần trăm chia sẻ doanh thu theo tháng</li>
+                  <li>Tiềm năng: với 10 game studio mỗi studio 100k USD/tháng → thu 50k–100k USD/tháng</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 id="incentive">4. Chính sách kích cầu (Incentive Program)</h2>
+            <p>Trích một phần quỹ token hệ sinh thái để thưởng cho người dùng tích cực:</p>
+            <div class="table-wrap" style="border:1px solid var(--color-border-light); border-radius:var(--radius-lg); overflow:hidden; margin:var(--space-4) 0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Hoạt động</th>
+                    <th scope="col">Phần thưởng</th>
+                    <th scope="col">Mục tiêu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Staking VNKR</td><td>APY từ doanh thu phí hệ thống</td><td>Giảm áp lực bán, tăng HODL</td></tr>
+                  <tr><td>Chơi game Game Hub</td><td>VNKR reward (Play-to-Earn)</td><td>Thu hút người dùng trẻ</td></tr>
+                  <tr><td>Xây dựng dApp trên VNKR</td><td>Grant từ Developer Fund</td><td>Mở rộng hệ sinh thái</td></tr>
+                  <tr><td>Giới thiệu người dùng (Referral)</td><td>% phí giao dịch của người được giới thiệu</td><td>Tăng trưởng organic</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout callout-success" role="note">
+              <strong>Tổng doanh thu dự kiến:</strong> Kết hợp Gas Fees + Platform Fees + Game-Fi B2B, hệ sinh thái có thể đạt mục tiêu <strong>500.000–1.000.000 USD/tháng</strong> sau khi đủ 3 giai đoạn đầu hoàn thành (Tháng 9), tạo nền tảng tự chủ tài chính hoàn toàn.
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding-top:var(--space-8); border-top:1px solid var(--color-border-light); flex-wrap:wrap; gap:var(--space-4);">
+              <a href="part3-capital.html" class="btn btn-outline">← Phần 3 — Vốn điều lệ</a>
+              <a href="roadmap.html" class="btn btn-primary">Lộ trình Triển khai →</a>
+            </div>
+          </article>
+
+          <aside class="toc" aria-label="Mục lục trang">
+            <h2>Mục lục</h2>
+            <ol>
+              <li><a href="#gas-fees">1. Gas Fees &amp; Token Burn</a></li>
+              <li><a href="#platform-fees">2. Phí OTC &amp; Platform</a></li>
+              <li><a href="#gamefi-fees">3. Game-Fi B2B Fees</a></li>
+              <li><a href="#incentive">4. Incentive Program</a></li>
+            </ol>
+            <hr style="margin:var(--space-4) 0; border:none; border-top:1px solid var(--color-border-light);">
+            <a href="roadmap.html" class="btn btn-primary" style="font-size:var(--font-size-sm); width:100%;">Lộ trình →</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:var(--space-6); border-top:1px solid #21262d;">
+        <span>© 2025 VNKR.VN — Bảo lưu mọi quyền.</span>
+        <a href="../index.html" style="color:#8b949e;">← Về trang chủ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <style>
+    .skip-link { position:absolute; left:-9999px; top:var(--space-2); background:var(--color-primary); color:#fff; padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); font-weight:var(--font-weight-medium); z-index:9999; }
+    .skip-link:focus { left:var(--space-4); }
+    .burger-btn { display:none; background:none; border:none; cursor:pointer; color:var(--color-text-primary); padding:var(--space-2); border-radius:var(--radius-sm); min-height:var(--touch-target); min-width:var(--touch-target); align-items:center; justify-content:center; }
+    .mobile-menu { position:fixed; top:var(--header-height); left:0; right:0; background:var(--color-bg); border-bottom:1px solid var(--color-border-light); z-index:999; max-height:0; overflow:hidden; transition:max-height .25s ease; }
+    .mobile-menu.is-open { max-height:80vh; overflow-y:auto; }
+    .mobile-nav { list-style:none; padding:var(--space-2) 0; }
+    .mobile-nav a { display:flex; align-items:center; min-height:var(--touch-target); padding:0 var(--space-6); font-size:var(--font-size-base); color:var(--color-text-secondary); border-bottom:1px solid var(--color-border-light); text-decoration:none; }
+    .mobile-nav a:hover, .mobile-nav a.active { color:var(--color-primary); background:var(--color-primary-light); }
+    @media(max-width:768px){ .burger-btn{ display:inline-flex; } }
+    .table-wrap { overflow-x:auto; }
+  </style>
+</body>
+</html>

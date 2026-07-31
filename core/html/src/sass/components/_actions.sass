@@ -1,0 +1,117 @@
+.actions
+    position: relative
+    &__list
+        display: flex
+    &__item
+        &_share
+            position: relative
+        &:not(:last-child)
+            margin-right: 16px
+    &__button
+        .icon
+            width: 24px
+            height: 24px
+    &__item.active &__button
+        background: $n2
+        box-shadow: 0 0 0 2px $n2 inset
+        color: $n8
+        .icon
+            fill: $n8
+        +dark
+            background: $n3
+            box-shadow: 0 0 0 2px $n3 inset
+    &__body
+        position: absolute
+        z-index: 5 
+        border: 1px solid $n6
+        background: $n8 
+        visibility: hidden
+        opacity: 0
+        transition: all .3s
+    &__item.active &__body
+        visibility: visible
+        opacity: 1
+    &__item_share &__body
+        left: 50%
+        top: calc(100% + 8px)
+        width: 220px
+        transform: translateX(-50%)
+        padding: 32px 16px
+        box-shadow: 0px 32px 32px -8px rgba(31, 47, 70, 0.12)
+        border-radius: 16px
+        text-align: center
+        +dark
+            background: $n2
+            border-color: $n3
+    &__item_share &__body_up
+        top: auto
+        bottom: calc(100% + 8px)
+    &__title
+        margin-bottom: 24px
+        font-weight: 500
+    &__list
+        display: flex
+        justify-content: center
+    &__link
+        span
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-shrink: 0
+            width: 48px
+            height: 48px
+            border-radius: 50%
+            background: $n6
+            cursor: pointer
+            transition: all .2s
+            .icon
+                width: 20px
+                height: 20px
+                transition: fill .2s
+            &:hover
+                background: $p1
+                .icon
+                    fill: $n8
+            +dark
+                background: $n3
+                .icon
+                    fill: $n8
+                &:hover
+                    background: $p1
+                    .icon
+                        fill: $n8
+        &:not(:last-child)
+            margin-right: 24px
+    &__favorite
+        position: relative
+        .icon
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 24px
+            height: 24px
+            transform: translate(-50%,-50%)
+            transition: all .2s
+            &:nth-child(2)
+                z-index: 2
+                opacity: 0
+        &:hover
+            box-shadow: inset 0 0 0 2px $n2
+            background: $n2
+            +dark
+                box-shadow: 0 0 0 2px $n3 inset
+            .icon
+                fill: $n8
+        &.active
+            box-shadow: inset 0 0 0 2px $n2
+            background: $n2
+            color: $n2
+            .icon
+                fill: $n8
+                &:first-child
+                    opacity: 0
+                &:nth-child(2)
+                    opacity: 1
+            +dark
+                background: $n3
+                box-shadow: 0 0 0 2px $n3 inset

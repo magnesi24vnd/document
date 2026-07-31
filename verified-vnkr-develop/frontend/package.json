@@ -1,0 +1,39 @@
+{
+  "name": "verified-ohmies-frontend",
+  "version": "0.1.0",
+  "description": "The frontend for Verified Ohmies",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "deploy:preview": "source .env && yarn run vercel --build-env NEXT_PUBLIC_BACKEND_API_URL=\"$NEXT_PUBLIC_BACKEND_API_URL\" --build-env NEXT_PUBLIC_INFURA_ID=\"$NEXT_PUBLIC_INFURA_ID\"",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@material-ui/core": "4.12.3",
+    "@olympusdao/component-library": "^1.6.1",
+    "@types/js-cookie": "^3.0.1",
+    "@walletconnect/web3-provider": "1.7.1",
+    "ethers": "5.5.4",
+    "js-cookie": "^3.0.1",
+    "next": "12",
+    "next-fonts": "^1.5.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router-dom": "^6.2.1",
+    "sass": "^1.49.7",
+    "text-dots": "^1.1.0",
+    "walletlink": "2.4.7",
+    "web3modal": "1.9.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@types/react": "17.0.26",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3",
+    "vercel": "^24.0.0"
+  }
+}

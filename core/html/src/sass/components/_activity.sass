@@ -1,0 +1,296 @@
+.activity
+    padding: 32px 0
+    background: $n7
+    +m
+        background: $n8 
+    +dark
+        background: none
+    &__center
+        +d
+            padding: 0 40px
+        +m
+            padding: 0 32px
+    &__wrapper
+        padding: 40px
+        border-radius: 8px
+        background: $n8
+        +d
+            padding: 24px
+        +t
+            padding: 0
+            background: none
+        +dark
+            background: #18191D
+            +t
+                background: none
+    &__top
+        display: flex
+        align-items: center
+        margin-bottom: 32px
+        padding-bottom: 32px
+        border-bottom: 1px solid $n6
+        +m
+            display: block
+            padding: 0
+            border: none
+        +dark
+            border-color: $n3
+    .select
+        display: none
+        background: none
+        +t
+            display: block
+            width: 256px
+            margin-right: auto
+        +m
+            width: 100%
+            margin: 0 0 16px
+    .nav
+        margin-right: auto
+        +t
+            display: none
+
+    .nav__link
+        &:not(:last-child)
+            margin-right: 16px
+            +d
+                margin-right: 8px
+    &__form
+        position: relative
+        flex-shrink: 0
+        width: 276px
+        margin-right: 16px
+        +d
+            width: 230px
+        +m
+            width: 100%
+            margin: 0 0 16px
+    &__input
+        width: 100%
+        height: 40px
+        padding: 0 40px 0 14px
+        border-radius: 8px
+        background: none
+        border: 2px solid $n6
+        +poppins
+        +caption-2
+        color: $n2
+        transition: border-color .2s
+        +t
+            height: 48px
+        +dark
+            border-color: $n3
+            color: $n8
+        +placeholder
+            color: $n4
+        &:focus
+            border-color: $n4
+    &__result
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        width: 40px
+        .icon
+            width: 20px
+            height: 20px
+            fill: $n4
+            transition: fill .2s
+        &:hover
+            .icon
+                fill: $p1
+    &__line
+        display: flex
+        align-items: center
+        margin-bottom: 42px
+    &__title
+        margin-right: auto
+    &__table
+        display: table
+        width: 100%
+        +t
+            display: block
+    &__row
+        display: table-row
+        color: $n2
+        +t
+            display: flex
+            flex-wrap: wrap
+        &:first-child
+            +t
+                display: none
+            .activity__col
+                padding: 0 16px 24px
+                border-bottom: 1px solid $n6
+                +caption-bold-2
+                color: $n4
+                +dark
+                    border-color: $n3
+                &:first-child
+                    +d
+                        padding-left: 0
+                &:last-child
+                    +d
+                        padding-right: 0
+        &:not(:first-child)
+            transition: background .2s
+            .activity__col
+                vertical-align: middle
+                font-weight: 500
+                &:first-child
+                    border-radius: 12px 0 0 12px 
+                    color: $n4
+                    +t
+                        border-radius: 0 
+                &:last-child
+                    border-radius: 0 12px 12px 0
+                    +t
+                        border-radius: 0 
+            &:hover
+                background: $n7
+                +t
+                    background: none
+                +dark
+                    background: $n2
+                    +t
+                        background: none
+        &:not(:last-child)
+            +t
+                margin-bottom: 32px
+                padding-bottom: 32px
+                border-bottom: 1px solid $n6
+                +dark
+                    border-color: $n3
+    &__col
+        display: table-cell
+        padding: 20px 16px
+        font-weight: 500
+        +t
+            padding: 0
+            display: flex
+            align-items: center
+        +dark
+            color: $n8
+        &:first-child
+            +d
+                padding-left: 0
+        &:nth-child(2)
+            +t
+                margin-left: auto
+        &:nth-child(5),
+        &:nth-child(6)
+            color: $n4
+        &:last-child
+            text-align: right
+            +d
+                padding-right: 0
+        &:not(:first-child):not(:nth-child(2))
+            +t
+                flex: 0 0 100%
+                margin-top: 8px
+    &__coin
+        display: flex
+        align-items: center
+    &__icon
+        flex-shrink: 0
+        width: 32px
+        margin-right: 12px
+        img
+            max-width: 100%
+    &__label
+        display: none
+        +t
+            display: block
+            margin-right: auto
+            +caption-bold-2
+            color: $n4
+    &__item
+        position: relative
+        &_calendar
+            .activity__button
+                +m
+                    width: 100% 
+            &.active
+                & > .activity__button
+                    background: $n2
+                    box-shadow: 0 0 0 2px $n2 inset
+                    color: $n8
+                    .icon
+                        fill: $n8
+                    +dark
+                        background: $n3
+                        box-shadow: 0 0 0 2px $n3 inset
+    &__body
+        position: absolute
+        top: calc(100% + 16px)
+        right: 0
+        z-index: 2
+        background: $n8
+        border: 1px solid $n6
+        box-shadow: 0px 40px 32px -24px rgba(15, 15, 15, 0.12)
+        border-radius: 16px
+        text-align: center
+        visibility: hidden
+        opacity: 0
+        transition: all .2s
+        +dark
+            background: $n2
+            border-color: $n3
+    &__item_calendar &__body
+        width: 660px
+        padding: 16px 16px 32px
+        +m
+            display: none
+            position: static
+            width: auto
+            padding: 16px 0 0
+            border: none
+            background: none
+            box-shadow: none
+            border-radius: 0
+            visibility: visible
+            opacity: 1
+            +dark
+                background: none
+    &__item_calendar &__datepicker
+        +m
+            display: none 
+    &__item_export &__body
+        width: 364px
+        padding: 32px
+        +m
+            width: 311px
+            padding: 16px 0 24px
+    &__item.active &__body
+        visibility: visible
+        opacity: 1
+        +m
+            display: block
+    &__variants
+        display: flex
+        flex-wrap: wrap
+        margin: -8px 0 0 0
+        +m
+            margin-left: -16px 
+        .activity__button
+            margin: 8px 0 0 16px
+    &__range
+        display: none
+        width: 100%
+        margin: 8px 0 16px
+        text-align: center
+        background: none 
+        pointer-events: none
+        +poppins 
+        +body-bold-2 
+        color: $n2
+        +dark
+            color: $n8 
+    &__body &__button
+        margin-top: 16px 
+
+
+
+
+
+

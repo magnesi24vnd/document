@@ -1,0 +1,80 @@
+---
+title: VNkr
+---
+extends layouts/layout
+block content
+	.profile
+		.profile__head
+			.profile__center.center
+				h2.profile__title.h2 Profile info
+				.breadcrumbs
+					.breadcrumbs__item
+						a.breadcrumbs__link(href="index.html") Home
+					.breadcrumbs__item Profile info
+		.profile__body
+			.profile__center.center
+				.profile__sidebar
+					.profile__dropdown
+						.profile__top
+							+i('user')
+							| Profile
+						.profile__menu
+							a.profile__link.active(href="profile-info.html")
+								+i('user')
+								| Profile
+							a.profile__link(href="referrals.html")
+								+i('share')
+								| Referrals
+							a.profile__link.profile__link_separator(href="api-keys.html")
+								+i('keyboard')
+								| API keys
+							a.profile__link(href="sessions-and-login-history.html")
+								+i('laptop')
+								| Sessions & login history
+							a.profile__link(href="2fa.html")
+								+i('barcode')
+								| 2FA
+							a.profile__link(href="change-password.html")
+								+i('lock')
+								| Change password
+				.profile__wrapper
+					.account
+						.account__head
+							.account__details
+								.account__user Breanne Schinner
+								.account__email schinner@ui8.net
+								.account__level Level 2 verified
+							select.select
+								option 🇺🇸 USA
+								option 🇻🇳 VIE
+								option 🇷🇺 RUS
+						.account__settings
+							.account__title Features
+							.account__box
+								.account__subtitle level 1
+								.account__item
+									.account__category Deposit assets
+									+switch(true)
+								.account__item
+									.account__category Withdraw assets
+									.account__content Enabled $1,000,000/day
+								.account__item
+									.account__category Card purchases
+									+switch(flase)
+								.account__item
+									.account__category Bank deposit
+									+switch(flase)
+							.account__box
+								.account__subtitle level 2
+								.account__item
+									.account__category Fiat and Spot wallet
+									+switch(true)
+								.account__item
+									.account__category Margin wallet
+									.account__content Enabled 100x Leverage
+						.account__btns
+							button.button.account__button Save settings
+
+
+
+			

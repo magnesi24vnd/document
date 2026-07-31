@@ -1,0 +1,116 @@
+.entry
+    &__top
+        margin-bottom: 32px
+        padding-bottom: 32px
+        border-bottom: 1px solid $n6
+        +dark
+            border-color: $n3
+    &__title
+        margin-bottom: 32px
+        text-align: center
+    &__info
+        margin-bottom: 12px
+        text-align: center
+        +caption-2
+        color: $n4
+    &__correct
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 40px
+        padding: 0 24px
+        background: $n7
+        border-radius: 20px
+        font-weight: 500
+        color: $p4
+        +dark
+            background: $n3
+        .icon
+            width: 24px
+            height: 24px
+            margin-right: 4px
+            fill: $p4
+        span
+            color: $n2
+            +dark
+                color: $n8
+    .nav
+        justify-content: center
+        margin-bottom: 32px
+    .nav__link
+        &:not(:last-child)
+            margin-right: 24px
+    &__container
+        margin-bottom: 32px
+    &__item
+        display: none
+    &__line
+        display: flex
+        align-items: flex-end
+        .field
+            &:first-child
+                flex-shrink: 0
+                width: 128px
+                margin-right: 8px
+            &:nth-child(2)
+                flex-grow: 1
+    &__foot
+        display: flex
+        justify-content: space-between
+        margin-top: 16px
+        +caption-bold-2
+        .entry__link
+            color: $p1
+            transition: color .2s
+            &:hover
+                color: darken($p1, 10)
+    &__scan
+        +caption-bold-2
+        color: $n4
+        transition: color .2s
+        &:hover
+            color: $n2
+            +dark
+                color: $n8 
+    &__form &__button
+        width: 100%
+        margin-top: 32px
+    &__box
+        display: flex
+        margin-top: 32px
+        background: $n7
+        border-radius: 16px
+        +m
+            margin-bottom: -32px
+            background: none
+        +dark
+            background: $n2
+            +m
+                background: none
+    &__details
+        max-width: 256px
+        margin: 64px auto 0
+        padding: 32px 48px
+        border-radius: 32px 32px 0 0
+        background: $n8
+        +m
+            margin-top: 0
+            background: $n7
+        +dark
+            background: $n3
+    &__code
+        padding: 16px
+        border-radius: 8px
+        border: 2px dashed $p1
+        img
+            width: 100%
+            border-radius: 8px
+    &__wrap
+        display: none 
+    &__wrap &__button
+        width: 100%
+        margin-top: 48px
+        +dark
+            box-shadow: inset 0 0 0 2px $n4
+            &:hover
+                box-shadow: inset 0 0 0 2px $n5

@@ -1,0 +1,49 @@
+.faq1
+    padding: 32px
+    +m
+        padding: 24px
+    &__list
+        display: flex
+        flex-wrap: wrap
+        margin-top: -32px
+        +m
+            display: block
+            margin-top: -20px
+    &__item
+        display: flex
+        align-items: center
+        width: 33.333%
+        flex: 0 0 33.333%
+        margin-top: 32px
+        padding-right: 20px
+        color: $n2
+        transition: color .2s
+        +x
+            width: 50%
+            flex: 0 0 50%
+        +m
+            width: 100%
+            margin-top: 20px
+            padding-right: 0
+        +dark
+            color: $n8
+        &:hover
+            color: $p1
+    &__preview
+        flex-shrink: 0
+        width: 128px
+        margin-right: 20px
+        +m
+            margin-right: 12px
+        img
+            width: 100%
+            border-radius: 8px
+    &__details
+        flex-grow: 1
+    &__category
+        +caption-2
+        color: $n4
+    &__title
+        font-weight: 500
+    &__button
+        margin-top: 32px

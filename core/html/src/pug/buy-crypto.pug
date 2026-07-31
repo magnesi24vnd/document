@@ -1,0 +1,162 @@
+---
+title: VNkr
+classCreditCard: active
+classPopular: section-bg section-mb0 popular
+classHeader: registered
+---
+extends layouts/layout
+block content
+	.bidding.js-bidding
+		.bidding__head
+			.bidding__center.center
+				h2.bidding__title.h2 Buy crypto
+				.bidding__info How to buy crypto on VNkr
+					a.bidding__link(href="learn-crypto.html") Learn now
+						+i('arrow-right')
+		.bidding__body
+			.bidding__center.center
+				.bidding__steps
+					.bidding__step.next.js-bidding-step
+						.bidding__number 1
+						| Select crypto
+					.bidding__step.js-bidding-step
+						.bidding__number 2
+						| Enter amount
+					.bidding__step.js-bidding-step
+						.bidding__number 3
+						| Payment info
+					.bidding__step.js-bidding-step
+						.bidding__number 4
+						| Confirm order
+				.bidding__wrapper
+					.bidding__item.js-bidding-item
+						+crypto
+					.bidding__item.js-bidding-item
+						.bidding__control
+							button.bidding__back.js-bidding-back
+								+i('arrow-prev')
+								| Enter amount
+							.bidding__money Buying Bitcoin
+								img(src="img/content/currency/bitcoin.svg" alt="Coin")
+						.currency
+							.currency__payment 
+								.currency__sign.h4 $
+								.currency__field
+									.currency__value 20.00
+									input.currency__input(type="text" value="20.00")
+							.currency__price 
+								span.currency__result 20
+								span.currency__note BTC
+							.currency__variants
+								button.button-stroke.button-small.currency__button.active 20.00$
+								button.button-stroke.button-small.currency__button 50.00$
+								button.button-stroke.button-small.currency__button 100.00$
+								button.button-stroke.button-small.currency__button 200.00$
+							.currency__btns
+								button.button.currency__button.js-bidding-button Continue
+					.bidding__item.js-bidding-item
+						.bidding__control
+							button.bidding__back.js-bidding-back
+								+i('arrow-prev')
+								| Payment info
+							.bidding__money Buying Bitcoin
+								img(src="img/content/currency/bitcoin.svg" alt="Coin")
+						.payment
+							.payment__options
+								.payment__option
+									.payment__icon(style="background-color: #9757D7;")
+										+i('wallet')
+									.payment__details
+										.payment__category Spend
+										.payment__content $20.00
+								.payment__option
+									.payment__icon(style="background-color: #58BD7D;")
+										+i('wallet')
+									.payment__details
+										.payment__category Get
+										.payment__content 0.001499 BTC
+							.payment__line
+								.payment__subtitle Credit Card
+								.payment__cards
+									.payment__card
+										img(src="img/content/visa.svg" alt="Visa")
+									.payment__card
+										img(src="img/content/master-card.svg" alt="Master Card")
+							.payment__fieldset
+								.field
+									.field__label card number
+									.field__wrap
+										input.field__input(type="tel" name="card" placeholder="XXXX XXXX XXXX XXXX" required)
+								.field
+									.field__label card holder
+									.field__wrap
+										input.field__input(type="text" name="holder" placeholder="TRAN MAU TRI TAM" required)
+								.payment__row
+									.field
+										.field__label EXPIRATION DATE
+										.field__wrap
+											input.field__input(type="tel" name="date" placeholder="MM / YY" required)
+									.field
+										.field__label CVC
+										.field__wrap
+											input.field__input(type="tel" name="cvc" placeholder="CVC" required)
+								+checkbox("Save Card", true)
+								.payment__btns
+									button.button.payment__button.js-bidding-button Continue
+					.bidding__item.js-bidding-item
+						.bidding__control
+							button.bidding__back.js-bidding-back
+								+i('arrow-prev')
+								| Confirm order
+							.bidding__money Buying Bitcoin
+								img(src="img/content/currency/bitcoin.svg" alt="Coin")
+						.payment
+							.payment__options
+								.payment__option
+									.payment__icon(style="background-color: #9757D7;")
+										+i('wallet')
+									.payment__details
+										.payment__category Spend
+										.payment__content $20.00
+								.payment__option
+									.payment__icon(style="background-color: #58BD7D;")
+										+i('wallet')
+									.payment__details
+										.payment__category Get
+										.payment__content 0.001499 BTC
+								.payment__option
+									.payment__icon(style="background-color: #4BC9F0;")
+										+i('wallet')
+									.payment__details
+										.payment__category Method
+										.payment__content Credit card
+							.payment__info You are about to buy 0.001499 BTC from VNkr
+							.payment__table
+								.payment__flex
+									.payment__cell 0.001499
+									.payment__cell BTC
+								.payment__flex
+									.payment__cell Service fee
+									.payment__cell 0.000 BTC
+								.payment__flex
+									.payment__cell You will pay
+									.payment__cell $20.00 USD
+							.payment__foot
+								a.button-stroke.payment__button(href="buy-crypto.html") Cancel
+								a.button.payment__button.js-popup-open(href="#popup-successfully" data-effect="mfp-zoom-in") I understand, continue
+	include partials/popular
+	.popup.popup_successfully.mfp-hide#popup-successfully
+		.successfully
+			.successfully__title.h2 Yay! 🎉
+			.successfully__info You successfully purchased  <span>0.020202 BTC</span> from VNkr
+			.successfully__list
+				.successfully__item
+					.successfully__category Status
+					.successfully__content Completed
+				.successfully__item
+					.successfully__category Transaction ID
+					.successfully__content 0msx836930...87r398
+			.successfully__btns
+				a.button-stroke.successfully__button(href="exchange.html") Trade
+				a.button.successfully__button(href="wallet-overview.html") Wallet
+

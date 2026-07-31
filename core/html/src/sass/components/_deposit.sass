@@ -1,0 +1,142 @@
+.deposit
+    &__head
+        padding-top: 72px
+    &__head &__icon
+        background: $p2
+    &__icon
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 80px
+        height: 80px
+        margin: 0 auto 32px
+        border-radius: 50%
+        .icon
+            width: 24px
+            height: 24px
+            fill: $n8
+    &__info
+        margin-bottom: 32px
+        text-align: center
+        +body-bold-2
+    &__btns &__button
+        width: 100%
+        &:not(:last-child)
+            margin-bottom: 8px
+    &__title
+        margin-bottom: 8px
+        padding-right: 56px
+        .h4
+            +m
+                +poppins
+                font-size: 24px
+                line-height: 32px
+                font-weight: 600
+    &__back
+        position: relative
+        top: -7px
+        display: inline-block
+        margin-right: 16px
+        +m
+            top: -5px 
+        .icon
+            width: 32px
+            height: 32px
+            transition: fill .2s
+            +dark
+                fill: $n8
+        &:hover
+            .icon
+                fill: $p1
+    &__subtitle
+        margin-bottom: 32px
+        padding-left: 48px
+        +body-2
+        color: $n4
+    &__wrap
+        display: flex
+        margin-bottom: 32px
+        padding: 20px 32px
+        border-radius: 4px
+        background: $n7
+        +m
+            padding: 20px
+        +dark
+            background: $n3
+    &__category
+        position: relative
+        margin-right: auto
+        padding-left: 20px
+        font-weight: 500
+        color: $n3
+        +dark
+            color: $n6
+        &:before
+            content: ""
+            position: absolute
+            top: 6px
+            left: 0
+            width: 12px
+            height: 12px
+            border-radius: 4px
+            background: $p4
+    &__details
+        text-align: right
+        +m
+            padding-top: 2px
+    &__currency
+        +body-bold-2
+        +m
+            font-size: 14px
+    &__price
+        color: $n4
+    &__stage
+        margin-bottom: 12px
+        text-align: center
+        +body-bold-2
+    &__content
+        margin-bottom: 32px
+        text-align: center
+        +caption-2
+        color: $n4
+    &__code
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        max-width: 310px
+        height: 40px
+        margin: 0 auto 32px
+        background: $n7
+        border: 1px solid $n6
+        border-radius: 4px
+        font-weight: 500
+        +dark
+            background: $n3
+            border-color: $n3
+    &__copy
+        margin-left: 12px
+        .icon
+            width: 24px
+            height: 24px
+            fill: $n4
+            transition: fill .2s
+        &:hover
+            .icon
+                fill: $n2
+                +dark
+                    fill: $n8
+    &__preview
+        width: 160px
+        margin: 0 auto 32px
+        padding: 14px
+        border: 2px dashed $p1
+        border-radius: 12px
+        img
+            width: 100%
+            border-radius: 8px
+    &__note
+        text-align: center
+        +caption-3
+        font-weight: 500
+        color: $n4

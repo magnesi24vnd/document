@@ -1,0 +1,86 @@
+---
+title: VNkr
+header: true
+footer: true
+---
+extends layouts/layout
+block content
+	.login
+		.login__col(style="background-image: url('img/content/bg-login.png');")
+			a.login__logo(href="index.html")
+				img(src="img/logo-light.svg" alt="VNkr")
+				img(src="img/logo-dark.svg" alt="VNkr")
+		.login__col
+			.login__head Already have an account?<a class="login__link" href="sign-in.html">Login</a>
+			.login__wrap
+				.registration
+					.registration__form
+						.registration__top
+							h3.registration__title.h3 Sign up
+							.registration__info Use Your OpenID to Sign up
+							.registration__btns
+								button.button.registration__button
+									+i('google')
+									span Google
+								button.button-black.registration__button
+									+i('apple')
+									span Apple
+						.registration__info Or continue with email
+						.registration__fieldset
+							.field
+								.field__label email
+								.field__wrap
+									input.field__input(type="email" name="email" placeholder="Email address" required)
+							.field.field_view
+								.field__label password
+								.field__wrap
+									input.field__input(type="password" name="password" placeholder="Password" required)
+									button.field__view
+										+i('eye')
+							.field.field_view
+								.field__label confirm password
+								.field__wrap
+									input.field__input(type="password" name="confirm-password" placeholder="Password" required)
+									button.field__view
+										+i('eye')
+							label.checkbox
+								input.checkbox__input(type="checkbox" checked)
+								span.checkbox__inner
+									span.checkbox__tick
+									span.checkbox__text By signing up I agree that I’m 18 years of age or older, to the <a class="checkbox__link" href="#">User Agreements</a>, <a class="checkbox__link" href="#">Privacy Policy</a>, <a class="checkbox__link" href="#">Cookie Policy</a>, <a class="checkbox__link" href="#">E-Sign Consent</a>.
+						button.button.registration__button Sign up
+					.registration__confirm
+						h3.registration__title.h3 Let’s confirm it’s really you
+						.registration__info 
+							p Help us secure your account.
+							p Please complete the verifications below
+						.registration__variants
+							label.radio
+								input.radio__input(type="radio" name="confirm" checked)
+								span.radio__inner
+									span.radio__tick
+									span.radio__text Get the code by text message (SM) at  <span class="radio__phone">+1 234 567 890</span>
+							label.radio
+								input.radio__input(type="radio" name="confirm")
+								span.radio__inner
+									span.radio__tick
+									span.radio__text Get the code by email at <span class="radio__email">tranm••••••••••••@gm•••.com</span>
+						button.button.registration__button
+							span Continue
+							+i('arrow-right')
+					.registration__code
+						h3.registration__title.h3 Enter your security code
+						.registration__info We texted your code to +1 234 567 890
+						.registration__numbers
+							.registration__number
+								input(type="tel")
+							.registration__number
+								input(type="tel")
+							.registration__number
+								input(type="tel")
+							.registration__number
+								input(type="tel")
+
+
+
+					

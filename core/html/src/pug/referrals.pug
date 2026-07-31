@@ -1,0 +1,60 @@
+---
+title: VNkr
+---
+extends layouts/layout
+block content
+	.profile
+		.profile__head
+			.profile__center.center
+				h2.profile__title.h2 Referrals
+				.breadcrumbs
+					.breadcrumbs__item
+						a.breadcrumbs__link(href="index.html") Home
+					.breadcrumbs__item Referrals
+		.profile__body
+			.profile__center.center
+				.profile__sidebar
+					.profile__dropdown
+						.profile__top
+							+i('share')
+							| Referrals
+						.profile__menu
+							a.profile__link(href="profile-info.html")
+								+i('user')
+								| Profile
+							a.profile__link.active(href="referrals.html")
+								+i('share')
+								| Referrals
+							a.profile__link.profile__link_separator(href="api-keys.html")
+								+i('keyboard')
+								| API keys
+							a.profile__link(href="sessions-and-login-history.html")
+								+i('laptop')
+								| Sessions & login history
+							a.profile__link(href="2fa.html")
+								+i('barcode')
+								| 2FA
+							a.profile__link(href="change-password.html")
+								+i('lock')
+								| Change password
+				.profile__wrapper
+					.referrals
+						.referrals__stage Total rewards
+						.referrals__price.h3 1,056.00 <span>USDT</span>
+						.referrals__info You're earning 20% of the trading fees your referrals pay. Learn more
+						.referrals__wrap
+							.referrals__title Invite friends to earn 20%
+							.referrals__row
+								.referrals__col
+									.field
+										.field__label Referral link
+										.field__wrap
+											input.field__input(type="text" name="referral-link" required)
+								.referrals__col
+									.field
+										.field__label Referral code
+										.field__wrap
+											input.field__input(type="text" name="referral-code" required)
+									.category.referrals__category copied
+						a.button-stroke.referrals__button(href="wallet-overview.html") My wallet
+						

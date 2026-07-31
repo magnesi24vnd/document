@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'vnkr-sequencer'
+    static_configs:
+      - targets: ['vnkr-sequencer:6060']
+    metrics_path: /debug/metrics/prometheus
+
+  - job_name: 'vnkr-rpc'
+    static_configs:
+      - targets: ['vnkr-rpc:6060']
+    metrics_path: /debug/metrics/prometheus

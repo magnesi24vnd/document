@@ -1,0 +1,107 @@
+.integrations
+    &__list
+        display: flex
+        flex-wrap: wrap
+        margin: -2px
+        background: $n7
+        +dark
+            background: $n1
+    &__item
+        display: flex
+        flex-direction: column
+        flex: 0 0 calc(50% - 4px)
+        width: calc(50% - 4px)
+        margin: 2px
+        border-radius: 4px
+        background: $n8
+        +m
+            flex: 0 0 calc(100% - 4px)
+            width: calc(100% - 4px)
+        +dark
+            background: #18191D
+    &__head
+        display: flex
+        align-items: flex-start
+        // min-height: 89px
+        flex-grow: 1
+        padding: 20px 32px
+        border-bottom: 1px solid #F1F2F4
+        +dark
+            border-color: $n2
+    &__title
+        position: relative
+        margin-right: auto
+        padding-left: 20px
+        font-weight: 500
+        color: $n3
+        +dark
+            color: $n7
+        &:before
+            content: ""
+            position: absolute
+            top: 6px
+            left: 0
+            width: 12px
+            height: 12px
+            border-radius: 4px
+            border: 2px solid $n4
+    &__content
+        max-width: 336px
+        margin-left: 24px
+        text-align: right
+        +caption-2
+        color: $n4
+    &__body
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        padding: 20px 32px
+    &__radio
+        position: relative
+        user-select: none 
+        cursor: pointer
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
+        &:not(:last-child)
+            margin-right: 24px
+    &__input
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0 
+        &:checked + .integrations__inner
+            .integrations__line
+                color: $p4
+                .icon
+                    fill: $p4
+            .integrations__text
+                span
+                    &:first-child
+                        display: inline
+                    &:nth-child(2)
+                        display: none
+    &__line
+        display: flex
+        align-items: center
+        +button-2
+        color: $n4
+        transition: color .2s
+        .icon
+            width: 16px
+            height: 16px
+            margin-right: 12px
+            fill: $n4
+            transition: fill .2s
+            +dark
+                fill: $n4
+        &:hover
+            color: $n2
+            +dark
+                color: $n8
+                .icon
+                    fill: $n8
+    &__text
+        span
+            &:first-child
+                display: none
+    &__button
+        height: 32px

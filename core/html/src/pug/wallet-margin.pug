@@ -1,0 +1,130 @@
+---
+title: VNkr
+classHeader: header_wide registered
+footer: true
+classWallet: active
+---
+extends layouts/layout
+block content
+	.wallet
+		.wallet__sidebar
+			.wallet__group
+				.wallet__top
+					.wallet__color(style="background-color: #9757D7;")
+					| Margin
+				.wallet__menu
+					a.wallet__link(href="wallet-overview.html")
+						.wallet__color(style="background-color: #23262F;")
+						| Overview
+					a.wallet__link.active(href="wallet-margin.html")
+						.wallet__color(style="background-color: #9757D7;")
+						| Margin
+					a.wallet__link.wallet__link_separator(href="fiat-and-spot.html")
+						.wallet__color(style="background-color: #FFD166;")
+						| Fiat and Spot
+					a.wallet__link.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in")
+						+i('arrow-next')
+						| Transfer
+					a.wallet__link(href="buy-crypto.html")
+						+i('wallet')
+						| Buy with Fiat
+					a.wallet__link(href="sell-crypto.html")
+						+i('sell')
+						| Sell for Fitat
+			.wallet__btns
+				a.button.button-small.wallet__button(href="deposit-fiat.html") Deposit
+				a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-withdraw" data-effect="mfp-zoom-in") Withdraw
+				a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in") Transfer
+		.wallet__wrapper
+			.margin
+				h4.margin__title.h4 Margin
+				.margin__list
+					.margin__item
+						.margin__info Total balance
+						.margin__currency
+							.margin__number 0.27894652
+							.category-green.margin__category BTC
+						.margin__price $10,098.36
+					.margin__item.margin__item_flex
+						.margin__chart
+							img(src="img/content/chart.svg" alt="Chart")
+						.margin__details
+							.margin__info Margin level
+							.margin__currency
+								.margin__number 999.00
+								.category-green.margin__category low risk
+					.margin__item
+						.margin__stage Account Equity
+						.margin__currency
+							.margin__number 0.00000000
+							.category-gray.margin__category BTC
+			.wallet__list
+				.wallet__item
+					.wallet__head Funds
+					.wallet__body
+						.balances
+							.balances__line
+								+subscription("text", "search", "Search coin", "search")
+								a.balances__link(href=".html") Borrowing history
+									+i('arrow-right')
+							.balances__list
+								.balances__row
+									.balances__col Asset
+									.balances__col Total balance
+									.balances__col Available balance
+									.balances__col Interest
+								mixin item(icon, info, text)
+									.balances__item
+										.balances__row
+											.balances__col
+												.balances__currency
+													.balances__icon
+														img(src=icon alt="Currency")
+													.balances__details
+														.balances__info=info
+														.balances__text=text
+											.balances__col
+												.balances__info 0.2785689852 BTC
+												.balances__text $10,098.36
+											.balances__col
+												.balances__info 0.2785689852 BTC
+												.balances__text $10,098.36
+											.balances__col
+												.balances__info 0.2785689852 BTC
+												.balances__text $10,098.36
+										.balances__btns
+											a.button-stroke.button-small.balances__button.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in") Transfer
+											a.button-stroke.button-small.balances__button.js-popup-open(href="#popup-borrow" data-effect="mfp-zoom-in") Borrow
+											a.button-stroke.button-small.balances__button(href="exchange.html") Trade
+								+item("img/content/currency/bitcoin.svg", "USDT", "Tether USD")
+								+item("img/content/currency/ethereum.svg", "ETH", "Ethereum")
+								+item("img/content/currency/tether.svg", "USDT", "Tether USD")
+								+item("img/content/currency/bnb.svg", "BNB", "BNB")
+								+item("img/content/currency/ripple.svg", "XRP", "Ripple")
+								+item("img/content/currency/tron.svg", "TRX", "TRON")
+								+item("img/content/currency/chainlink.svg", "LINK", "LINK")
+								+item("img/content/currency/eos.svg", "EOS", "EOS.IO")
+								+item("img/content/currency/cardano.svg", "ADA", "Cardano")
+								+item("img/content/currency/ontology.svg", "ONT", "Ontology")
+								+item("img/content/currency/usd-coin.svg", "USDC", "USD Coin")
+	+popupTransfer
+	+popupBorrow
+	+popupWithdraw
+	.popup.popup_successfully.mfp-hide#popup-successfully
+		.successfully
+			.successfully__title.h2 Yay! 🎉
+			.successfully__info You successfully a withdrawal <span>100.00 USDT</span> from VNkr
+			.successfully__list
+				.successfully__item
+					.successfully__category Status
+					.successfully__content Completed
+				.successfully__item
+					.successfully__category Transaction ID
+					.successfully__content 0msx836930...87r398
+				.successfully__item
+					.successfully__category Address
+					.successfully__content 0xf8aaa2b1842e796191e736434sda....479
+			a.button.successfully__button(href="wallet-overview.html") Wallet
+
+
+

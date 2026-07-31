@@ -1,0 +1,52 @@
+.card
+    display: block
+    color: $n2
+    transition: color .2s
+    +dark
+        color: $n8
+    &:hover
+        color: $p1
+        .card__preview
+            img
+                transform: scale(1.1)
+    &__preview
+        position: relative
+        overflow: hidden
+        border-radius: 16px
+        img
+            width: 100%
+            transition: transform 1s
+    &__category
+        position: absolute
+        top: 8px
+        left: 8px
+        z-index: 2
+    &__body
+        display: flex
+        padding: 20px 0
+    &__avatar
+        position: relative
+        top: 2px
+        flex-shrink: 0
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        overflow: hidden
+        background: $s2
+        +dark
+            background: $n3
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    &__details
+        flex-grow: 1
+        padding: 0 16px
+    &__title
+        margin-bottom: 2px
+        +body-bold-2
+    &__author
+        +caption-2
+        color: $n4
+    &__status
+        align-self: flex-start

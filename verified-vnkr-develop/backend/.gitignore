@@ -1,0 +1,17 @@
+# Packages
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# Miscellaneous
+.tmp
+.vscode
+.env
+_.env
+.vercel
+dist
+typechain
+.next
+build

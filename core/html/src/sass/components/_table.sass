@@ -1,0 +1,55 @@
+.table
+    margin-top: 4px
+    padding: 16px
+    border-radius: 4px
+    background: $n8
+    +dark
+        background: #17181B
+    +rmin(1024)
+        display: block !important
+    .select
+        display: none
+        +m
+            display: block
+            width: 100%
+            margin-bottom: 16px
+    .nav
+        margin-bottom: 16px
+        +m
+            display: none
+    .nav__link
+        &:not(:last-child)
+            margin-right: 16px
+    &__inner
+        display: table
+        width: 100%
+    &__row
+        display: table-row
+        &:first-child
+            .table__col
+                padding-bottom: 10px
+                +caption-bold-2
+                color: $n4
+        &:not(:first-child)
+            .table__col
+                +caption-2
+                font-weight: 500
+    &__col
+        display: table-cell
+        padding: 6px
+        &:first-child
+            padding-left: 0
+            color: $n4
+        &:nth-child(3)
+            +m
+                padding-right: 0
+                text-align: right
+        &:last-child
+            padding-right: 0
+            text-align: right
+            +m
+                display: none
+        &.positive
+            color: $p4
+        &.negative
+            color: $p3

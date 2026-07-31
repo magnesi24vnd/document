@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Phần 1 — Hạ tầng Node riêng và cơ chế Gas Token Testnet → Mainnet. DevOps CLI, Docker Compose, Sequencer Node VNKR App-chain."/>
+  <title>Phần 1 — Hạ tầng Node &amp; Gas Token | VNKR.VN</title>
+  <link rel="stylesheet" href="../css/design-system.css"/>
+  <style>
+    .breadcrumb { font-size:var(--font-size-sm); color:var(--color-text-muted); display:flex; align-items:center; gap:var(--space-2); flex-wrap:wrap; padding:var(--space-4) 0; }
+    .breadcrumb a { color:var(--color-text-muted); }
+    .breadcrumb a:hover { color:var(--color-primary); }
+    .breadcrumb span[aria-current] { color:var(--color-text-primary); font-weight:var(--font-weight-medium); }
+
+    .page-hero { background:var(--color-surface); border-bottom:1px solid var(--color-border-light); padding: var(--space-12) 0 var(--space-8); }
+    .page-hero .badge { margin-bottom:var(--space-4); }
+
+    .article-layout { display:grid; grid-template-columns:1fr 240px; gap:var(--space-10); align-items:start; }
+    @media(max-width:900px){ .article-layout{ grid-template-columns:1fr; } .toc{ display:none; } }
+
+    .toc {
+      position:sticky; top:calc(var(--header-height) + var(--space-6));
+      background:var(--color-surface); border:1px solid var(--color-border-light);
+      border-radius:var(--radius-lg); padding:var(--space-4);
+    }
+    .toc h2 { font-size:var(--font-size-sm); font-weight:var(--font-weight-semibold); margin-bottom:var(--space-3); color:var(--color-text-muted); text-transform:uppercase; letter-spacing:.5px; }
+    .toc ol { padding-left:var(--space-4); margin:0; }
+    .toc li { margin-bottom:var(--space-2); }
+    .toc a { font-size:var(--font-size-sm); color:var(--color-text-muted); }
+    .toc a:hover { color:var(--color-primary); }
+
+    .article-body { max-width:700px; }
+    .article-body h2 { margin-top:var(--space-10); margin-bottom:var(--space-4); padding-top:var(--space-4); border-top:1px solid var(--color-border-light); }
+    .article-body h3 { margin-top:var(--space-6); margin-bottom:var(--space-3); color:var(--color-primary); }
+
+    .callout {
+      border-left:4px solid var(--color-primary);
+      background:var(--color-primary-light);
+      border-radius:0 var(--radius-md) var(--radius-md) 0;
+      padding:var(--space-4);
+      margin:var(--space-6) 0;
+    }
+    .callout-warning { border-color:var(--color-warning); background:var(--color-accent-gold-bg); }
+
+    .step-list { counter-reset:step; list-style:none; padding:0; }
+    .step-list li {
+      counter-increment:step;
+      display:flex; gap:var(--space-4);
+      margin-bottom:var(--space-6);
+    }
+    .step-list li::before {
+      content:counter(step);
+      min-width:32px; height:32px; border-radius:50%;
+      background:var(--color-primary); color:#fff;
+      font-size:var(--font-size-sm); font-weight:var(--font-weight-bold);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; margin-top:2px;
+    }
+  </style>
+</head>
+<body class="page-layout">
+
+  <a class="skip-link" href="#main-content">Chuyển đến nội dung chính</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="site-logo" href="../index.html" aria-label="VNKR.VN — Trang chủ">
+        <span class="logo-badge" aria-hidden="true">VNKR</span>
+        <span>vnkr.vn</span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <ul class="site-nav" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li><a href="part1-infrastructure.html" class="active" aria-current="page">Hạ tầng Node</a></li>
+          <li><a href="part2-security.html">Bảo mật</a></li>
+          <li><a href="part3-capital.html">Vốn điều lệ</a></li>
+          <li><a href="part4-revenue.html">Dòng tiền</a></li>
+          <li><a href="roadmap.html">Lộ trình</a></li>
+          <li><a href="subdomain-map.html">Sub-domain</a></li>
+        </ul>
+      </nav>
+      <button id="nav-toggle" class="burger-btn" aria-label="Mở/đóng menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="11" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="18" width="24" height="2.5" rx="1.25" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Điều hướng di động">
+    <ul class="mobile-nav" role="list">
+      <li><a href="../index.html">Tổng quan</a></li>
+      <li><a href="part1-infrastructure.html" class="active">Phần 1 — Hạ tầng Node &amp; Gas Token</a></li>
+      <li><a href="part2-security.html">Phần 2 — Bảo mật Cấp độ 4</a></li>
+      <li><a href="part3-capital.html">Phần 3 — Vốn điều lệ</a></li>
+      <li><a href="part4-revenue.html">Phần 4 — Dòng tiền</a></li>
+      <li><a href="roadmap.html">Lộ trình</a></li>
+      <li><a href="subdomain-map.html">Sub-domain</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <nav aria-label="Vị trí trang">
+        <ol class="breadcrumb" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li aria-hidden="true">›</li>
+          <li><span aria-current="page">Phần 1 — Hạ tầng Node</span></li>
+        </ol>
+      </nav>
+      <div class="badge badge-primary">PHẦN 1 / 4</div>
+      <h1>Hạ tầng Node riêng &amp; Cơ chế Gas Token</h1>
+      <p class="text-secondary" style="max-width:640px; font-size:var(--font-size-md); margin-top:var(--space-3);">Quy trình DevOps/CLI khởi chạy Node trên Ubuntu VPS và cơ chế chuyển đổi Testnet → Mainnet để VNKR trở thành Native Gas Token.</p>
+    </div>
+  </div>
+
+  <main id="main-content" class="page-content" role="main" style="padding-top:0;">
+    <section class="py-12">
+      <div class="container">
+        <div class="article-layout">
+
+          <!-- Main article -->
+          <article class="article-body" aria-labelledby="article-title">
+            <h2 id="devops-setup">1. Quy trình DevOps / CLI khởi chạy Node</h2>
+            <p>Hệ thống được triển khai trên kiến trúc <strong>EVM-Compatible App-chain</strong> (sử dụng công nghệ tương đương Polygon CDK / Erigon Client) để giải quyết bài toán tự chủ hoàn toàn mạng lưới và biến VNKR thành Native Gas Token — đóng vai trò như ETH trên Ethereum.</p>
+
+            <h3>Bước cài đặt môi trường</h3>
+            <ol class="step-list" aria-label="Các bước khởi chạy node">
+              <li>
+                <div>
+                  <strong>Cài đặt Docker, Docker Compose và công cụ cốt lõi trên Ubuntu VPS</strong>
+                  <p class="text-muted" style="margin-bottom:var(--space-3);">Chuẩn hóa môi trường hệ thống Cấp độ 4.</p>
+                  <pre><code>sudo apt update && sudo apt upgrade -y
+sudo apt install curl iptables build-essential \
+  git wget jq make gcc nano tmux htop -y</code></pre>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Khởi tạo thư mục định tuyến riêng cho mạng VNKR</strong>
+                  <pre><code>mkdir -p /var/www/core/vnkr-node && cd /var/www/core/vnkr-node</code></pre>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Cấu hình tệp <code>docker-compose.yml</code> — Sequencer Node &amp; RPC Node độc lập</strong>
+                  <pre><code>cat << 'EOF' > docker-compose.yml
+version: '3.8'
+services:
+  vnkr-sequencer:
+    image: ghcr.io/polygon/erigon:latest
+    container_name: vnkr-sequencer-node
+    restart: always
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "30303:30303"
+    volumes:
+      - /var/www/core/vnkr-node/data:/datadir
+    command:
+      - --datadir=/datadir
+      - --http
+      - --http.addr=0.0.0.0
+      - --http.vhosts=*
+      - --http.corsdomain=*
+      - --http.api=eth,net,web3,personal,miner
+      - --ws
+      - --ws.addr=0.0.0.0
+      - --ws.api=eth,net,web3
+      - --networkid=78968
+      - --mine
+      - --miner.etherbase=0xYourValidatorWalletAddressHere
+EOF</code></pre>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Khởi chạy Node ở chế độ nền qua CLI</strong>
+                  <pre><code>docker compose up -d</code></pre>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Kiểm tra trạng thái đồng bộ khối và kết nối RPC</strong>
+                  <pre><code>curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' \
+  http://localhost:8545</code></pre>
+                </div>
+              </li>
+            </ol>
+
+            <div class="callout" role="note">
+              <strong>Network ID:</strong> Mạng VNKR App-chain sử dụng <code>--networkid=78968</code> — đây là Chain ID riêng biệt, không xung đột với các mạng EVM công khai khác (Ethereum: 1, BSC: 56, Polygon: 137).
+            </div>
+
+            <h2 id="gas-token">2. Cơ chế chuyển đổi Testnet → Mainnet &amp; Gas Token</h2>
+
+            <h3>Giai đoạn Testnet</h3>
+            <p>Phát hành <strong>Test-VNKR không giới hạn</strong> thông qua Faucet Portal công khai để cộng đồng kiểm thử hợp đồng thông minh, giao dịch game-fi và tải hệ thống. Truy cập <a href="https://faucet.vnkr.vn">faucet.vnkr.vn</a>.</p>
+
+            <h3>Giai đoạn Mainnet</h3>
+            <p>Tùy chỉnh trực tiếp trong tệp <code>genesis.json</code> của mạng lưới để định nghĩa <strong>VNKR là tài sản gốc (Native Token)</strong>. Mọi giao dịch gọi hàm, chuyển khoản, hay tương tác dApp đều bắt buộc trừ trực tiếp VNKR làm phí giao dịch, tạo động lực tích lũy và thanh khoản tự nhiên.</p>
+
+            <div class="callout callout-warning" role="note">
+              <strong>⚠️ Lưu ý triển khai:</strong> Trường <code>--miner.etherbase</code> trong <code>docker-compose.yml</code> phải được thay thế bằng địa chỉ ví Validator thực tế trước khi triển khai lên Mainnet. Quản lý khóa riêng tư thông qua HSM (xem Phần 2 — Bảo mật).
+            </div>
+
+            <h2 id="network-spec">3. Thông số kỹ thuật mạng lưới</h2>
+            <div class="table-wrap" style="border:1px solid var(--color-border-light); border-radius:var(--radius-lg); overflow:hidden; margin-bottom:var(--space-6);">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Thông số</th>
+                    <th scope="col">Giá trị</th>
+                    <th scope="col">Ghi chú</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Chain ID / Network ID</td><td><strong>78968</strong></td><td>Riêng biệt cho VNKR App-chain</td></tr>
+                  <tr><td>Client</td><td>Erigon (Polygon CDK)</td><td>EVM-compatible Layer 2</td></tr>
+                  <tr><td>RPC Port</td><td>8545 (HTTP)</td><td>Tiêu chuẩn JSON-RPC</td></tr>
+                  <tr><td>WebSocket Port</td><td>8546 (WS)</td><td>Real-time subscriptions</td></tr>
+                  <tr><td>P2P Port</td><td>30303</td><td>Node discovery</td></tr>
+                  <tr><td>Native Gas Token</td><td>VNKR</td><td>Thay thế ETH làm phí GAS</td></tr>
+                  <tr><td>Consensus</td><td>PoA / PoS (Validator)</td><td>Multi-sig HSM validator</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Navigation -->
+            <div style="display:flex; justify-content:space-between; align-items:center; padding-top:var(--space-8); border-top:1px solid var(--color-border-light); flex-wrap:wrap; gap:var(--space-4);">
+              <a href="../index.html" class="btn btn-outline">← Tổng quan</a>
+              <a href="part2-security.html" class="btn btn-primary">Phần 2 — Bảo mật Cấp độ 4 →</a>
+            </div>
+          </article>
+
+          <!-- Table of Contents -->
+          <aside class="toc" aria-label="Mục lục trang">
+            <h2>Mục lục</h2>
+            <ol>
+              <li><a href="#devops-setup">1. Quy trình DevOps / CLI</a></li>
+              <li><a href="#gas-token">2. Cơ chế Gas Token</a></li>
+              <li><a href="#network-spec">3. Thông số mạng lưới</a></li>
+            </ol>
+            <hr style="margin:var(--space-4) 0; border:none; border-top:1px solid var(--color-border-light);">
+            <p style="font-size:var(--font-size-xs); color:var(--color-text-muted);">Phần tiếp theo</p>
+            <a href="part2-security.html" class="btn btn-primary" style="font-size:var(--font-size-sm); margin-top:var(--space-2); width:100%;">Bảo mật Cấp độ 4 →</a>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:var(--space-6); border-top:1px solid #21262d;">
+        <span>© 2025 VNKR.VN — Bảo lưu mọi quyền.</span>
+        <span><a href="../index.html" style="color:#8b949e;">← Về trang chủ</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <style>
+    .skip-link { position:absolute; left:-9999px; top:var(--space-2); background:var(--color-primary); color:#fff; padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); font-weight:var(--font-weight-medium); z-index:9999; }
+    .skip-link:focus { left:var(--space-4); }
+    .burger-btn { display:none; background:none; border:none; cursor:pointer; color:var(--color-text-primary); padding:var(--space-2); border-radius:var(--radius-sm); min-height:var(--touch-target); min-width:var(--touch-target); align-items:center; justify-content:center; }
+    .mobile-menu { position:fixed; top:var(--header-height); left:0; right:0; background:var(--color-bg); border-bottom:1px solid var(--color-border-light); z-index:999; max-height:0; overflow:hidden; transition:max-height .25s ease; }
+    .mobile-menu.is-open { max-height:80vh; overflow-y:auto; }
+    .mobile-nav { list-style:none; padding:var(--space-2) 0; }
+    .mobile-nav a { display:flex; align-items:center; min-height:var(--touch-target); padding:0 var(--space-6); font-size:var(--font-size-base); color:var(--color-text-secondary); border-bottom:1px solid var(--color-border-light); text-decoration:none; }
+    .mobile-nav a:hover, .mobile-nav a.active { color:var(--color-primary); background:var(--color-primary-light); }
+    @media(max-width:768px){ .burger-btn{ display:inline-flex; } }
+    .copy-btn { position:absolute; top:var(--space-2); right:var(--space-2); background:rgba(255,255,255,.15); color:#c9d1d9; border:1px solid rgba(255,255,255,.25); border-radius:var(--radius-sm); padding:var(--space-1) var(--space-3); font-size:var(--font-size-xs); cursor:pointer; transition:background .15s; }
+    .copy-btn:hover { background:rgba(255,255,255,.25); }
+    .table-wrap { overflow-x:auto; }
+  </style>
+</body>
+</html>

@@ -1,0 +1,154 @@
+---
+title: VNkr
+classHeader: header_wide registered
+footer: true
+classWallet: active
+---
+extends layouts/layout
+block content
+	.wallet
+		.wallet__sidebar
+			.wallet__group
+				.wallet__top
+					.wallet__color(style="background-color: #23262F;")
+					| Overview
+				.wallet__menu
+					a.wallet__link.active(href="wallet-overview.html")
+						.wallet__color(style="background-color: #23262F;")
+						| Overview
+					a.wallet__link(href="wallet-margin.html")
+						.wallet__color(style="background-color: #9757D7;")
+						| Margin
+					a.wallet__link.wallet__link_separator(href="fiat-and-spot.html")
+						.wallet__color(style="background-color: #FFD166;")
+						| Fiat and Spot
+					a.wallet__link.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in")
+						+i('arrow-next')
+						| Transfer
+					a.wallet__link(href="buy-crypto.html")
+						+i('wallet')
+						| Buy with Fiat
+					a.wallet__link(href="sell-crypto.html")
+						+i('sell')
+						| Sell for Fitat
+			.wallet__btns
+				a.button.button-small.wallet__button(href="deposit-fiat.html") Deposit
+				a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-withdraw" data-effect="mfp-zoom-in") Withdraw
+				a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in") Transfer
+		.wallet__wrapper
+			.wallet__main
+				.wallet__line
+					.wallet__description
+						a.wallet__back(href="wallet-overview.html")
+							+i('arrow-left')
+						.wallet__text.h4 USDT <span>Tether USD</span>
+					.wallet__control
+						a.button-small.wallet__button.js-popup-open(href="#popup-deposit" data-effect="mfp-zoom-in") Deposit
+						a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-withdraw" data-effect="mfp-zoom-in") Withdraw
+						a.button-stroke.button-small.wallet__button.js-popup-open(href="#popup-transfer" data-effect="mfp-zoom-in") Transfer
+				.wallet__details
+					.wallet__info Total balance
+					.wallet__currency 
+						.wallet__number 10075.56213968
+						.category-green.wallet__category USDT
+					.wallet__price $10,098.36
+			.wallet__list
+				.wallet__item
+					.wallet__head Account Balances
+					.wallet__body
+						.details
+							.details__row
+								.details__col
+									.details__list
+										.details__item
+											.details__title
+												.details__color(style="background-color: #9757D7;")
+												| Exchange
+											.details__wrap
+												.details__currency 10075.56213968 USDT
+												.details__price $10,095.35
+										.details__item
+											.details__title
+												.details__color(style="background-color: #FFD166;")
+												| Fiat and Spot
+											.details__wrap
+												.details__currency 0.0000000000 USDT
+												.details__price $0.00
+										.details__item
+											.details__title
+												.details__color(style="background-color: #4BC9F0;")
+												| Available
+											.details__wrap
+												.details__currency 0.0000000000 USDT
+												.details__price $0.00
+								.details__col
+									.details__info
+										.details__money USDT/USDC
+										.category-green.details__category +12.96%
+									.details__price 1.00069787 USDC
+									.details__chart
+										.js-chart-positive
+				.wallet__item
+					.wallet__head FAQ
+					.wallet__body
+						.faq1
+							.faq1__list
+								a.faq1__item(href="learn-crypto-details.html")
+									.faq1__preview
+										img(srcSet="img/content/faq-pic-1@2x.jpg 2x" src="img/content/faq-pic-1.jpg" alt="Faq")
+									.faq1__details
+										.faq1__category Blockchain
+										.faq1__title How to deposit/withdraw cryptocurrency on
+								a.faq1__item(href="learn-crypto-details.html")
+									.faq1__preview
+										img(srcSet="img/content/faq-pic-2@2x.jpg 2x" src="img/content/faq-pic-2.jpg" alt="Faq")
+									.faq1__details
+										.faq1__category Blockchain
+										.faq1__title How to deposit/withdraw cryptocurrency on
+								a.faq1__item(href="learn-crypto-details.html")
+									.faq1__preview
+										img(srcSet="img/content/faq-pic-3@2x.jpg 2x" src="img/content/faq-pic-3.jpg" alt="Faq")
+									.faq1__details
+										.faq1__category Blockchain
+										.faq1__title How to deposit/withdraw cryptocurrency on
+								a.faq1__item(href="learn-crypto-details.html")
+									.faq1__preview
+										img(srcSet="img/content/faq-pic-4@2x.jpg 2x" src="img/content/faq-pic-4.jpg" alt="Faq")
+									.faq1__details
+										.faq1__category Blockchain
+										.faq1__title How to deposit/withdraw cryptocurrency on
+								a.faq1__item(href="learn-crypto-details.html")
+									.faq1__preview
+										img(srcSet="img/content/faq-pic-5@2x.jpg 2x" src="img/content/faq-pic-5.jpg" alt="Faq")
+									.faq1__details
+										.faq1__category Blockchain
+										.faq1__title How to deposit/withdraw cryptocurrency on
+								a.faq1__item(href="learn-crypto-details.html")
+									.faq1__preview
+										img(srcSet="img/content/faq-pic-1@2x.jpg 2x" src="img/content/faq-pic-1.jpg" alt="Faq")
+									.faq1__details
+										.faq1__category Blockchain
+										.faq1__title How to deposit/withdraw cryptocurrency on
+							a.button-stroke.button-small.faq1__button(href="learn-crypto.html") View all
+	+popupTransfer
+	+popupWithdraw
+	.popup.popup_successfully.mfp-hide#popup-successfully
+		.successfully
+			.successfully__title.h2 Yay! 🎉
+			.successfully__info You successfully a withdrawal <span>100.00 USDT</span> from VNkr
+			.successfully__list
+				.successfully__item
+					.successfully__category Status
+					.successfully__content Completed
+				.successfully__item
+					.successfully__category Transaction ID
+					.successfully__content 0msx836930...87r398
+				.successfully__item
+					.successfully__category Address
+					.successfully__content 0xf8aaa2b1842e796191e736434sda....479
+			a.button.successfully__button(href="wallet-overview.html") Wallet
+	+popupDeposit
+	+popupDepositDetails
+
+
+

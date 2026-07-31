@@ -1,0 +1,133 @@
+.balance
+    border-radius: 4px
+    background: $n8
+    +dark
+        background: #17181B
+    &__head
+        display: flex
+        align-items: center
+        padding: 16px 16px 12px
+    &__sorting
+        display: flex
+        align-items: center
+        margin-right: auto
+    &__direction
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        flex-shrink: 0
+        width: 32px
+        height: 32px
+        border-radius: 4px
+        transition: all .2s
+        span
+            width: 12px
+            height: 2px
+            border-radius: 1
+            &:not(:last-child)
+                margin-bottom: 2px
+        &:hover,
+        &.active
+            background: #F1F2F4
+            +dark
+                background: $n2
+        &:not(:last-child)
+            margin-right: 12px
+    .select
+        width: 62px 
+        height: 32px
+        padding: 0 36px 0 8px
+        background: #F1F2F4
+        border-radius: 4px
+        box-shadow: none
+        font-size: 12px
+        line-height: 32px
+        +dark
+            background: $n2
+            box-shadow: inset 0 0 0 2px $n2  
+        &:before
+            right: 4px 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' viewBox='0 0 10 6'%3E%3Cpath fill-rule='evenodd' d='M9.207.793a1 1 0 0 0-1.414 0L5 3.586 2.207.793A1 1 0 1 0 .793 2.207l3.5 3.5a1 1 0 0 0 1.414 0l3.5-3.5a1 1 0 0 0 0-1.414z' fill='%23777E90'/%3E%3C/svg%3E")
+        .list
+            border-radius: 4px 
+        .option
+            padding: 4px 8px
+            font-size: 12px
+    &__top
+        display: flex
+        margin-bottom: 4px
+        padding: 4px 16px
+        +caption-bold-2
+        color: $n4
+    &__item
+        position: relative
+        display: flex
+        padding: 4px 16px
+        +caption-2
+        font-weight: 500
+        &.negative
+            .balance__line
+                background: rgba($p3, .15)
+            .balance__price
+                color: $p3
+        &.positive
+            .balance__line
+                background: rgba($p4, .15)
+            .balance__price
+                color: $p4
+        &:not(:last-child)
+            margin-bottom: 4px
+        &:nth-child(n+10)
+            +d
+                display: none
+            +t
+                display: flex
+    &__price
+        font-weight: 600
+    &__price,
+    &__amount
+        flex-shrink: 0
+        width: 70px
+    &__amount
+        text-align: right
+    &__total
+        flex-grow: 1
+        text-align: right
+    &__line
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+    &__statistics
+        display: flex
+        align-items: center
+        margin-top: 12px
+        padding: 12px 16px
+        +body-bold-2
+        +d
+            margin-top: 4px
+        +t
+            margin-top: 12px
+        .icon
+            width: 16px
+            height: 16px
+            margin-left: 8px
+        &:not(:last-child)
+            margin-bottom: 12px
+            +d
+                margin-bottom: 0
+            +t
+                margin-bottom: 12px
+        &.positive
+            .balance__currency
+                color: $p4
+            .balance__icon
+                fill: $p4
+        &.negative
+            .balance__currency
+                color: $p3
+            .balance__icon
+                fill: $p3
+    &__money
+        margin-left: 8px

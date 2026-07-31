@@ -1,0 +1,464 @@
+---
+title: VNkr
+classMarket: active
+classHeader: registered
+---
+extends layouts/layout
+block content
+	.section-mb0.home
+		.home__center.center
+			.home__wrap
+				h1.home__title.h1 Today’s Cryptocurrency prices
+				.home__text The global crypto market cap is <strong>$1.86T</strong>
+			.home__bg
+				img(srcSet="img/content/market-pic@2x.png 2x" src="img/content/market-pic.png" alt="Cards")
+	.panel
+		.panel__center.center
+			.panel__wrapper
+				.panel__body
+					.panel__list
+						a.panel__item(href="exchange.html")
+							.panel__icon
+								img(src="img/content/currency/bitcoin.svg" alt="Bitcoin")
+							.panel__details
+								.panel__line
+									.panel__title BTC/USDT
+									.panel__positive +0.79%
+								.panel__price 36,641.20
+								.panel__currency 36,641.20
+							.panel__chart
+								.js-chart-positive
+						a.panel__item(href="exchange.html")
+							.panel__icon
+								img(src="img/content/currency/ethereum.svg" alt="Ethereum")
+							.panel__details
+								.panel__line
+									.panel__title ETH/USDT
+									.panel__positive +2.96%
+								.panel__price 36,641.20
+								.panel__currency 36,641.20
+							.panel__chart
+								.js-chart-positive
+						a.panel__item(href="exchange.html")
+							.panel__icon
+								img(src="img/content/currency/maid.svg" alt="Maid")
+							.panel__details
+								.panel__line
+									.panel__title ATC/USDT
+									.panel__negative -0.79%
+								.panel__price 41.20
+								.panel__currency 41.20
+							.panel__chart
+								.js-chart-negative
+				.panel__foot
+					.nav
+						button.nav__link.active Cryptocurrencies
+						button.nav__link DeFi
+						button.nav__link Innovation
+						button.nav__link POS
+						button.nav__link NFT
+						button.nav__link POW
+					a.button-stroke.button-small.panel__button(href="exchange.html") Trade
+					select.select
+						option Cryptocurrencies
+						option DeFi
+						option Innovation
+						option POS
+						option NFT
+						option POW
+	.section.market
+		.market__center.center
+			.market__table
+				.market__row
+					.market__col
+						.sorting #
+					.market__col
+						.sorting Name
+					.market__col
+						.sorting Price
+					.market__col 24h %
+					.market__col 7d %
+					.market__col Marketcap
+						+i('coin')
+					.market__col Volume (24h)
+						+i('chart')
+					.market__col Chart
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 1
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/bitcoin.svg" alt="Bitcoin")
+							.market__details
+								span.market__subtitle Bitcoin
+								span.market__currency BTC
+					.market__col 
+						.market__label Price
+						| $36,201.34
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__negative -1.71%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-positive
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite.active
+								+i('star-outline')
+							| 2
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/ethereum.svg" alt="Ethereum")
+							.market__details
+								span.market__subtitle Ethereum
+								span.market__currency ETH
+					.market__col 
+						.market__label Price
+						| $2,605.95
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__positive +0.05%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-positive
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 3
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/eos.svg" alt="Eos")
+							.market__details
+								span.market__subtitle EOS
+								span.market__currency EOS.IO
+					.market__col 
+						.market__label Price
+						| $426.32
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__positive +0.05%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-positive
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 4
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/tether.svg" alt="Tether")
+							.market__details
+								span.market__subtitle Tether
+								span.market__currency USDT
+					.market__col 
+						.market__label Price
+						| $1.00
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__negative -1.71%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-negative
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 5
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/cardano.svg" alt="Cardano")
+							.market__details
+								span.market__subtitle Cardano
+								span.market__currency ADA
+					.market__col 
+						.market__label Price
+						| $1.86
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__negative -1.71%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-positive
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 6
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/dogecoin.svg" alt="Dogecoin")
+							.market__details
+								span.market__subtitle Dogecoin
+								span.market__currency DOGE
+					.market__col 
+						.market__label Price
+						| $0.4139
+					.market__col
+						.market__label 24h
+						.market__negative -0.56
+					.market__col 
+						.market__label 7d
+						.market__positive +0.05%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-positive
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 7
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/ripple.svg" alt="Ripple")
+							.market__details
+								span.market__subtitle XRP
+								span.market__currency XRP
+					.market__col 
+						.market__label Price
+						| $1.05
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__positive +0.05%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-negative
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 8
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/polkadot.svg" alt="Polkadot")
+							.market__details
+								span.market__subtitle Polkadot
+								span.market__currency DOT
+					.market__col 
+						.market__label Price
+						| $27.72
+					.market__col
+						.market__label 24h
+						.market__negative -0.56
+					.market__col 
+						.market__label 7d
+						.market__positive +0.05%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-positive
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 9
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/usd-coin.svg" alt="USD Coin")
+							.market__details
+								span.market__subtitle USD Coin
+								span.market__currency USDC
+					.market__col 
+						.market__label Price
+						| $1.00
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__positive +0.05%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-negative
+						a.button-small.market__button(href="exchange.html") Buy
+				.market__row
+					.market__col
+						.market__line
+							button.favorite
+								+i('star-outline')
+							| 10
+					.market__col
+						.market__item
+							.market__icon
+								img(src="img/content/currency/uniswap.svg" alt="Uniswap")
+							.market__details
+								span.market__subtitle Uniswap
+								span.market__currency UNI
+					.market__col 
+						.market__label Price
+						| $28.67
+					.market__col
+						.market__label 24h
+						.market__positive +6.04%
+					.market__col 
+						.market__label 7d
+						.market__negative -1.71%
+					.market__col 
+						.market__label Marketcap
+						| $328,564,656,654
+					.market__col 
+						.market__label Volume (24h)
+						| $328,564,656,654
+					.market__col
+						.market__chart
+							.js-chart-positive
+						a.button-small.market__button(href="exchange.html") Buy
+	.section.lessons
+		.lessons__center.center
+			.lessons__head
+				h2.lessons__title.h2 Learn and earn
+				.lessons__info Stacks is a production-ready library of stackable content blocks built in React Native.
+			.lessons__list
+				a.lessons__item(href="learn-crypto.html")
+					.lessons__preview
+						img(srcSet="img/content/lessons-pic-1@2x.jpg 2x" src="img/content/lessons-pic-1.jpg" alt="Lesson")
+						button.play.play_small
+							+i('play')
+					.category-purple.lessons__category learn & earn
+					.lessons__subtitle Learn about UI8 coin and earn an All-Access Pass
+					.lessons__line
+						.lessons__author
+							.lessons__avatar Floyd Buckridge
+							.lessons__man
+						.lessons__date Feb 03, 2021
+				a.lessons__item(href="learn-crypto.html")
+					.lessons__preview
+						img(srcSet="img/content/lessons-pic-2@2x.jpg 2x" src="img/content/lessons-pic-2.jpg" alt="Lesson")
+					.category-green.lessons__category weekly watchlist airdrop
+					.lessons__subtitle Submit your watchlist and win USDT
+					.lessons__line
+						.lessons__author
+							.lessons__avatar
+							.lessons__man Floyd Buckridge
+						.lessons__date Feb 03, 2021
+				a.lessons__item(href="learn-crypto.html")
+					.lessons__preview
+						img(srcSet="img/content/lessons-pic-3@2x.jpg 2x" src="img/content/lessons-pic-3.jpg" alt="Lesson")
+						button.play.play_small
+							+i('play')
+					.category-blue.lessons__category featured
+					.lessons__subtitle Submit your watchlist and win USDT
+					.lessons__line
+						.lessons__author
+							.lessons__avatar
+							.lessons__man Floyd Buckridge
+						.lessons__date Feb 03, 2021
+				a.lessons__item(href="learn-crypto.html")
+					.lessons__preview
+						img(srcSet="img/content/lessons-pic-1@2x.jpg 2x" src="img/content/lessons-pic-1.jpg" alt="Lesson")
+						button.play.play_small
+							+i('play')
+					.category-purple.lessons__category learn & earn
+					.lessons__subtitle Learn about UI8 coin and earn an All-Access Pass
+					.lessons__line
+						.lessons__author
+							.lessons__avatar Floyd Buckridge
+							.lessons__man
+						.lessons__date Feb 03, 2021
+			.lessons__btns
+				button.button-stroke.button-small.lessons__button
+					+loader
+					span Load more
+
+
+				

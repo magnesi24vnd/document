@@ -1,0 +1,118 @@
+<!--
+  _header.html  — Shared site header component (include in every page)
+  Accessibility: <header> landmark, aria-label, min 44px touch targets,
+                 skip-to-main link for screen readers
+-->
+<a class="skip-link" href="#main-content">Chuyển đến nội dung chính</a>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <!-- Logo -->
+    <a class="site-logo" href="index.html" aria-label="VNKR.VN — Trang chủ">
+      <span class="logo-badge" aria-hidden="true">VNKR</span>
+      <span>vnkr.vn</span>
+    </a>
+
+    <!-- Desktop navigation -->
+    <nav aria-label="Điều hướng chính">
+      <ul class="site-nav" role="list">
+        <li><a href="index.html">Tổng quan</a></li>
+        <li><a href="pages/part1-infrastructure.html">Hạ tầng Node</a></li>
+        <li><a href="pages/part2-security.html">Bảo mật</a></li>
+        <li><a href="pages/part3-capital.html">Vốn điều lệ</a></li>
+        <li><a href="pages/part4-revenue.html">Dòng tiền</a></li>
+        <li><a href="pages/roadmap.html">Lộ trình</a></li>
+        <li><a href="pages/subdomain-map.html">Sub-domain</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile burger -->
+    <button
+      id="nav-toggle"
+      class="burger-btn"
+      aria-label="Mở / đóng menu điều hướng"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <rect y="4"  width="24" height="2.5" rx="1.25" fill="currentColor"/>
+        <rect y="11" width="24" height="2.5" rx="1.25" fill="currentColor"/>
+        <rect y="18" width="24" height="2.5" rx="1.25" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu (hidden by default) -->
+<nav id="mobile-menu" class="mobile-menu" aria-label="Điều hướng di động">
+  <ul class="mobile-nav" role="list">
+    <li><a href="index.html">Tổng quan</a></li>
+    <li><a href="pages/part1-infrastructure.html">Phần 1 — Hạ tầng Node &amp; Gas Token</a></li>
+    <li><a href="pages/part2-security.html">Phần 2 — Tiêu chuẩn An toàn Cấp độ 4</a></li>
+    <li><a href="pages/part3-capital.html">Phần 3 — Chứng minh Vốn điều lệ</a></li>
+    <li><a href="pages/part4-revenue.html">Phần 4 — Dòng tiền &amp; Mô hình Kinh doanh</a></li>
+    <li><a href="pages/roadmap.html">Lộ trình Triển khai</a></li>
+    <li><a href="pages/subdomain-map.html">Bảng Sub-domain</a></li>
+  </ul>
+</nav>
+
+<style>
+/* Skip-link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: var(--space-2);
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  z-index: 9999;
+}
+.skip-link:focus { left: var(--space-4); }
+
+/* Burger button */
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: var(--header-height);
+  left: 0; right: 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border-light);
+  z-index: 999;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .25s ease;
+}
+.mobile-menu.is-open { max-height: 80vh; overflow-y: auto; }
+.mobile-nav { list-style: none; padding: var(--space-2) 0; }
+.mobile-nav a {
+  display: flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  padding: 0 var(--space-6);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-light);
+  text-decoration: none;
+}
+.mobile-nav a:hover, .mobile-nav a.active { color: var(--color-primary); background: var(--color-primary-light); }
+
+@media (max-width: 768px) {
+  .burger-btn { display: inline-flex; }
+}
+</style>

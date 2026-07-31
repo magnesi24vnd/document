@@ -1,0 +1,94 @@
+---
+title: VNkr
+classHeader: registered
+---
+extends layouts/layout
+block content
+	.notifications
+		.notifications__center.center
+			.notifications__body
+				.notifications__top
+					h4.notifications__title.h4 Notifications
+					button.button-stroke.button-small.notifications__button Mark all as read
+					button.button-stroke.button-small.notifications__button Clear all
+				.notifications__row
+					button.button-small.notifications__toggle Advanced filter
+					.notifications__filters
+						.notifications__info Filters
+						.notifications__group
+							+checkbox("Security", true)
+							+checkbox("Wallet", false)
+							+checkbox("Trade", false)
+							+checkbox("Deposit", true)
+							+checkbox("Transder", false)
+							+checkbox("Withdrawals", true)
+							+checkbox("News", true)
+						.notifications__control
+							button.button-stroke.button-small.notifications__button Select all
+							button.button-stroke.button-small.notifications__button Unslect all
+					.notifications__wrapper
+						.notifications__list
+							.notifications__item.active
+								.notifications__icon
+									+i('lightning')
+								.notifications__details
+									.notifications__line
+										.notifications__subtitle Login attempted from new IP
+										.notifications__date 2021-03-10 20:19:15
+										.notifications__status
+									.notifications__content Hello, you've reset the Google Authentication on your account successfully. Your old security items have expired and new security items have now been enabled.
+							.notifications__item.active
+								.notifications__icon
+									+i('wallet')
+								.notifications__details
+									.notifications__line
+										.notifications__subtitle Login attempted from new IP
+										.notifications__date 2021-03-10 20:19:15
+										.notifications__status
+									.notifications__content Hello, you've reset the Google Authentication on your account successfully. Your old security items have expired and new security items have now been enabled.
+							.notifications__item.active
+								.notifications__icon
+									+i('coin')
+								.notifications__details
+									.notifications__line
+										.notifications__subtitle Login attempted from new IP
+										.notifications__date 2021-03-10 20:19:15
+										.notifications__status
+									.notifications__content Hello, you've reset the Google Authentication on your account successfully. Your old security items have expired and new security items have now been enabled.
+							.notifications__item
+								.notifications__icon
+									+i('lightning')
+								.notifications__details
+									.notifications__line
+										.notifications__subtitle Login attempted from new IP
+										.notifications__date 2021-03-10 20:19:15
+										.notifications__status
+									.notifications__content Hello, you've reset the Google Authentication on your account successfully. Your old security items have expired and new security items have now been enabled.
+							.notifications__item
+								.notifications__icon
+									+i('wallet')
+								.notifications__details
+									.notifications__line
+										.notifications__subtitle Login attempted from new IP
+										.notifications__date 2021-03-10 20:19:15
+										.notifications__status
+									.notifications__content Hello, you've reset the Google Authentication on your account successfully. Your old security items have expired and new security items have now been enabled.
+							.notifications__item
+								.notifications__icon
+									+i('coin')
+								.notifications__details
+									.notifications__line
+										.notifications__subtitle Login attempted from new IP
+										.notifications__date 2021-03-10 20:19:15
+										.notifications__status
+									.notifications__content Hello, you've reset the Google Authentication on your account successfully. Your old security items have expired and new security items have now been enabled.
+						.notifications__btns
+							button.button-stroke.button-small.notifications__button
+								span Load more
+								+i('calendar')
+			include partials/post
+	+popupTransfer
+
+
+
+

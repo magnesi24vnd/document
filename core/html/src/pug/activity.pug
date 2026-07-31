@@ -1,0 +1,95 @@
+---
+title: VNkr
+classActivity: active
+classHeader: registered
+---
+extends layouts/layout
+block content
+	.activity
+		.activity__center.center
+			.activity__wrapper
+				.activity__top
+					.nav
+						button.nav__link.active All type
+						button.nav__link Withdrawals
+						button.nav__link Deposit
+						button.nav__link Transfer
+						button.nav__link Bank credit
+					select.select
+						option All type
+						option Withdrawals
+						option Deposit
+						option Transfer
+						option Bank credit
+					form.activity__form
+						input.activity__input(type="text" name="search" placeholder="Search" required)
+						button.activity__result
+							+i('search')
+					.activity__item.activity__item_calendar.js-activity-item
+						button.button-stroke.button-small.activity__button.js-activity-button
+							span All time
+							+i('calendar')
+						.activity__body.js-activity-body
+							.activity__datepicker.js-date-range(date-format="MMM DD, YYYY" data-single-month="false" data-container=".js-date-calendar")
+							.activity__datepicker.js-date-calendar
+							.activity__variants
+								button.button-stroke.button-small.activity__button One day 
+								button.button-stroke.button-small.activity__button One week
+								button.button-stroke.button-small.activity__button One month
+								button.button-stroke.button-small.activity__button One year
+								button.button-stroke.button-small.activity__button All time
+				.activity__line
+					h2.activity__title.h4 Activity
+					.activity__item.activity__item_export.js-activity-item
+						button.button-small.activity__button.js-activity-button
+							+i('arrow-bottom')
+							span Export
+						.activity__body.js-activity-body
+							.activity__datepicker.js-date-container
+							input.activity__range.js-date-range(type="text" data-single-month="true" data-container=".js-date-container")
+							button.button.activity__button.js-activity-button.disabled Download .CSV
+				.activity__table
+					.activity__row
+						.activity__col
+							.sorting Type
+						.activity__col
+							.sorting Coin
+						.activity__col
+							.sorting Amount
+						.activity__col
+							.sorting Address
+						.activity__col
+							.sorting Transaction ID
+						.activity__col Date
+					mixin row(classCategory, category)
+						a.activity__row(href="buy-crypto.html")
+							.activity__col
+								div(class=classCategory)=category
+							.activity__col
+								.activity__coin
+									.activity__icon
+										img(src="img/content/currency/bitcoin.svg" alt="Bitcoin")
+									.activity__currency Bitcoin
+							.activity__col
+								.activity__label Amount
+								| 1,641.20 BTC
+							.activity__col
+								.activity__label Address
+								| 3DkQyAdif6kQLPMBu
+							.activity__col
+								.activity__label Transaction ID
+								| 3DkQyAdif6kQLPMBu
+							.activity__col
+								.activity__label Date
+								| 2021-06-05 04:12:30
+					+row("category-blue activity__category", "Withdrew")
+					+row("category-green activity__category", "Deposited")
+					+row("category-blue activity__category", "Withdrew")
+					+row("category-green activity__category", "Deposited")
+					+row("category-green activity__category", "Deposited")
+			include partials/post
+	+popupTransfer
+
+
+
+

@@ -1,0 +1,121 @@
+.releases
+    position: relative
+    &__anchor
+        top: 48px 
+    &__head
+        display: flex
+        margin-bottom: 80px
+        +t
+            display: block
+            margin-bottom: 48px
+    &__stage
+        width: 352px
+        +t
+            width: 100%
+            margin-bottom: 20px
+    &__wrap
+        flex-shrink: 0
+        width: 640px
+        margin-left: auto
+        +d
+            width: 500px
+        +t
+            width: 100%
+    &__title
+        margin-bottom: 20px
+    &__info
+        max-width: 450px
+        margin-bottom: 64px
+        +body-2
+        color: $n3
+        +t
+            margin-bottom: 48px
+        +dark
+            color: $n7
+    .nav
+        +m
+            display: none
+    .nav__link
+        &:not(:last-child)
+            margin-right: 12px
+    .select
+        display: none
+        background: transparent
+        +m
+            display: block
+        +dark
+            background: none 
+    &__item
+        position: relative
+        display: flex
+        flex-direction: row-reverse
+        color: $n2
+        transition: color .2s
+        +t
+            display: block
+        +dark
+            color: $n8
+        &:hover
+            color: $p1
+            .releases__arrow
+                transform: translateX(10px)
+                .icon
+                    fill: $p1
+        &:not(:last-child)
+            margin-bottom: 80px
+    &__preview
+        flex-shrink: 0
+        width: 640px
+        margin-left: auto
+        +d
+            width: 500px
+        +t
+            width: 100%
+            margin-bottom: 32px
+        img
+            width: 100%
+            border-radius: 16px
+            +t
+                min-height: 240px
+                object-fit: cover
+    &__details
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        width: 352px
+        +d
+            width: auto
+            padding-right: 32px
+        +t
+            padding-right: 0
+    &__category
+        margin-bottom: auto
+    &__subtitle
+        margin: 24px 0 8px
+        +t
+            margin-top: 16px 
+    &__currency
+        margin-bottom: 20px
+        +body-2
+        color: $n3
+        +dark
+            color: $n5
+    &__content
+        margin-bottom: auto
+        color: $n4
+    &__arrow
+        position: absolute
+        top: calc(100% + 14px)
+        left: 0
+        width: 24px
+        height: 24px
+        transition: transform .2s
+        +t
+            position: static
+            margin-top: 16px
+        .icon
+            width: 14px
+            height: 14px
+            fill: $n4
+            transition: fill .2s
+        

@@ -1,0 +1,98 @@
+.payment
+    &__options
+        display: flex
+        justify-content: space-between
+        margin-bottom: 48px
+        padding: 24px 36px
+        border-radius: 16px
+        background: $n7
+        +m
+            display: block
+            margin-bottom: 32px
+        +dark
+            background: $n2
+    &__option
+        display: flex
+        &:not(:last-child)
+            +m
+                margin-bottom: 32px
+    &__icon
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-shrink: 0
+        width: 40px
+        height: 40px
+        margin-right: 10px
+        border-radius: 50%
+        .icon
+            width: 20px
+            height: 20px
+            fill: $n8
+    &__category
+        +caption-2
+        color: $n4
+    &__content
+        font-weight: 500
+    &__line
+        display: flex
+        align-items: center
+        margin-bottom: 40px
+    &__subtitle
+        margin-right: auto
+        +body-bold-1
+    &__cards
+        display: flex
+        align-items: center
+    &__fieldset
+        & > .field
+            margin-bottom: 32px
+    &__row
+        display: flex
+        margin: 0 -8px
+        .field
+            flex: 0 0 calc(50% - 16px)
+            width: calc(50% - 16px)
+            margin: 0 8px
+    .checkbox
+        margin-top: 32px
+    &__info
+        margin-bottom: 48px
+        +body-2
+        +m
+            margin-bottom: 32px
+    &__flex
+        display: flex
+        justify-content: space-between
+        &:first-child
+            padding-bottom: 12px
+            border-bottom: 1px solid $n6
+            +body-bold-2
+            +dark
+                border-color: $n3
+        &:not(:first-child)
+            .payment__cell
+                &:first-child
+                    color: $n4
+        &:not(:last-child)
+            margin-bottom: 12px
+
+    &__cell
+        &:nth-child(2)
+            +body-bold-2
+    &__btns
+        margin-top: 48px
+        text-align: right
+        +m
+            margin-top: 32px
+    &__foot
+        display: flex
+        justify-content: space-between
+        margin-top: 48px
+        +m
+            display: block
+            margin-top: 32px
+            .payment__button
+                width: 100%
+                &:not(:last-child)
+                    margin-bottom: 10px

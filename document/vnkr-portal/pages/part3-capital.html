@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Phần 3 — Giải pháp chứng minh vốn điều lệ 10.000 tỷ không dùng tiền mặt: 35% IP công nghệ + 65% định chế tài chính."/>
+  <title>Phần 3 — Chứng minh Vốn điều lệ 10.000 tỷ | VNKR.VN</title>
+  <link rel="stylesheet" href="../css/design-system.css"/>
+  <style>
+    .breadcrumb { font-size:var(--font-size-sm); color:var(--color-text-muted); display:flex; align-items:center; gap:var(--space-2); flex-wrap:wrap; padding:var(--space-4) 0; }
+    .breadcrumb a { color:var(--color-text-muted); }
+    .breadcrumb span[aria-current] { color:var(--color-text-primary); font-weight:var(--font-weight-medium); }
+    .page-hero { background:var(--color-surface); border-bottom:1px solid var(--color-border-light); padding:var(--space-12) 0 var(--space-8); }
+    .article-layout { display:grid; grid-template-columns:1fr 240px; gap:var(--space-10); align-items:start; }
+    @media(max-width:900px){ .article-layout{ grid-template-columns:1fr; } .toc{ display:none; } }
+    .toc { position:sticky; top:calc(var(--header-height) + var(--space-6)); background:var(--color-surface); border:1px solid var(--color-border-light); border-radius:var(--radius-lg); padding:var(--space-4); }
+    .toc h2 { font-size:var(--font-size-sm); font-weight:var(--font-weight-semibold); margin-bottom:var(--space-3); color:var(--color-text-muted); text-transform:uppercase; letter-spacing:.5px; }
+    .toc ol { padding-left:var(--space-4); margin:0; }
+    .toc li { margin-bottom:var(--space-2); }
+    .toc a { font-size:var(--font-size-sm); color:var(--color-text-muted); }
+    .toc a:hover { color:var(--color-primary); }
+    .article-body { max-width:700px; }
+    .article-body h2 { margin-top:var(--space-10); margin-bottom:var(--space-4); padding-top:var(--space-4); border-top:1px solid var(--color-border-light); }
+    .article-body h3 { margin-top:var(--space-6); margin-bottom:var(--space-3); color:var(--color-primary); }
+    .callout { border-left:4px solid var(--color-primary); background:var(--color-primary-light); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:var(--space-4); margin:var(--space-6) 0; }
+
+    /* Capital structure visual */
+    .capital-split {
+      display:grid; grid-template-columns:35fr 65fr;
+      border-radius:var(--radius-lg); overflow:hidden;
+      border:1px solid var(--color-border-light);
+      margin:var(--space-6) 0;
+    }
+    @media(max-width:600px){ .capital-split{ grid-template-columns:1fr; } }
+    .capital-block { padding:var(--space-8) var(--space-6); }
+    .capital-block-left  { background:#e6f0ff; border-right:1px solid var(--color-border-light); }
+    .capital-block-right { background:#f6ffed; }
+    .capital-percent { font-size:var(--font-size-3xl); font-weight:var(--font-weight-bold); line-height:1; }
+    .capital-block-left  .capital-percent { color:var(--color-primary); }
+    .capital-block-right .capital-percent { color:#389e0d; }
+    .capital-block h3 { font-size:var(--font-size-md); margin:var(--space-2) 0; }
+    .capital-block ul  { margin-bottom:0; }
+  </style>
+</head>
+<body class="page-layout">
+
+  <a class="skip-link" href="#main-content">Chuyển đến nội dung chính</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="site-logo" href="../index.html" aria-label="VNKR.VN — Trang chủ">
+        <span class="logo-badge" aria-hidden="true">VNKR</span>
+        <span>vnkr.vn</span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <ul class="site-nav" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li><a href="part1-infrastructure.html">Hạ tầng Node</a></li>
+          <li><a href="part2-security.html">Bảo mật</a></li>
+          <li><a href="part3-capital.html" class="active" aria-current="page">Vốn điều lệ</a></li>
+          <li><a href="part4-revenue.html">Dòng tiền</a></li>
+          <li><a href="roadmap.html">Lộ trình</a></li>
+          <li><a href="subdomain-map.html">Sub-domain</a></li>
+        </ul>
+      </nav>
+      <button id="nav-toggle" class="burger-btn" aria-label="Mở/đóng menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect y="4" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="11" width="24" height="2.5" rx="1.25" fill="currentColor"/><rect y="18" width="24" height="2.5" rx="1.25" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Điều hướng di động">
+    <ul class="mobile-nav" role="list">
+      <li><a href="../index.html">Tổng quan</a></li>
+      <li><a href="part1-infrastructure.html">Phần 1 — Hạ tầng Node</a></li>
+      <li><a href="part2-security.html">Phần 2 — Bảo mật</a></li>
+      <li><a href="part3-capital.html" class="active">Phần 3 — Vốn điều lệ</a></li>
+      <li><a href="part4-revenue.html">Phần 4 — Dòng tiền</a></li>
+      <li><a href="roadmap.html">Lộ trình</a></li>
+      <li><a href="subdomain-map.html">Sub-domain</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <nav aria-label="Vị trí trang">
+        <ol class="breadcrumb" role="list">
+          <li><a href="../index.html">Tổng quan</a></li>
+          <li aria-hidden="true">›</li>
+          <li><span aria-current="page">Phần 3 — Vốn điều lệ</span></li>
+        </ol>
+      </nav>
+      <div class="badge badge-primary">PHẦN 3 / 4</div>
+      <h1>Giải pháp chứng minh Vốn điều lệ 10.000 tỷ</h1>
+      <p class="text-secondary" style="max-width:640px; font-size:var(--font-size-md); margin-top:var(--space-3);">Mô hình cấu trúc vốn pháp định hợp pháp — không cần nhà sáng lập bỏ ra 10.000 tỷ tiền mặt: 35% IP công nghệ + 65% định chế tài chính.</p>
+    </div>
+  </div>
+
+  <main id="main-content" class="page-content" role="main" style="padding-top:0;">
+    <section class="py-12">
+      <div class="container">
+        <div class="article-layout">
+
+          <article class="article-body" aria-labelledby="article-title">
+
+            <h2 id="overview">1. Tổng quan Cấu trúc Vốn</h2>
+            <p>Để thỏa mãn điều kiện pháp lý thành lập tổ chức vận hành thị trường giao dịch tài sản mã hóa, đề án áp dụng mô hình cấu trúc vốn pháp định hợp pháp, chia làm 2 cấu phần chính:</p>
+
+            <figure aria-label="Biểu đồ cấu trúc vốn điều lệ 10.000 tỷ đồng">
+              <div class="capital-split">
+                <div class="capital-block capital-block-left">
+                  <div class="capital-percent">35%</div>
+                  <h3>Vốn Công nghệ &amp; Tài sản Trí tuệ</h3>
+                  <p style="font-size:var(--font-size-sm); color:var(--color-text-muted); margin-bottom:var(--space-3);">Doanh nghiệp chủ trì đóng góp</p>
+                  <ul style="font-size:var(--font-size-sm);">
+                    <li>Mã nguồn App-chain, Node, IP</li>
+                    <li>Giao diện vận hành &amp; thương hiệu VNKR</li>
+                    <li>Thẩm định giá bởi Bộ Tài chính</li>
+                  </ul>
+                </div>
+                <div class="capital-block capital-block-right">
+                  <div class="capital-percent">65%</div>
+                  <h3>Vốn Định chế Tài chính / Đối tác</h3>
+                  <p style="font-size:var(--font-size-sm); color:var(--color-text-muted); margin-bottom:var(--space-3);">Quỹ đầu tư / Tập đoàn lớn</p>
+                  <ul style="font-size:var(--font-size-sm);">
+                    <li>Góp vốn bằng tiền mặt</li>
+                    <li>Hoặc tài sản tài chính tương đương</li>
+                    <li>Ký kết thỏa thuận hợp tác chính thức</li>
+                  </ul>
+                </div>
+              </div>
+              <figcaption style="text-align:center; font-size:var(--font-size-xs); color:var(--color-text-muted); margin-top:var(--space-2);">
+                Cấu trúc vốn điều lệ 10.000 tỷ đồng — Mô hình pháp lý hợp pháp
+              </figcaption>
+            </figure>
+
+            <h2 id="ip-contribution">2. Góp vốn bằng Quyền sở hữu trí tuệ (IP) &amp; Công nghệ</h2>
+            <p>Doanh nghiệp sử dụng hệ thống lõi App-chain, mã nguồn smart contract, giao diện vận hành và thương hiệu VNKR làm tài sản góp vốn, được định giá bởi tổ chức thẩm định độc lập có phép của Bộ Tài chính.</p>
+
+            <h3>Quy trình thẩm định giá IP</h3>
+            <ol>
+              <li><strong>Kiểm kê tài sản IP:</strong> Lập danh mục toàn bộ mã nguồn, bằng sáng chế, thương hiệu đã đăng ký.</li>
+              <li><strong>Thuê tổ chức thẩm định:</strong> Tổ chức được Bộ Tài chính cấp phép hành nghề thẩm định giá (theo Luật Giá 2023).</li>
+              <li><strong>Phương pháp định giá:</strong> Thu nhập tương lai (Income Approach) + Chi phí thay thế (Cost Approach) cho hệ sinh thái công nghệ.</li>
+              <li><strong>Nộp hồ sơ:</strong> Kết quả thẩm định kèm hồ sơ pháp lý đăng ký vốn điều lệ tại Sở KH&amp;ĐT.</li>
+            </ol>
+
+            <h2 id="institutional-capital">3. Liên minh chiến lược với Định chế tài chính (65%)</h2>
+            <p>Ký kết thỏa thuận hợp tác với các quỹ đầu tư hạ tầng, tập đoàn công nghệ lớn hoặc định chế tài chính trong nước để họ tham gia góp phần vốn còn lại dưới dạng <strong>tiền mặt hoặc tài sản tài chính hợp pháp</strong>, hoàn thiện điều kiện pháp lý theo quy định.</p>
+
+            <div class="table-wrap" style="border:1px solid var(--color-border-light); border-radius:var(--radius-lg); overflow:hidden; margin:var(--space-6) 0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Loại đối tác</th>
+                    <th scope="col">Hình thức góp vốn</th>
+                    <th scope="col">Lợi ích cho đối tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Quỹ đầu tư hạ tầng</td><td>Tiền mặt / trái phiếu</td><td>Cổ phần + chia sẻ doanh thu Gas fees</td></tr>
+                  <tr><td>Tập đoàn công nghệ</td><td>Tài sản tài chính</td><td>Quyền tích hợp ưu tiên vào hệ sinh thái</td></tr>
+                  <tr><td>Định chế tài chính trong nước</td><td>Tiền mặt</td><td>Cổ phần + quyền vận hành OTC Gateway</td></tr>
+                  <tr><td>Nhà đầu tư chiến lược nước ngoài</td><td>Ngoại tệ quy đổi</td><td>Cổ phần + quyền mở rộng hệ sinh thái quốc tế</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout" role="note">
+              <strong>Căn cứ pháp lý:</strong> Mô hình này tuân theo quy định tại Luật Doanh nghiệp 2020 (Điều 35 về góp vốn bằng tài sản phi tiền tệ) và Luật Sở hữu trí tuệ 2022 về xác định giá trị tài sản trí tuệ làm vốn góp.
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding-top:var(--space-8); border-top:1px solid var(--color-border-light); flex-wrap:wrap; gap:var(--space-4);">
+              <a href="part2-security.html" class="btn btn-outline">← Phần 2 — Bảo mật</a>
+              <a href="part4-revenue.html" class="btn btn-primary">Phần 4 — Dòng tiền →</a>
+            </div>
+          </article>
+
+          <aside class="toc" aria-label="Mục lục trang">
+            <h2>Mục lục</h2>
+            <ol>
+              <li><a href="#overview">1. Tổng quan Cấu trúc Vốn</a></li>
+              <li><a href="#ip-contribution">2. Góp vốn bằng IP</a></li>
+              <li><a href="#institutional-capital">3. Định chế tài chính 65%</a></li>
+            </ol>
+            <hr style="margin:var(--space-4) 0; border:none; border-top:1px solid var(--color-border-light);">
+            <a href="part4-revenue.html" class="btn btn-primary" style="font-size:var(--font-size-sm); width:100%;">Dòng tiền →</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:var(--space-6); border-top:1px solid #21262d;">
+        <span>© 2025 VNKR.VN — Bảo lưu mọi quyền.</span>
+        <a href="../index.html" style="color:#8b949e;">← Về trang chủ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <style>
+    .skip-link { position:absolute; left:-9999px; top:var(--space-2); background:var(--color-primary); color:#fff; padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); font-weight:var(--font-weight-medium); z-index:9999; }
+    .skip-link:focus { left:var(--space-4); }
+    .burger-btn { display:none; background:none; border:none; cursor:pointer; color:var(--color-text-primary); padding:var(--space-2); border-radius:var(--radius-sm); min-height:var(--touch-target); min-width:var(--touch-target); align-items:center; justify-content:center; }
+    .mobile-menu { position:fixed; top:var(--header-height); left:0; right:0; background:var(--color-bg); border-bottom:1px solid var(--color-border-light); z-index:999; max-height:0; overflow:hidden; transition:max-height .25s ease; }
+    .mobile-menu.is-open { max-height:80vh; overflow-y:auto; }
+    .mobile-nav { list-style:none; padding:var(--space-2) 0; }
+    .mobile-nav a { display:flex; align-items:center; min-height:var(--touch-target); padding:0 var(--space-6); font-size:var(--font-size-base); color:var(--color-text-secondary); border-bottom:1px solid var(--color-border-light); text-decoration:none; }
+    .mobile-nav a:hover, .mobile-nav a.active { color:var(--color-primary); background:var(--color-primary-light); }
+    @media(max-width:768px){ .burger-btn{ display:inline-flex; } }
+    .table-wrap { overflow-x:auto; }
+  </style>
+</body>
+</html>
